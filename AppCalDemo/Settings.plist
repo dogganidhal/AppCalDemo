@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>About</string>
+			<key>Description</key>
+			<string>Blah Blah Blah</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Language</string>
+			<key>selectedValue</key>
+			<real>0</real>
+			<key>allValues</key>
+			<array>
+				<string>EN</string>
+				<string>FR</string>
+				<string>DE</string>
+				<string>AR</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Reset default settings</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Theme</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>dark</string>
+				<string>light</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Style</string>
+			<key>NoIdea</key>
+			<string>Blah Blah Blah</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Text &amp; Font</string>
+			<key>selectedValue</key>
+			<real>0</real>
+			<key>allValues</key>
+			<array>
+				<string>Avenir</string>
+				<string>SFMono</string>
+				<string>Circular</string>
+			</array>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>First day of the week</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>MON</string>
+				<string>TUE</string>
+				<string>WED</string>
+				<string>THU</string>
+				<string>FRI</string>
+				<string>SAT</string>
+				<string>SUN</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Data server</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>CalDav</string>
+				<string>DavCal</string>
+			</array>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Current day selection shape</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>Circle</string>
+				<string>Rounded rectangle</string>
+				<string>Rectangle</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Current day selection color</string>
+			<key>currentValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>Orange</string>
+				<string>Red</string>
+				<string>Orange</string>
+				<string>Green</string>
+				<string>Cyan</string>
+				<string>Yellow</string>
+				<string>Blue</string>
+				<string>Gray</string>
+				<string>Black</string>
+			</array>
+		</dict>
+	</array>
+</array>
+</plist>
