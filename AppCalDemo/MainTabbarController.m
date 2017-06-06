@@ -25,7 +25,7 @@
 
 - (void)setupController {
     // Getting theme property from the NSUserDefaults
-    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"theme"];
+    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
     _appTheme = [theme isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     // Instantiating the children controllers
     TemplateController *foodController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // Getting theme property from the NSUserDefaults
-    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"theme"];
+    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
     _appTheme = [theme isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     
     

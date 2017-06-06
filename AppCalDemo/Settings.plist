@@ -32,7 +32,7 @@
 			<key>Title</key>
 			<string>Theme</string>
 			<key>selectedValue</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>allValues</key>
 			<array>
 				<string>dark</string>

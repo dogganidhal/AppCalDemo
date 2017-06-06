@@ -21,19 +21,22 @@
 
 @implementation DetailSettingController
 
+#pragma mark - view controller's life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _appTheme = [[[NSUserDefaults standardUserDefaults] stringForKey:@"theme"] isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
+    _appTheme = [[[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"] isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     [self.tableView registerClass:DetailSettingCell.class forCellReuseIdentifier:@"detailSettingCell"];
     self.tableView.tableFooterView = [[UIView alloc] init];
     UIEdgeInsets separatorInset = {0};
     separatorInset.left = 8;
     separatorInset.right = 8;
     self.tableView.separatorInset = separatorInset;
+    self.tableView.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.navigationController.delegate = self;
 }
 
-#pragma mark - Designated initializer to get the exact piece of setting to show
+#pragma mark - Convenience initializer with indexPath
 
 - (instancetype)initWithIndexPath:(NSIndexPath *)indexPath {
     self = [super init];
@@ -65,15 +68,41 @@
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
     cell.textLabel.textColor = _appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
     cell.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
-    cell.accessoryType = ((NSNumber *)[_selectedObject objectForKey:@"selectedValue"]).integerValue == indexPath.row ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    [cell setChecked:((NSNumber *)[_selectedObject objectForKey:@"selectedValue"]).integerValue == indexPath.row];
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [_selectedObject objectForKey:@"Title"];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.font = [UIFont fontWithName:@"Avenir-medium" size:16];
+    header.textLabel.textColor = [UIColor orangeColor];
+    [header.textLabel sizeToFit];
+}
+
+#pragma mark - table view delegate methods
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Set the mark sign on the selected row
     [_selectedObject setValue:@(indexPath.row) forKey:@"selectedValue"];
     [_plistContent writeToFile:_plistFilePath atomically:YES];
+    // Reload data after selecting the row
     [tableView reloadData];
+    // Set the new value on the NSUserDefaults
+    [[NSUserDefaults standardUserDefaults] setObject:[[_selectedObject objectForKey:@"allValues"] objectAtIndex:[((NSNumber *)[_selectedObject objectForKey:@"selectedValue"])integerValue] ] forKey:[_selectedObject objectForKey:@"Title"]];
+    // If the theme is the object in question apply it immediately
+    if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+        [self.tabBarController viewDidLoad];
+        NSString * _Nullable theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
+        [UIApplication sharedApplication].statusBarStyle = [theme isEqualToString:@"light"] ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
+     }
 }
+
+#pragma mark - navigation controller delegate methods
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     SettingsController *settingsController = (SettingsController *)viewController;

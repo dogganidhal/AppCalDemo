@@ -100,6 +100,7 @@
 				95D705C41EE6907300B79AA2 /* SettingsCell.m */,
 				95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */,
 				95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */,
+				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -156,7 +157,6 @@
 				F2878FBE1EE58A0B00F4CD9E /* Info.plist */,
 				F2878FB61EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld */,
 				F2878FAB1EE58A0B00F4CD9E /* main.m */,
-				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface SettingsController : UITableViewController<UINavigationControllerDelegate>
+@interface SettingsController : UITableViewController
 
 @property (nonatomic) ApplicationTheme appTheme;
 

@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Getting theme property from the NSUserDefaults
-    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"theme"];
+    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
     _appTheme = [theme isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     // Setup the logo on the navigation bar
     UILabel *titleLabel = [[UILabel alloc] init];
@@ -39,7 +39,6 @@
     self.tableView.separatorInset = separatorInset;
     self.tableView.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] init];
-    self.navigationController.delegate = self;
     // Filling sections array
     _sections = @[@"GENERAL SETTINGS", @"APPEARENCE", @"CALENDAR SETTINGS", @"CUSTOMIZATION"];
     // Registering the custom cell
@@ -71,7 +70,6 @@
     NSNumber *currentValueIndex = [selectedObject objectForKey:@"selectedValue"];
     NSString *currentValue = [(NSArray *)[selectedObject objectForKey:@"allValues"] objectAtIndex:currentValueIndex.integerValue];
     cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";
-    NSLog(@"%@", [[_plistSettings objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);
     return cell;
     
 }
@@ -89,9 +87,13 @@
     [header.textLabel sizeToFit];
 }
 
+#pragma mark - table view delegate methods
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.navigationController pushViewController:[[DetailSettingController alloc] initWithIndexPath:indexPath] animated:YES];
 }
+
+#pragma mark - method asking to reload data
 
 - (void)reload {
     [self.tableView reloadData];

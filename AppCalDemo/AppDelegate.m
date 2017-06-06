@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // Check for themes in the NSUserDefaults
-    NSString * _Nullable theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"theme"];
+    NSString * _Nullable theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
     if (theme == nil) {
         [[NSUserDefaults standardUserDefaults] setObject:@"light" forKey:@"theme"];
         theme = @"light";

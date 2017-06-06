@@ -26,7 +26,7 @@
 
 - (void)setupCell {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    _appTheme = [[[NSUserDefaults standardUserDefaults] stringForKey:@"theme"] isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
+    _appTheme = [[[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"] isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     _currentValueLabel = [[UILabel alloc] init];
     _currentValueLabel.font = [UIFont fontWithName: @"Avenir-Medium" size:16];
     _currentValueLabel.textColor = _appTheme == ApplicationThemeLight ? [UIColor lightGrayColor] : [UIColor lightGrayColor];
