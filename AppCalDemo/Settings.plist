@@ -82,8 +82,10 @@
 			<integer>0</integer>
 			<key>allValues</key>
 			<array>
-				<string>CalDav</string>
-				<string>DavCal</string>
+				<string>CalDav BAIKAL</string>
+				<string>CalDav FRUUX</string>
+				<string>CalDav NEXTCLOUD</string>
+				<string>CalDav OWNCLOUD</string>
 			</array>
 		</dict>
 	</array>

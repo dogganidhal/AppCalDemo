@@ -10,6 +10,14 @@
 		95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95A38EE31EE7D13600EA3C8F /* Fonts.plist */; };
 		95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EE71EE7D55600EA3C8F /* FontBook.m */; };
 		95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EEA1EE7DE8B00EA3C8F /* Settings.m */; };
+		95A38FD31EE7FE7000EA3C8F /* AppCalSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD01EE7FE7000EA3C8F /* AppCalSecurity.framework */; };
+		95A38FD41EE7FE7000EA3C8F /* AppCalSecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD01EE7FE7000EA3C8F /* AppCalSecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95A38FD51EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */; };
+		95A38FD61EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95A38FD71EE7FE7000EA3C8F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; };
+		95A38FD81EE7FE7000EA3C8F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95A38FDF1EE8019100EA3C8F /* MonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FDE1EE8019100EA3C8F /* MonthController.swift */; };
+		95A38FE31EE83BFE00EA3C8F /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FE21EE83BFE00EA3C8F /* CalendarController.m */; };
 		95D705C61EE6907300B79AA2 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705C41EE6907300B79AA2 /* SettingsCell.m */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
@@ -33,6 +41,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				95A38FD61EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Embed Frameworks */,
+				95A38FD81EE7FE7000EA3C8F /* CommonCrypto.framework in Embed Frameworks */,
+				95A38FD41EE7FE7000EA3C8F /* AppCalSecurity.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +56,19 @@
 		95A38EE71EE7D55600EA3C8F /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontBook.m; sourceTree = "<group>"; };
 		95A38EE91EE7DE8B00EA3C8F /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		95A38EEA1EE7DE8B00EA3C8F /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		95A38FCA1EE7FB4B00EA3C8F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		95A38FCB1EE7FB4B00EA3C8F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		95A38FCC1EE7FB5100EA3C8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		95A38FCD1EE7FB5100EA3C8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		95A38FCE1EE7FB5A00EA3C8F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		95A38FCF1EE7FB5A00EA3C8F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		95A38FD01EE7FE7000EA3C8F /* AppCalSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCalSecurity.framework; path = Frameworks/Active/AppCalSecurity.framework; sourceTree = "<group>"; };
+		95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
+		95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
+		95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCalDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		95A38FDE1EE8019100EA3C8F /* MonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthController.swift; sourceTree = "<group>"; };
+		95A38FE11EE83BFE00EA3C8F /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
+		95A38FE21EE83BFE00EA3C8F /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
 		95D705C31EE6907300B79AA2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsCell.h; path = ../SettingsCell.h; sourceTree = "<group>"; };
 		95D705C41EE6907300B79AA2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsCell.m; path = ../SettingsCell.m; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -76,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A38FD51EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Frameworks */,
+				95A38FD71EE7FE7000EA3C8F /* CommonCrypto.framework in Frameworks */,
+				95A38FD31EE7FE7000EA3C8F /* AppCalSecurity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +118,16 @@
 				95A38EEA1EE7DE8B00EA3C8F /* Settings.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		95A38FE01EE81DBB00EA3C8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95A38FD01EE7FE7000EA3C8F /* AppCalSecurity.framework */,
+				95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */,
+				95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		95D705C21EE6903F00B79AA2 /* CustomViews */ = {
@@ -114,6 +151,7 @@
 				95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */,
 				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
 				95A38EE31EE7D13600EA3C8F /* Fonts.plist */,
+				95A38EE51EE7D53100EA3C8F /* Helpers */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -127,6 +165,10 @@
 				F2878FB11EE58A0B00F4CD9E /* TemplateController.m */,
 				F2878FC41EE591B300F4CD9E /* MainTabbarController.h */,
 				F2878FC51EE591B400F4CD9E /* MainTabbarController.m */,
+				95A38FDE1EE8019100EA3C8F /* MonthController.swift */,
+				95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */,
+				95A38FE11EE83BFE00EA3C8F /* CalendarController.h */,
+				95A38FE21EE83BFE00EA3C8F /* CalendarController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -136,6 +178,7 @@
 			children = (
 				F2878FA91EE58A0B00F4CD9E /* AppCalDemo */,
 				F2878FA81EE58A0B00F4CD9E /* Products */,
+				95A38FE01EE81DBB00EA3C8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,7 +197,6 @@
 				F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */,
 				F241C6E21EE6172A00D1D38A /* ViewControllers */,
 				95D705E21EE6C0B100B79AA2 /* Settings */,
-				95A38EE51EE7D53100EA3C8F /* Helpers */,
 				95D705C21EE6903F00B79AA2 /* CustomViews */,
 				F2878FAA1EE58A0B00F4CD9E /* Supporting Files */,
 			);
@@ -181,6 +223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2878FC11EE58A0B00F4CD9E /* Build configuration list for PBXNativeTarget "AppCalDemo" */;
 			buildPhases = (
+				95A38FD91EE7FE8300EA3C8F /* ShellScript */,
 				F2878FA31EE58A0A00F4CD9E /* Sources */,
 				F2878FA41EE58A0A00F4CD9E /* Frameworks */,
 				F2878FA51EE58A0A00F4CD9E /* Resources */,
@@ -245,6 +288,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95A38FD91EE7FE8300EA3C8F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Copying frameworks for architecture: $CURRENT_ARCH\"\nif [\"${CURRENT_ARCH}\" = \"x86_64\"] || [\"${CURRENT_ARCH}\" = \"i386\"]\nthen\ncp -af \"${SRCROOT}/Frameworks/Simulator/.\" \"${SRCROOT}/Frameworks/Active\"\nelse\ncp -af \"${SRCROOT}/Frameworks/Device/.\" \"${SRCROOT}/Frameworks/Active\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2878FA31EE58A0A00F4CD9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -252,6 +311,7 @@
 			files = (
 				F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
+				95A38FE31EE83BFE00EA3C8F /* CalendarController.m in Sources */,
 				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
 				95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */,
@@ -261,6 +321,7 @@
 				F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */,
 				F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */,
 				F2878FC91EE5984300F4CD9E /* BaseController.m in Sources */,
+				95A38FDF1EE8019100EA3C8F /* MonthController.swift in Sources */,
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +333,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2878FB41EE58A0B00F4CD9E /* Base */,
+				95A38FCA1EE7FB4B00EA3C8F /* fr */,
+				95A38FCC1EE7FB5100EA3C8F /* de */,
+				95A38FCE1EE7FB5A00EA3C8F /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -280,6 +344,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2878FBC1EE58A0B00F4CD9E /* Base */,
+				95A38FCB1EE7FB4B00EA3C8F /* fr */,
+				95A38FCD1EE7FB5100EA3C8F /* de */,
+				95A38FCF1EE7FB5A00EA3C8F /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -291,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -340,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -389,16 +458,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/AppCalDemo/Frameworks/Active",
 					"$(PROJECT_DIR)/Frameworks/Active",
-					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Active",
-					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Device",
 				);
 				INFOPLIST_FILE = AppCalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FR.Unistra.AppCalDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AppCalDemo/AppCalDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -414,16 +480,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/AppCalDemo/Frameworks/Active",
 					"$(PROJECT_DIR)/Frameworks/Active",
-					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Active",
-					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Device",
 				);
 				INFOPLIST_FILE = AppCalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FR.Unistra.AppCalDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AppCalDemo/AppCalDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

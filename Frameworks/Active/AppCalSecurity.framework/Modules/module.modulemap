@@ -1,0 +1,10 @@
+framework module AppCalSecurity {
+  umbrella header "AppCalSecurity.h"
+
+  export *
+  module * { export * }
+}
+
+module AppCalSecurity.Swift {
+    header "AppCalSecurity-Swift.h"
+}

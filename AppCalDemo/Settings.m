@@ -22,25 +22,11 @@
     return selectedTheme.integerValue == 0 ? ApplicationThemeDark : ApplicationThemeLight;
 }
 
-+ (void)setAppTheme:(ApplicationTheme)appTheme {
-    if (appTheme == ApplicationThemeLight) {
-        [[[self.plistData objectAtIndex:1] objectAtIndex:0] setValue:@(1) forKey:@"selectedValue"];
-    } else {
-        [[[self.plistData objectAtIndex:1] objectAtIndex:0] setValue:@(0) forKey:@"selectedValue"];
-    }
-}
-
 + (NSString *)firstDayOfTheWeek {
     NSDictionary *dayObject = [[self.plistData objectAtIndex:2] objectAtIndex:0];
     NSNumber *selected = [dayObject objectForKey:@"selectedValue"];
     NSArray<NSString *> *allValues = [dayObject objectForKey:@"allValues"];
     return [allValues objectAtIndex:selected.integerValue];
-}
-
-+ (void)setFirstDayOfTheWeek:(NSString *)firstDayOfTheWeek {
-    NSDictionary *dayObject = [[self.plistData objectAtIndex:2] objectAtIndex:0];
-    NSArray<NSString *> *allValues = [dayObject objectForKey:@"allValues"];
-    [dayObject setValue:@([allValues indexOfObject:firstDayOfTheWeek]) forKey:@"selectedValue"];
 }
 
 + (NSString *)currentDaySelectionShape {
@@ -50,10 +36,12 @@
     return [allValues objectAtIndex:selected.integerValue];
 }
 
-+ (void)setCurrentDaySelectionShape:(NSString *)currentDaySelectionShape {
-    NSDictionary *shapeObject = [[self.plistData objectAtIndex:3] objectAtIndex:0];
-    NSArray<NSString *> *allValues = [shapeObject objectForKey:@"allValues"];
-    [shapeObject setValue:@([allValues indexOfObject:currentDaySelectionShape]) forKey:@"selectedValue"];
++ (UIColor *)currentDaySelectionColor {
+    NSDictionary *colorObject = [[self.plistData objectAtIndex:3] objectAtIndex:1];
+    NSNumber *selected = [colorObject objectForKey:@"selectedValue"];
+    NSArray<NSString *> *allValues = [colorObject objectForKey:@"allValues"];
+    NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [allValues objectAtIndex:selected.integerValue]];
+    return [UIColor performSelector:NSSelectorFromString(colorSelector)];
 }
 
 + (NSArray *)plistData {

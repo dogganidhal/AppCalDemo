@@ -27,6 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Setup the logo on the navigation bar
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.text = @"AppCalDemo";
+    titleLabel.font = [FontBook boldFontOfSize:18];
+    titleLabel.textColor = [UIColor orangeColor];
+    [titleLabel sizeToFit];
+    self.navigationItem.titleView = titleLabel;
+    // Cusomization
     [self.tableView registerClass:DetailSettingCell.class forCellReuseIdentifier:@"detailSettingCell"];
     self.tableView.tableFooterView = [[UIView alloc] init];
     UIEdgeInsets separatorInset = {0};
