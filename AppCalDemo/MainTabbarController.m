@@ -26,6 +26,8 @@
 }
 
 - (void)setupController {
+    // TabbarItem Font setting
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[FontBook lightFontOfSize:12], NSFontAttributeName, nil] forState:UIControlStateNormal];
     // Instantiating the children controllers
     TemplateController *foodController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     TemplateController *sportController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
@@ -42,11 +44,7 @@
     self.viewControllers = @[foodController, sportController, calendarController, notifsController, settingsController];
     self.tabBar.translucent = NO;
     self.tabBar.tintColor = [UIColor orangeColor];
-    [[UITabBarItem appearance] setBadgeTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[FontBook lightFontOfSize:12], NSFontAttributeName, nil] forState:UIControlStateNormal];
-    // Dealing with the appTheme
     self.tabBar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
-    
-    
 }
 
 @end
