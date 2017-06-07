@@ -8,6 +8,10 @@
 
 #import "DetailSettingCell.h"
 
+@interface DetailSettingCell ()
+
+@end
+
 @implementation DetailSettingCell
 
 - (void)setChecked:(BOOL)checked {

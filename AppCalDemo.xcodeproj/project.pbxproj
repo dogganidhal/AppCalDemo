@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95A38EE31EE7D13600EA3C8F /* Fonts.plist */; };
+		95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EE71EE7D55600EA3C8F /* FontBook.m */; };
+		95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EEA1EE7DE8B00EA3C8F /* Settings.m */; };
 		95D705C61EE6907300B79AA2 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705C41EE6907300B79AA2 /* SettingsCell.m */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
@@ -37,6 +40,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		95A38EE31EE7D13600EA3C8F /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
+		95A38EE61EE7D55600EA3C8F /* FontBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontBook.h; sourceTree = "<group>"; };
+		95A38EE71EE7D55600EA3C8F /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontBook.m; sourceTree = "<group>"; };
+		95A38EE91EE7DE8B00EA3C8F /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		95A38EEA1EE7DE8B00EA3C8F /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		95D705C31EE6907300B79AA2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsCell.h; path = ../SettingsCell.h; sourceTree = "<group>"; };
 		95D705C41EE6907300B79AA2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsCell.m; path = ../SettingsCell.m; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -74,19 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95A38EE51EE7D53100EA3C8F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				95A38EE61EE7D55600EA3C8F /* FontBook.h */,
+				95A38EE71EE7D55600EA3C8F /* FontBook.m */,
+				95A38EE91EE7DE8B00EA3C8F /* Settings.h */,
+				95A38EEA1EE7DE8B00EA3C8F /* Settings.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		95D705C21EE6903F00B79AA2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = CustomViews;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		95D705D21EE6AE0100B79AA2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		95D705E21EE6C0B100B79AA2 /* Settings */ = {
@@ -101,19 +113,27 @@
 				95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */,
 				95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */,
 				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
+				95A38EE31EE7D13600EA3C8F /* Fonts.plist */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		95D706031EE6EB6200B79AA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F241C6E21EE6172A00D1D38A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2878FC71EE5984300F4CD9E /* BaseController.h */,
+				F2878FC81EE5984300F4CD9E /* BaseController.m */,
 				F2878FB01EE58A0B00F4CD9E /* TemplateController.h */,
 				F2878FB11EE58A0B00F4CD9E /* TemplateController.m */,
 				F2878FC41EE591B300F4CD9E /* MainTabbarController.h */,
 				F2878FC51EE591B400F4CD9E /* MainTabbarController.m */,
-				F2878FC71EE5984300F4CD9E /* BaseController.h */,
-				F2878FC81EE5984300F4CD9E /* BaseController.m */,
 				95D705E21EE6C0B100B79AA2 /* Settings */,
 			);
 			name = ViewControllers;
@@ -124,7 +144,7 @@
 			children = (
 				F2878FA91EE58A0B00F4CD9E /* AppCalDemo */,
 				F2878FA81EE58A0B00F4CD9E /* Products */,
-				95D705D21EE6AE0100B79AA2 /* Frameworks */,
+				95D706031EE6EB6200B79AA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +162,7 @@
 				F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */,
 				F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */,
 				F241C6E21EE6172A00D1D38A /* ViewControllers */,
+				95A38EE51EE7D53100EA3C8F /* Helpers */,
 				95D705C21EE6903F00B79AA2 /* CustomViews */,
 				F2878FAA1EE58A0B00F4CD9E /* Supporting Files */,
 			);
@@ -168,6 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2878FC11EE58A0B00F4CD9E /* Build configuration list for PBXNativeTarget "AppCalDemo" */;
 			buildPhases = (
+				95D705FC1EE6E9B700B79AA2 /* ShellScript */,
 				F2878FA31EE58A0A00F4CD9E /* Sources */,
 				F2878FA41EE58A0A00F4CD9E /* Frameworks */,
 				F2878FA51EE58A0A00F4CD9E /* Resources */,
@@ -194,6 +216,7 @@
 					F2878FA61EE58A0A00F4CD9E = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 56F9Y33XR3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -222,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2878FBD1EE58A0B00F4CD9E /* LaunchScreen.storyboard in Resources */,
+				95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */,
 				F2878FBA1EE58A0B00F4CD9E /* Assets.xcassets in Resources */,
 				F2878FB51EE58A0B00F4CD9E /* Main.storyboard in Resources */,
 				95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */,
@@ -230,6 +254,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95D705FC1EE6E9B700B79AA2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "Echo \"Copying frameworks for architecture: $CURRENT_ARCH\" if [\"${CURRENT_ARCH}\" = \"x86_64\"] || [\"${CURRENT_ARCH}\" = \"i386\"]; Then cp -af \"${SRCROOT} / Frameworks / Simulator /.\" \"${SRCROOT} / Frameworks / Active\" else cp -af \"${SRCROOT} / Frameworks / Device /.\" \"${SRCROOT} / Frameworks / Active\" fi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2878FA31EE58A0A00F4CD9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -237,7 +277,9 @@
 			files = (
 				F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
+				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
+				95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */,
 				F2878FB81EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld in Sources */,
 				95D705C61EE6907300B79AA2 /* SettingsCell.m in Sources */,
 				F2878FCC1EE59B8900F4CD9E /* SettingsController.m in Sources */,
@@ -365,32 +407,45 @@
 		F2878FC21EE58A0B00F4CD9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 56F9Y33XR3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AppCalDemo/Frameworks/Active",
+					"$(PROJECT_DIR)/Frameworks/Active",
 				);
 				INFOPLIST_FILE = AppCalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FR.Unistra.AppCalDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AppCalDemo/AppCalDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		F2878FC31EE58A0B00F4CD9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 56F9Y33XR3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AppCalDemo/Frameworks/Active",
+					"$(PROJECT_DIR)/Frameworks/Active",
 				);
 				INFOPLIST_FILE = AppCalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FR.Unistra.AppCalDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AppCalDemo/AppCalDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

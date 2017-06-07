@@ -10,6 +10,8 @@
 #import "BaseController.h"
 #import "SettingsCell.h"
 #import "DetailSettingController.h"
+#import "FontBook.h"
+#import "Settings.h"
 
 @interface SettingsController ()
 
@@ -22,13 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Getting theme property from the NSUserDefaults
-    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
-    _appTheme = [theme isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     // Setup the logo on the navigation bar
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
-    titleLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:18];
+    titleLabel.font = [FontBook boldFontOfSize:18];
     titleLabel.textColor = [UIColor orangeColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
@@ -37,7 +36,7 @@
     separatorInset.left = 8;
     separatorInset.right = 8;
     self.tableView.separatorInset = separatorInset;
-    self.tableView.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] init];
     // Filling sections array
     _sections = @[@"GENERAL SETTINGS", @"APPEARENCE", @"CALENDAR SETTINGS", @"CUSTOMIZATION"];
@@ -64,9 +63,9 @@
     // Configure the cell...
     NSDictionary *selectedObject = [[_plistSettings objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = [selectedObject objectForKey:@"Title"];
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
-    cell.textLabel.textColor = _appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
-    cell.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    cell.textLabel.font = [FontBook regularFontOfSize:16];
+    cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
+    cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     NSNumber *currentValueIndex = [selectedObject objectForKey:@"selectedValue"];
     NSString *currentValue = [(NSArray *)[selectedObject objectForKey:@"allValues"] objectAtIndex:currentValueIndex.integerValue];
     cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";
@@ -82,7 +81,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    header.textLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:16];
+    header.textLabel.font = [FontBook boldFontOfSize:16];
     header.textLabel.textColor = [UIColor orangeColor];
     [header.textLabel sizeToFit];
 }

@@ -11,6 +11,6 @@
 
 @interface MainTabbarController : UITabBarController
 
-@property (nonatomic) ApplicationTheme appTheme;
+
 
 @end

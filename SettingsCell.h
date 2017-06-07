@@ -11,7 +11,6 @@
 
 @interface SettingsCell : UITableViewCell
 
-@property (nonatomic) ApplicationTheme appTheme;
 @property (nonatomic, strong) NSString * _Nullable currentValue;
 
 @end

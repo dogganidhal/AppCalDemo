@@ -7,6 +7,8 @@
 //
 
 #import "SettingsCell.h"
+#import "FontBook.h"
+#import "Settings.h"
 
 @interface SettingsCell()
 
@@ -25,11 +27,9 @@
 }
 
 - (void)setupCell {
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    _appTheme = [[[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"] isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     _currentValueLabel = [[UILabel alloc] init];
-    _currentValueLabel.font = [UIFont fontWithName: @"Avenir-Medium" size:16];
-    _currentValueLabel.textColor = _appTheme == ApplicationThemeLight ? [UIColor lightGrayColor] : [UIColor lightGrayColor];
+    _currentValueLabel.font = [FontBook regularFontOfSize:16];
+    _currentValueLabel.textColor = Settings.appTheme == ApplicationThemeLight ? [UIColor lightGrayColor] : [UIColor lightGrayColor];
     [_currentValueLabel sizeToFit];
     [_currentValueLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:_currentValueLabel];

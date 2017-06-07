@@ -7,6 +7,7 @@
 //
 
 #import "BaseController.h"
+#import "FontBook.h"
 
 @interface BaseController ()
 
@@ -20,7 +21,7 @@
     // Setup the logo on the navigation bar
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
-    titleLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:18];
+    titleLabel.font = [FontBook boldFontOfSize:18];
     titleLabel.textColor = [UIColor orangeColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;

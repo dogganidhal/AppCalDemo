@@ -9,6 +9,8 @@
 #import "DetailSettingController.h"
 #import "DetailSettingCell.h"
 #import "SettingsController.h"
+#import "FontBook.h"
+#import "Settings.h"
 
 @interface DetailSettingController ()
 
@@ -25,14 +27,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _appTheme = [[[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"] isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     [self.tableView registerClass:DetailSettingCell.class forCellReuseIdentifier:@"detailSettingCell"];
     self.tableView.tableFooterView = [[UIView alloc] init];
     UIEdgeInsets separatorInset = {0};
     separatorInset.left = 8;
     separatorInset.right = 8;
     self.tableView.separatorInset = separatorInset;
-    self.tableView.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    [self setupView];
+}
+
+- (void)setupView {
+    self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.navigationController.delegate = self;
 }
 
@@ -65,9 +70,10 @@
     DetailSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailSettingCell" forIndexPath:indexPath];
     // Configure the cell...
     cell.textLabel.text = [[_selectedObject objectForKey:@"allValues"] objectAtIndex:indexPath.row];
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
-    cell.textLabel.textColor = _appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
-    cell.backgroundColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    cell.textLabel.font = [FontBook regularFontOfSize:16];
+    cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
+    cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    cell.tintColor = [UIColor orangeColor];
     [cell setChecked:((NSNumber *)[_selectedObject objectForKey:@"selectedValue"]).integerValue == indexPath.row];
     return cell;
 }
@@ -78,7 +84,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    header.textLabel.font = [UIFont fontWithName:@"Avenir-medium" size:16];
+    header.textLabel.font = [FontBook regularFontOfSize:16];
     header.textLabel.textColor = [UIColor orangeColor];
     [header.textLabel sizeToFit];
 }
@@ -91,14 +97,13 @@
     [_plistContent writeToFile:_plistFilePath atomically:YES];
     // Reload data after selecting the row
     [tableView reloadData];
-    // Set the new value on the NSUserDefaults
-    [[NSUserDefaults standardUserDefaults] setObject:[[_selectedObject objectForKey:@"allValues"] objectAtIndex:[((NSNumber *)[_selectedObject objectForKey:@"selectedValue"])integerValue] ] forKey:[_selectedObject objectForKey:@"Title"]];
     // If the theme is the object in question apply it immediately
-    if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
+     if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
         [self.navigationController popViewControllerAnimated:YES];
-        [self.tabBarController viewDidLoad];
-        NSString * _Nullable theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
-        [UIApplication sharedApplication].statusBarStyle = [theme isEqualToString:@"light"] ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
+        [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
+         [self.tabBarController viewDidLoad];
+     } else if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Font"]) {
+         [self.tabBarController viewDidLoad];
      }
 }
 
@@ -108,7 +113,9 @@
     SettingsController *settingsController = (SettingsController *)viewController;
     if (settingsController.class == SettingsController.class) {
         [settingsController reload];
+        
     }
+    
 }
 
 @end

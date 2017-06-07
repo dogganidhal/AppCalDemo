@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Baskerville</key>
+	<dict>
+		<key>Light</key>
+		<string>Baskerville</string>
+		<key>Regular</key>
+		<string>Baskerville-SemiBold</string>
+		<key>Bold</key>
+		<string>Baskerville-Bold</string>
+	</dict>
+	<key>Avenir</key>
+	<dict>
+		<key>Light</key>
+		<string>Avenir-Book</string>
+		<key>Regular</key>
+		<string>Avenir-Medium</string>
+		<key>Bold</key>
+		<string>Avenir-Heavy</string>
+	</dict>
+	<key>Helvetica</key>
+	<dict>
+		<key>Light</key>
+		<string>Helvetica-Light</string>
+		<key>Regular</key>
+		<string>Helvetica</string>
+		<key>Bold</key>
+		<string>Helvetica-Bold</string>
+	</dict>
+</dict>
+</plist>

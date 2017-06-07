@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabbarController.h"
+#import "Settings.h"
 
 @interface AppDelegate ()
 
@@ -18,13 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    // Check for themes in the NSUserDefaults
-    NSString * _Nullable theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
-    if (theme == nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"light" forKey:@"theme"];
-        theme = @"light";
-    }
-    [UIApplication sharedApplication].statusBarStyle = [theme isEqualToString:@"light"] ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
+    [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
     // Setting up the main window
     MainTabbarController *rootViewController = [[MainTabbarController alloc] init];
     _window = [[UIWindow alloc] initWithFrame: UIScreen.mainScreen.bounds];

@@ -11,7 +11,7 @@
 
 @interface TemplateController : UINavigationController<UINavigationControllerDelegate>
 
-@property (nonatomic) ApplicationTheme appTheme;
+
 
 @end
 

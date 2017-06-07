@@ -10,6 +10,8 @@
 #import "TemplateController.h"
 #import "BaseController.h"
 #import "SettingsController.h"
+#import "FontBook.h"
+#import "Settings.h"
 
 @interface MainTabbarController ()
 
@@ -24,9 +26,6 @@
 }
 
 - (void)setupController {
-    // Getting theme property from the NSUserDefaults
-    NSString *theme = [[NSUserDefaults standardUserDefaults] stringForKey:@"Theme"];
-    _appTheme = [theme isEqualToString:@"light"] ? ApplicationThemeLight : ApplicationThemeDark;
     // Instantiating the children controllers
     TemplateController *foodController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     TemplateController *sportController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
@@ -43,12 +42,10 @@
     self.viewControllers = @[foodController, sportController, calendarController, notifsController, settingsController];
     self.tabBar.translucent = NO;
     self.tabBar.tintColor = [UIColor orangeColor];
-    [[UITabBarItem appearance] setBadgeTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir-Book" size:12], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setBadgeTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[FontBook lightFontOfSize:12], NSFontAttributeName, nil] forState:UIControlStateNormal];
     // Dealing with the appTheme
-    self.tabBar.barTintColor = _appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
-    for (TemplateController *vc in self.viewControllers) {
-        vc.appTheme = _appTheme;
-    }
+    self.tabBar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    
     
 }
 

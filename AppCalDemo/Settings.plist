@@ -47,14 +47,14 @@
 		</dict>
 		<dict>
 			<key>Title</key>
-			<string>Text &amp; Font</string>
+			<string>Font</string>
 			<key>selectedValue</key>
-			<real>0</real>
+			<integer>0</integer>
 			<key>allValues</key>
 			<array>
 				<string>Avenir</string>
-				<string>SFMono</string>
-				<string>Circular</string>
+				<string>Helvetica</string>
+				<string>Baskerville</string>
 			</array>
 		</dict>
 	</array>

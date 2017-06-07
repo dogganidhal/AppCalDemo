@@ -11,8 +11,6 @@
 
 @interface SettingsController : UITableViewController
 
-@property (nonatomic) ApplicationTheme appTheme;
-
 - (void)reload;
 
 @end

@@ -11,8 +11,6 @@
 
 @interface DetailSettingController : UITableViewController<UINavigationControllerDelegate>
 
-@property (nonatomic) ApplicationTheme appTheme;
-
 - (instancetype)initWithIndexPath:(NSIndexPath *)indexPath;
 
 @end
