@@ -10,9 +10,6 @@
 		95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95A38EE31EE7D13600EA3C8F /* Fonts.plist */; };
 		95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EE71EE7D55600EA3C8F /* FontBook.m */; };
 		95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EEA1EE7DE8B00EA3C8F /* Settings.m */; };
-		95A38F3D1EE7F4F900EA3C8F /* AppCalSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38F3A1EE7F4F900EA3C8F /* AppCalSecurity.framework */; };
-		95A38F3E1EE7F4F900EA3C8F /* AppsoluteCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38F3B1EE7F4F900EA3C8F /* AppsoluteCalendar.framework */; };
-		95A38F3F1EE7F4F900EA3C8F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38F3C1EE7F4F900EA3C8F /* CommonCrypto.framework */; };
 		95D705C61EE6907300B79AA2 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705C41EE6907300B79AA2 /* SettingsCell.m */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
@@ -48,9 +45,6 @@
 		95A38EE71EE7D55600EA3C8F /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontBook.m; sourceTree = "<group>"; };
 		95A38EE91EE7DE8B00EA3C8F /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		95A38EEA1EE7DE8B00EA3C8F /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		95A38F3A1EE7F4F900EA3C8F /* AppCalSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCalSecurity.framework; path = AppCalDemo/Frameworks/Active/AppCalSecurity.framework; sourceTree = "<group>"; };
-		95A38F3B1EE7F4F900EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = AppCalDemo/Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
-		95A38F3C1EE7F4F900EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = AppCalDemo/Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
 		95D705C31EE6907300B79AA2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsCell.h; path = ../SettingsCell.h; sourceTree = "<group>"; };
 		95D705C41EE6907300B79AA2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsCell.m; path = ../SettingsCell.m; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -82,9 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95A38F3E1EE7F4F900EA3C8F /* AppsoluteCalendar.framework in Frameworks */,
-				95A38F3F1EE7F4F900EA3C8F /* CommonCrypto.framework in Frameworks */,
-				95A38F3D1EE7F4F900EA3C8F /* AppCalSecurity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,16 +118,6 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		95D706031EE6EB6200B79AA2 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				95A38F3A1EE7F4F900EA3C8F /* AppCalSecurity.framework */,
-				95A38F3B1EE7F4F900EA3C8F /* AppsoluteCalendar.framework */,
-				95A38F3C1EE7F4F900EA3C8F /* CommonCrypto.framework */,
-			);
-			name = Framework;
-			sourceTree = "<group>";
-		};
 		F241C6E21EE6172A00D1D38A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +136,6 @@
 			children = (
 				F2878FA91EE58A0B00F4CD9E /* AppCalDemo */,
 				F2878FA81EE58A0B00F4CD9E /* Products */,
-				95D706031EE6EB6200B79AA2 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,7 +181,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2878FC11EE58A0B00F4CD9E /* Build configuration list for PBXNativeTarget "AppCalDemo" */;
 			buildPhases = (
-				95D705FC1EE6E9B700B79AA2 /* ShellScript */,
 				F2878FA31EE58A0A00F4CD9E /* Sources */,
 				F2878FA41EE58A0A00F4CD9E /* Frameworks */,
 				F2878FA51EE58A0A00F4CD9E /* Resources */,
@@ -265,22 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		95D705FC1EE6E9B700B79AA2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "Echo \"Copying frameworks for architecture: $CURRENT_ARCH\" if [\"${CURRENT_ARCH}\" = \"x86_64\"] || [\"${CURRENT_ARCH}\" = \"i386\"]; Then cp -af \"${SRCROOT} / Frameworks / Simulator /.\" \"${SRCROOT} / Frameworks / Active\" else cp -af \"${SRCROOT} / Frameworks / Device /.\" \"${SRCROOT} / Frameworks / Active\" fi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F2878FA31EE58A0A00F4CD9E /* Sources */ = {
