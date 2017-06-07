@@ -10,6 +10,9 @@
 		95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95A38EE31EE7D13600EA3C8F /* Fonts.plist */; };
 		95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EE71EE7D55600EA3C8F /* FontBook.m */; };
 		95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EEA1EE7DE8B00EA3C8F /* Settings.m */; };
+		95A38F3D1EE7F4F900EA3C8F /* AppCalSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38F3A1EE7F4F900EA3C8F /* AppCalSecurity.framework */; };
+		95A38F3E1EE7F4F900EA3C8F /* AppsoluteCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38F3B1EE7F4F900EA3C8F /* AppsoluteCalendar.framework */; };
+		95A38F3F1EE7F4F900EA3C8F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38F3C1EE7F4F900EA3C8F /* CommonCrypto.framework */; };
 		95D705C61EE6907300B79AA2 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705C41EE6907300B79AA2 /* SettingsCell.m */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
@@ -45,6 +48,9 @@
 		95A38EE71EE7D55600EA3C8F /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontBook.m; sourceTree = "<group>"; };
 		95A38EE91EE7DE8B00EA3C8F /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		95A38EEA1EE7DE8B00EA3C8F /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		95A38F3A1EE7F4F900EA3C8F /* AppCalSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCalSecurity.framework; path = AppCalDemo/Frameworks/Active/AppCalSecurity.framework; sourceTree = "<group>"; };
+		95A38F3B1EE7F4F900EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = AppCalDemo/Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
+		95A38F3C1EE7F4F900EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = AppCalDemo/Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
 		95D705C31EE6907300B79AA2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsCell.h; path = ../SettingsCell.h; sourceTree = "<group>"; };
 		95D705C41EE6907300B79AA2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsCell.m; path = ../SettingsCell.m; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -76,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A38F3E1EE7F4F900EA3C8F /* AppsoluteCalendar.framework in Frameworks */,
+				95A38F3F1EE7F4F900EA3C8F /* CommonCrypto.framework in Frameworks */,
+				95A38F3D1EE7F4F900EA3C8F /* AppCalSecurity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,11 +127,14 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		95D706031EE6EB6200B79AA2 /* Frameworks */ = {
+		95D706031EE6EB6200B79AA2 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				95A38F3A1EE7F4F900EA3C8F /* AppCalSecurity.framework */,
+				95A38F3B1EE7F4F900EA3C8F /* AppsoluteCalendar.framework */,
+				95A38F3C1EE7F4F900EA3C8F /* CommonCrypto.framework */,
 			);
-			name = Frameworks;
+			name = Framework;
 			sourceTree = "<group>";
 		};
 		F241C6E21EE6172A00D1D38A /* ViewControllers */ = {
@@ -134,7 +146,6 @@
 				F2878FB11EE58A0B00F4CD9E /* TemplateController.m */,
 				F2878FC41EE591B300F4CD9E /* MainTabbarController.h */,
 				F2878FC51EE591B400F4CD9E /* MainTabbarController.m */,
-				95D705E21EE6C0B100B79AA2 /* Settings */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -144,7 +155,7 @@
 			children = (
 				F2878FA91EE58A0B00F4CD9E /* AppCalDemo */,
 				F2878FA81EE58A0B00F4CD9E /* Products */,
-				95D706031EE6EB6200B79AA2 /* Frameworks */,
+				95D706031EE6EB6200B79AA2 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +173,7 @@
 				F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */,
 				F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */,
 				F241C6E21EE6172A00D1D38A /* ViewControllers */,
+				95D705E21EE6C0B100B79AA2 /* Settings */,
 				95A38EE51EE7D53100EA3C8F /* Helpers */,
 				95D705C21EE6903F00B79AA2 /* CustomViews */,
 				F2878FAA1EE58A0B00F4CD9E /* Supporting Files */,
@@ -416,12 +428,14 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/AppCalDemo/Frameworks/Active",
 					"$(PROJECT_DIR)/Frameworks/Active",
+					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Active",
+					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Device",
 				);
 				INFOPLIST_FILE = AppCalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FR.Unistra.AppCalDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AppCalDemo/AppCalDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -439,12 +453,14 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/AppCalDemo/Frameworks/Active",
 					"$(PROJECT_DIR)/Frameworks/Active",
+					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Active",
+					"$(PROJECT_DIR)/AppCalSwiftDemo/Frameworks/Device",
 				);
 				INFOPLIST_FILE = AppCalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FR.Unistra.AppCalDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AppCalDemo/AppCalDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

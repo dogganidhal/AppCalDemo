@@ -66,6 +66,7 @@
     cell.textLabel.font = [FontBook regularFontOfSize:16];
     cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
     cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     NSNumber *currentValueIndex = [selectedObject objectForKey:@"selectedValue"];
     NSString *currentValue = [(NSArray *)[selectedObject objectForKey:@"allValues"] objectAtIndex:currentValueIndex.integerValue];
     cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";

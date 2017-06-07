@@ -1,0 +1,10 @@
+framework module AppsoluteCalendar {
+  umbrella header "AppsoluteCalendar.h"
+
+  export *
+  module * { export * }
+}
+
+module AppsoluteCalendar.Swift {
+    header "AppsoluteCalendar-Swift.h"
+}
