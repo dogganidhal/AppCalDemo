@@ -590,7 +590,6 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar26AppsoluteCalendarMonthCell")
 
 SWIFT_PROTOCOL("_TtP17AppsoluteCalendar32AppsoluteCalendarMonthDataSource_")
 @protocol AppsoluteCalendarMonthDataSource
-@optional
 /// Tells the calendar to mark a certain date.
 /// \param calendar AppsoluteCalendarMonth: the active calendar
 ///

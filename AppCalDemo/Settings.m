@@ -29,20 +29,66 @@
     return [allValues objectAtIndex:selected.integerValue];
 }
 
-+ (NSString *)currentDaySelectionShape {
-    NSDictionary *shapeObject = [[self.plistData objectAtIndex:3] objectAtIndex:0];
-    NSNumber *selected = [shapeObject objectForKey:@"selectedValue"];
-    NSArray<NSString *> *allValues = [shapeObject objectForKey:@"allValues"];
-    return [allValues objectAtIndex:selected.integerValue];
-}
-
-+ (UIColor *)currentDaySelectionColor {
-    NSDictionary *colorObject = [[self.plistData objectAtIndex:3] objectAtIndex:1];
++ (UIColor *)mainColor {
+    NSDictionary *colorObject = [[self.plistData objectAtIndex:1] objectAtIndex:1];
     NSNumber *selected = [colorObject objectForKey:@"selectedValue"];
     NSArray<NSString *> *allValues = [colorObject objectForKey:@"allValues"];
     NSString *retrievedColor = [allValues objectAtIndex:selected.integerValue];
     NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
     return [UIColor performSelector:NSSelectorFromString(colorSelector)];
+}
+
++ (UIColor *)colorAtIndex:(NSUInteger)index {
+    NSDictionary *colorObject = [[self.plistData objectAtIndex:3] objectAtIndex:index];
+    NSNumber *selected = [colorObject objectForKey:@"selectedValue"];
+    NSArray<NSString *> *allValues = [colorObject objectForKey:@"allValues"];
+    NSString *retrievedColor = [allValues objectAtIndex:selected.integerValue];
+    NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
+    return [UIColor performSelector:NSSelectorFromString(colorSelector)];
+}
+
++ (UIColor *)monthNameColor {
+    return [Settings colorAtIndex:0];
+}
+
++ (UIColor *)monthSeparatorColor {
+    return [Settings colorAtIndex:1];
+}
+
++ (UIColor *)hourTextColor {
+    return [Settings colorAtIndex:2];
+}
+
++ (UIColor *)hourSeparatorColor {
+    return [Settings colorAtIndex:3];
+}
+
++ (UIColor *)calendarEventColor {
+    return [Settings colorAtIndex:6];
+}
+
++ (UIColor *)calendarTintColor {
+    return [Settings colorAtIndex:5];
+}
+
++ (UIColor *)calendarButtonTintColor {
+    return [Settings colorAtIndex:7];
+}
+
++ (UIColor *)calendarFontColor {
+    return [Settings colorAtIndex:4];
+}
+
++ (UIColor *)currentDayCircleColor {
+    return [Settings colorAtIndex:8];
+}
+
++ (UIColor *)currentDayFontColor {
+    return [Settings colorAtIndex:9];
+}
+
++ (UIColor *)overallBackgroundColor {
+    return [Settings colorAtIndex:10];
 }
 
 + (NSArray *)plistData {

@@ -16,12 +16,14 @@
 		95A38FD61EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95A38FD71EE7FE7000EA3C8F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; };
 		95A38FD81EE7FE7000EA3C8F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95A38FDF1EE8019100EA3C8F /* MonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FDE1EE8019100EA3C8F /* MonthController.swift */; };
 		95A38FE31EE83BFE00EA3C8F /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FE21EE83BFE00EA3C8F /* CalendarController.m */; };
 		95B71E6A1EE92196003FA9E2 /* FootballController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E691EE92196003FA9E2 /* FootballController.m */; };
 		95B71E6D1EE921A8003FA9E2 /* FoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E6C1EE921A8003FA9E2 /* FoodController.m */; };
 		95B71E711EE9226D003FA9E2 /* NotifsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E701EE9226D003FA9E2 /* NotifsController.m */; };
 		95B71E871EE93A34003FA9E2 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E861EE93A34003FA9E2 /* SettingsCell.m */; };
+		95B71E8D1EE9585A003FA9E2 /* FootballDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */; };
+		95B71E931EE95D98003FA9E2 /* MonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E921EE95D98003FA9E2 /* MonthController.swift */; };
+		95B71E951EE95EBB003FA9E2 /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E941EE95EBB003FA9E2 /* YearController.swift */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
 		95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */; };
@@ -69,7 +71,6 @@
 		95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
 		95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
 		95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCalDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		95A38FDE1EE8019100EA3C8F /* MonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthController.swift; sourceTree = "<group>"; };
 		95A38FE11EE83BFE00EA3C8F /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
 		95A38FE21EE83BFE00EA3C8F /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
 		95B71E681EE92196003FA9E2 /* FootballController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballController.h; sourceTree = "<group>"; };
@@ -80,6 +81,10 @@
 		95B71E701EE9226D003FA9E2 /* NotifsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifsController.m; sourceTree = "<group>"; };
 		95B71E851EE93A34003FA9E2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
 		95B71E861EE93A34003FA9E2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
+		95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballDataManager.h; sourceTree = "<group>"; };
+		95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootballDataManager.m; sourceTree = "<group>"; };
+		95B71E921EE95D98003FA9E2 /* MonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthController.swift; sourceTree = "<group>"; };
+		95B71E941EE95EBB003FA9E2 /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearController.swift; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		95D705DF1EE6BD6100B79AA2 /* DetailSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSettingController.h; sourceTree = "<group>"; };
 		95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSettingController.m; sourceTree = "<group>"; };
@@ -142,6 +147,8 @@
 		95B71E641EE9213B003FA9E2 /* Football */ = {
 			isa = PBXGroup;
 			children = (
+				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
+				95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */,
 				95B71E681EE92196003FA9E2 /* FootballController.h */,
 				95B71E691EE92196003FA9E2 /* FootballController.m */,
 			);
@@ -189,6 +196,15 @@
 			name = Notifications;
 			sourceTree = "<group>";
 		};
+		95B71E8E1EE95D3D003FA9E2 /* Temporary */ = {
+			isa = PBXGroup;
+			children = (
+				95B71E921EE95D98003FA9E2 /* MonthController.swift */,
+				95B71E941EE95EBB003FA9E2 /* YearController.swift */,
+			);
+			name = Temporary;
+			sourceTree = "<group>";
+		};
 		95D705C21EE6903F00B79AA2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +234,9 @@
 		F241C6E21EE6172A00D1D38A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				95B71E8E1EE95D3D003FA9E2 /* Temporary */,
 				95B71E6E1EE9221C003FA9E2 /* Notifications */,
 				95D705E21EE6C0B100B79AA2 /* Settings */,
-				95A38FDE1EE8019100EA3C8F /* MonthController.swift */,
 				95B71E671EE92159003FA9E2 /* Generics */,
 				95B71E661EE9214F003FA9E2 /* Calendar */,
 				95B71E651EE92147003FA9E2 /* Food */,
@@ -368,17 +384,19 @@
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
 				95A38FE31EE83BFE00EA3C8F /* CalendarController.m in Sources */,
 				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
+				95B71E931EE95D98003FA9E2 /* MonthController.swift in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
 				95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */,
 				F2878FB81EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld in Sources */,
 				95B71E6D1EE921A8003FA9E2 /* FoodController.m in Sources */,
+				95B71E8D1EE9585A003FA9E2 /* FootballDataManager.m in Sources */,
 				F2878FCC1EE59B8900F4CD9E /* SettingsController.m in Sources */,
 				95B71E871EE93A34003FA9E2 /* SettingsCell.m in Sources */,
 				F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */,
 				F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */,
 				F2878FC91EE5984300F4CD9E /* BaseController.m in Sources */,
 				95B71E711EE9226D003FA9E2 /* NotifsController.m in Sources */,
-				95A38FDF1EE8019100EA3C8F /* MonthController.swift in Sources */,
+				95B71E951EE95EBB003FA9E2 /* YearController.swift in Sources */,
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
 				95B71E6A1EE92196003FA9E2 /* FootballController.m in Sources */,
 			);

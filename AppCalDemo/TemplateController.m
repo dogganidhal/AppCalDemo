@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     // Customization
     self.navigationBar.translucent = NO;
-    self.navigationBar.tintColor = [UIColor orangeColor];
+    self.navigationBar.tintColor = [Settings mainColor];
     // Dealing with the appTheme
     self.navigationBar.barTintColor = Settings.appTheme == ApplicationThemeLight ? [UIColor whiteColor] : [UIColor darkGrayColor];
 }

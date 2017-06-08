@@ -9,6 +9,7 @@
 #import "FoodController.h"
 #import <AppsoluteCalendar/AppsoluteCalendar.h>
 #import "AppDelegate.h"
+#import "FootballDataManager.h"
 
 @interface FoodController ()
 
@@ -28,14 +29,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.calendarController.segmentDelegate = self;
-    
+    _calendarController.segmentDelegate = self;
 }
 
 #pragma mark - Calendar controller delegate method
 
 - (void)didChangeSegmentedControlValue:(NSUInteger)newValue {
-    
+    NSLog(@"%ld", (long)newValue);
 }
 
 @end

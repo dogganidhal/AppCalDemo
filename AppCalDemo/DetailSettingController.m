@@ -31,7 +31,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
     titleLabel.font = [FontBook boldFontOfSize:18];
-    titleLabel.textColor = [UIColor orangeColor];
+    titleLabel.textColor = [Settings mainColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
     // Cusomization
@@ -81,7 +81,7 @@
     cell.textLabel.font = [FontBook regularFontOfSize:16];
     cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
     cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
-    cell.tintColor = [UIColor orangeColor];
+    cell.tintColor = [Settings mainColor];
     [cell setChecked:((NSNumber *)[_selectedObject objectForKey:@"selectedValue"]).integerValue == indexPath.row];
     return cell;
 }
@@ -93,7 +93,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.textLabel.font = [FontBook regularFontOfSize:16];
-    header.textLabel.textColor = [UIColor orangeColor];
+    header.textLabel.textColor = [Settings mainColor];
     [header.textLabel sizeToFit];
 }
 
@@ -106,13 +106,14 @@
     // Reload data after selecting the row
     [tableView reloadData];
     // If the theme is the object in question apply it immediately
-     if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
-        [self.navigationController popViewControllerAnimated:YES];
-        [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
-         [self.tabBarController viewDidLoad];
-     } else if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Font"]) {
-         [self.tabBarController viewDidLoad];
-     }
+    if (_senderIndexPath.section == 3 || _senderIndexPath.section == 1) {
+        if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+            [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
+        }
+        [self.tabBarController viewDidLoad];
+    }
+    
 }
 
 #pragma mark - navigation controller delegate methods

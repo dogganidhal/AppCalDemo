@@ -17,7 +17,7 @@
 
 @interface CalendarController : TemplateController
 
-@property (nonatomic, strong) UISegmentedControl *segment;
+@property (nonatomic, strong) UINavigationBar *navbar;
 @property (nonatomic, retain) id <CalendarControllerDelegate> segmentDelegate;
 
 @end

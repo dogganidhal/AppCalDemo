@@ -28,7 +28,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
     titleLabel.font = [FontBook boldFontOfSize:18];
-    titleLabel.textColor = [UIColor orangeColor];
+    titleLabel.textColor = [Settings mainColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
     // Cusomization
@@ -39,10 +39,10 @@
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] init];
     // Filling sections array
-    _sections = @[@"GENERAL SETTINGS", @"APPEARENCE", @"CALENDAR SETTINGS", @"CUSTOMIZATION"];
+    _sections = @[@"GENERAL SETTINGS", @"APP APPEARENCE", @"CALENDAR SETTINGS", @"CALENDAR CUSTOMIZATION"];
     // Registering the custom cell
     [self.tableView registerClass:SettingsCell.class forCellReuseIdentifier:@"settingsCell"];
-    
+    // Initializing the plistSettings array
     NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     _plistSettings = [NSMutableArray arrayWithContentsOfFile:plistFilePath];
 
@@ -83,7 +83,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.textLabel.font = [FontBook boldFontOfSize:16];
-    header.textLabel.textColor = [UIColor orangeColor];
+    header.textLabel.textColor = [Settings mainColor];
     [header.textLabel sizeToFit];
 }
 

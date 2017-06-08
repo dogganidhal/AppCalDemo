@@ -2,31 +2,22 @@
 //  MonthController.swift
 //  AppCalDemo
 //
-//  Created by Nidhal on 07.06.17.
+//  Created by Nidhal on 08.06.17.
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
 import UIKit
 import AppsoluteCalendar
 
-@objc open class MonthController: AppsoluteCalendarMonth {
+class MonthController: BaseController {
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    var delegate: UIApplicationDelegate?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
 
 }
-
-
-
-
-
-
-
-
-
-

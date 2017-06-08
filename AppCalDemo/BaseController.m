@@ -8,6 +8,7 @@
 
 #import "BaseController.h"
 #import "FontBook.h"
+#import "Settings.h"
 
 @interface BaseController ()
 
@@ -22,7 +23,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
     titleLabel.font = [FontBook boldFontOfSize:18];
-    titleLabel.textColor = [UIColor orangeColor];
+    titleLabel.textColor = [Settings mainColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
     // Other setup

@@ -47,7 +47,7 @@
     // Instantiating the children controllers
     foodController = [[CalendarController alloc] initWithRootViewController:[[FoodController alloc] init]];
     footballController = [[CalendarController alloc] initWithRootViewController:[[FootballController alloc] init]];
-    calendarController = [[CalendarController alloc] initWithRootViewController:[[BaseController alloc] init]];
+    calendarController = [[CalendarController alloc] initWithRootViewController:[[YearController alloc] init]];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
     // Setting the tabbarItems for children controllers
@@ -59,7 +59,7 @@
     // Appearence customization
     self.viewControllers = @[foodController, footballController, calendarController, notifsController, settingsController];
     self.tabBar.translucent = NO;
-    self.tabBar.tintColor = [UIColor orangeColor];
+    self.tabBar.tintColor = [Settings mainColor];
     self.tabBar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
 

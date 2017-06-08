@@ -41,9 +41,20 @@
 		</dict>
 		<dict>
 			<key>Title</key>
-			<string>Style</string>
-			<key>NoIdea</key>
-			<string>Blah Blah Blah</string>
+			<string>Colors</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>Orange</string>
+				<string>Blue</string>
+				<string>Green</string>
+				<string>Cyan</string>
+				<string>Yellow</string>
+				<string>Red</string>
+				<string>Black</string>
+				<string>Gray</string>
+			</array>
 		</dict>
 		<dict>
 			<key>Title</key>
@@ -92,26 +103,13 @@
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>Current day selection shape</string>
+			<string>Month name color</string>
 			<key>selectedValue</key>
-			<integer>0</integer>
-			<key>allValues</key>
-			<array>
-				<string>Circle</string>
-				<string>Rounded rect</string>
-				<string>Rectangle</string>
-			</array>
-		</dict>
-		<dict>
-			<key>Title</key>
-			<string>Current day selection color</string>
-			<key>currentValue</key>
 			<integer>0</integer>
 			<key>allValues</key>
 			<array>
 				<string>Orange</string>
 				<string>Red</string>
-				<string>Orange</string>
 				<string>Green</string>
 				<string>Cyan</string>
 				<string>Yellow</string>
@@ -120,6 +118,176 @@
 				<string>Black</string>
 			</array>
 		</dict>
+        <dict>
+            <key>Title</key>
+            <string>Month separator color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Blue</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Red</string>
+                <string>Black</string>
+                <string>Gray</string>
+            </array>
+        </dict>
+		<dict>
+			<key>Title</key>
+			<string>Hour text color</string>
+			<key>currentValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>Orange</string>
+				<string>Red</string>
+				<string>Green</string>
+				<string>Cyan</string>
+				<string>Yellow</string>
+				<string>Blue</string>
+				<string>Gray</string>
+				<string>Black</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Hour separator color</string>
+			<key>currentValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>Orange</string>
+				<string>Red</string>
+				<string>Green</string>
+				<string>Cyan</string>
+				<string>Yellow</string>
+				<string>Blue</string>
+				<string>Gray</string>
+				<string>Black</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Calendar font color</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+                <string>Orange</string>
+                <string>Blue</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Red</string>
+                <string>Black</string>
+                <string>Gray</string>
+			</array>
+		</dict>
+        <dict>
+            <key>Title</key>
+            <string>Calendar tint color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Red</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Blue</string>
+                <string>Gray</string>
+                <string>Black</string>
+            </array>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Calendar event color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Red</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Blue</string>
+                <string>Gray</string>
+                <string>Black</string>
+            </array>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Calendar button tint color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Red</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Blue</string>
+                <string>Gray</string>
+                <string>Black</string>
+            </array>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Current day circle color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Red</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Blue</string>
+                <string>Gray</string>
+                <string>Black</string>
+            </array>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Current day font color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Red</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Blue</string>
+                <string>Gray</string>
+                <string>Black</string>
+            </array>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Overall background color</string>
+            <key>selectedValue</key>
+            <integer>0</integer>
+            <key>allValues</key>
+            <array>
+                <string>Orange</string>
+                <string>Red</string>
+                <string>Green</string>
+                <string>Cyan</string>
+                <string>Yellow</string>
+                <string>Blue</string>
+                <string>Gray</string>
+                <string>Black</string>
+            </array>
+        </dict>
 	</array>
 </array>
 </plist>
