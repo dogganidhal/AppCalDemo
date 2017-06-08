@@ -40,7 +40,8 @@
     NSDictionary *colorObject = [[self.plistData objectAtIndex:3] objectAtIndex:1];
     NSNumber *selected = [colorObject objectForKey:@"selectedValue"];
     NSArray<NSString *> *allValues = [colorObject objectForKey:@"allValues"];
-    NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [allValues objectAtIndex:selected.integerValue]];
+    NSString *retrievedColor = [allValues objectAtIndex:selected.integerValue];
+    NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
     return [UIColor performSelector:NSSelectorFromString(colorSelector)];
 }
 

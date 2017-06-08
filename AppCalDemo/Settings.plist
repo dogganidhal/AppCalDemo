@@ -98,7 +98,7 @@
 			<key>allValues</key>
 			<array>
 				<string>Circle</string>
-				<string>Rounded rectangle</string>
+				<string>Rounded rect</string>
 				<string>Rectangle</string>
 			</array>
 		</dict>
