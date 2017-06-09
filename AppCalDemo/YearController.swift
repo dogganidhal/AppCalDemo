@@ -9,9 +9,10 @@
 import UIKit
 import AppsoluteCalendar
 
-@objc open class YearController: BaseController, AppsoluteCalendarDelegate,CalendarControllerDelegate, AppsoluteCalendarMonthDelegate, AppsoluteCalendarMonthDataSource {
+@objc open class YearController: BaseController, AppsoluteCalendarDelegate ,CalendarControllerDelegate, AppsoluteCalendarMonthDelegate, AppsoluteCalendarMonthDataSource, UINavigationControllerDelegate, AppsoluteCalendarYearViewDelegate {
     
-    open var appCal: AppsoluteCalendar = AppDelegate.appCal
+    open var appCal: AppsoluteCalendar = AppsoluteCalendar(url: "http://test-baikal.calframe.info/cal.php/", calName: "default", userName: "test", password: "niyOhYQ%X7MDbCcSYQbW", barTintColor: Settings.mainColor)
+//    open var appCal: AppsoluteCalendar = AppsoluteCalendar()
     open lazy var monthView: AppsoluteCalendarMonth = AppsoluteCalendarMonth(frame: self.visibleFrame)
     open lazy var yearView: AppsoluteCalendarYear = AppsoluteCalendarYear(frame: self.visibleFrame)
     open lazy var dayView: AppsoluteCalendarDay = AppsoluteCalendarDay(frame: self.dayFrame)
@@ -20,21 +21,24 @@ import AppsoluteCalendar
         return self.navigationController as? CalendarController
     }
     internal var visibleFrame: CGRect {
+        print(CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153))
         return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153)
     }
     internal var dayFrame: CGRect {
-        return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 144)
+        return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153)
     }
     
-    fileprivate var lastSelectedIndex: UInt = 1
+    fileprivate var lastSelectedIndex: Int = 1
+    fileprivate var events: NSMutableArray = []
 
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = Settings.overallBackgroundColor
         // Appsolute calendar setup
         appCal.setCustomizationFromSettings()
         appCal.calDelegate = self
+        appCal.setAddButtonVisibility(true)
         
         // Appsolute views setup
         view.addSubview(monthView)
@@ -43,16 +47,15 @@ import AppsoluteCalendar
         
         monthView.myDelegate = self
         monthView.myDataSource = self
-        
-//        dayView.isHidden = true
-//        yearView.isHidden = true
+        yearView.myDelegate = self
         
         dayView.frame.origin.x += view.frame.width
         yearView.frame.origin.x -= view.frame.width
         
         self.calendarController?.segmentDelegate = self
+        self.navigationController?.delegate = self
         
-
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEvent))
         
         
     }
@@ -64,35 +67,50 @@ import AppsoluteCalendar
         //dayView.reloadData()
     }
     
+    @objc internal func addEvent() {
+        self.navigationController!.pushViewController(NewEventController(), animated: true)
+    }
+    
+//    public func returnNewEvent(_ event: NSMutableDictionary) {
+//        events.add(event)
+//        appCal.reloadEvents(events)
+//        print(events)
+//    }
 
     // MARK:- Appsolute calendar month data source methods
     
     public func calendarShouldMarkDate(_ calendar: AppsoluteCalendarMonth, date: Date) -> Bool {
-        return false
+        let calendar = Calendar(identifier: .gregorian)
+        
+        return calendar.component(.day, from: date) == 9 && calendar.component(.month, from: date) == 6
     }
     
-    // MARK:- Appsolute calendar delegate methods
-    public func didChangeSegmentedControlValue(_ newValue: UInt) {
-        /*
-        switch newValue {
-        case 0:
-            yearView.isHidden = false
-            monthView.isHidden = true
-            dayView.isHidden = true
-        case 1:
-            yearView.isHidden = true
-            monthView.isHidden = false
-            dayView.isHidden = true
-        default:
-            yearView.isHidden = true
-            monthView.isHidden = true
-            dayView.isHidden = false
-        }
-        */
-        UIView.animate(withDuration: 0.5) { 
+    public func calendarDidSelectDate(_ calendar: AppsoluteCalendarMonth, date: Date, eventsForDate: NSMutableArray) {
+        self.calendarController?.setSegmentValue(2)
+    }
+    
+    // MARK:- Appsolute calendar year view delelgate methods
+    
+    public func calendarDidSelectMonth(_ calendar: AppsoluteCalendarYear, month: Int, year: Int) {
+        self.calendarController?.setSegmentValue(1)
+    }
+    
+    // MARK:- Calendar controller delegate methods
+    
+    public func didChangeSegmentedControlValue(_ newValue: Int) {
+        UIView.animate(withDuration: 0.3) {
             self.dayView.frame.origin.x += CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
             self.monthView.frame.origin.x += CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
-            self.yearView.frame.origin.x += CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
+            self.yearView.frame.origin.x +=  CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
+        }
+        lastSelectedIndex = newValue
+    }
+    
+    // MARK:- Navigation controller delegate
+    
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if viewController == self {
+            (self.navigationController as! CalendarController).showsToolbar = true
         }
     }
     
@@ -120,7 +138,7 @@ public extension AppsoluteCalendar {
         self.setCurrentDayFontColor(Settings.currentDayFontColor)
         self.setCurrentDayCircleColor(Settings.currentDayCircleColor)
         
-        self.setOverallBackgroundColor(Settings.overallBackgroundColor)
+//        self.setOverallBackgroundColor(Settings.overallBackgroundColor)
     }
 }
 

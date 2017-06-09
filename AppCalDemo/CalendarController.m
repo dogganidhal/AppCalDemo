@@ -46,7 +46,7 @@
     
 }
 
-- (void)didChangeSegmentedControlValue:(NSUInteger)newValue {
+- (void)didChangeSegmentedControlValue:(NSInteger)newValue {
     if ([self.segmentDelegate respondsToSelector:@selector(didChangeSegmentedControlValue:)]) {
         [self.segmentDelegate didChangeSegmentedControlValue:_segment.selectedSegmentIndex];
     }
@@ -57,6 +57,15 @@
     self.navbar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[FontBook regularFontOfSize:12] forKey:NSFontAttributeName] forState:UIControlStateNormal];
     _segment.tintColor = [Settings mainColor];
+}
+
+- (void)setShowsToolbar:(BOOL)showsToolbar {
+    self.navbar.hidden = !showsToolbar;
+}
+
+- (void)setSegmentValue:(NSInteger)index {
+    self.segment.selectedSegmentIndex = index;
+    [self didChangeSegmentedControlValue:index];
 }
 
 @end

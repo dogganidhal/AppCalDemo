@@ -11,14 +11,18 @@
 @protocol CalendarControllerDelegate <NSObject>
 
 @optional
-- (void)didChangeSegmentedControlValue:(NSUInteger)newValue;
+- (void)didChangeSegmentedControlValue:(NSInteger)newValue;
 
 @end
 
 @interface CalendarController : TemplateController
 
+@property (nonatomic) BOOL showsToolbar;
+
 @property (nonatomic, strong) UINavigationBar *navbar;
 @property (nonatomic, retain) id <CalendarControllerDelegate> segmentDelegate;
+
+- (void)setSegmentValue:(NSInteger)index;
 
 @end
 

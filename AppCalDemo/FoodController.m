@@ -34,7 +34,7 @@
 
 #pragma mark - Calendar controller delegate method
 
-- (void)didChangeSegmentedControlValue:(NSUInteger)newValue {
+- (void)didChangeSegmentedControlValue:(NSInteger)newValue {
     NSLog(@"%ld", (long)newValue);
 }
 

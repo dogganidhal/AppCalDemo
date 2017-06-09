@@ -7,3 +7,4 @@
 #import "BaseController.h"
 #import "TemplateController.h"
 #import "CalendarController.h"
+#import "NewEventController.h"
