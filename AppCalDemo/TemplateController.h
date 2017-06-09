@@ -11,7 +11,7 @@
 
 @interface TemplateController : UINavigationController<UINavigationControllerDelegate>
 
-
+- (void)reloadController;
 
 @end
 

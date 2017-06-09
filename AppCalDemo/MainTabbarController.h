@@ -11,6 +11,6 @@
 
 @interface MainTabbarController : UITabBarController
 
-
+- (void)reloadController;
 
 @end

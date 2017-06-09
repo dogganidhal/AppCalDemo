@@ -84,6 +84,7 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.textLabel.font = [FontBook boldFontOfSize:16];
     header.textLabel.textColor = [Settings mainColor];
+    header.tintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor colorWithWhite:0.5 alpha:1] : nil;
     [header.textLabel sizeToFit];
 }
 
@@ -99,6 +100,7 @@
     [self.tableView reloadData];
     NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     _plistSettings = [NSMutableArray arrayWithContentsOfFile:plistFilePath];
+    self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
 
 @end

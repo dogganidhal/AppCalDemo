@@ -29,7 +29,7 @@
 - (void)setupCell {
     _currentValueLabel = [[UILabel alloc] init];
     _currentValueLabel.font = [FontBook regularFontOfSize:16];
-    _currentValueLabel.textColor = Settings.appTheme == ApplicationThemeLight ? [UIColor lightGrayColor] : [UIColor lightGrayColor];
+    _currentValueLabel.textColor = [UIColor lightGrayColor];
     [_currentValueLabel sizeToFit];
     [_currentValueLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:_currentValueLabel];
@@ -41,6 +41,8 @@
 - (void)setCurrentValue:(NSString *)currentValue {
     _currentValueLabel.text = currentValue;
     _currentValueLabel.hidden = NO;
+    _currentValueLabel.font = [FontBook regularFontOfSize:16];
+    [_currentValueLabel sizeToFit];
 
 }
 

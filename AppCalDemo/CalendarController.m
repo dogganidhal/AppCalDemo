@@ -52,6 +52,12 @@
     }
 }
 
+- (void)reloadController {
+    [super reloadController];
+    self.navbar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[FontBook regularFontOfSize:12] forKey:NSFontAttributeName] forState:UIControlStateNormal];
+    _segment.tintColor = [Settings mainColor];
+}
 
 @end
 

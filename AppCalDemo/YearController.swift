@@ -14,7 +14,7 @@ import AppsoluteCalendar
     open var appCal: AppsoluteCalendar = AppsoluteCalendar()
     open lazy var monthView: AppsoluteCalendarMonth = AppsoluteCalendarMonth(frame: self.visibleFrame)
     open lazy var yearView: AppsoluteCalendarYear = AppsoluteCalendarYear(frame: self.visibleFrame)
-    open lazy var dayView: AppsoluteCalendarDay = AppsoluteCalendarDay(frame: self.visibleFrame)
+    open lazy var dayView: AppsoluteCalendarDay = AppsoluteCalendarDay(frame: self.dayFrame)
     internal var calendarController: CalendarController? {
         return self.navigationController as? CalendarController
     }
@@ -22,10 +22,15 @@ import AppsoluteCalendar
     open var visibleFrame: CGRect {
         return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153)
     }
+    
+    internal var dayFrame: CGRect {
+        return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 144)
+    }
 
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = .cyan
         // Appsolute calendar setup
         appCal.isSubclassed(true)
         appCal.enableCalendarAnimations(true)

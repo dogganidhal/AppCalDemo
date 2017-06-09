@@ -20,9 +20,18 @@
     // Do any additional setup after loading the view, typically from a nib.
     // Customization
     self.navigationBar.translucent = NO;
+    [self reloadController];
+}
+
+- (void)reloadController {
+    self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[FontBook lightFontOfSize:12], NSFontAttributeName, nil];
     self.navigationBar.tintColor = [Settings mainColor];
-    // Dealing with the appTheme
     self.navigationBar.barTintColor = Settings.appTheme == ApplicationThemeLight ? [UIColor whiteColor] : [UIColor darkGrayColor];
+    for (UIViewController * childController in self.viewControllers) {
+        UILabel *titleLabel = (UILabel *)childController.navigationItem.titleView;
+        titleLabel.font = [FontBook boldFontOfSize:18];
+        titleLabel.textColor = [Settings mainColor];
+    }
 }
 
 @end

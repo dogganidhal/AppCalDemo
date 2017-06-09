@@ -9,6 +9,7 @@
 #import "DetailSettingController.h"
 #import "DetailSettingCell.h"
 #import "SettingsController.h"
+#import "MainTabbarController.h"
 #import "FontBook.h"
 #import "Settings.h"
 
@@ -41,12 +42,12 @@
     separatorInset.left = 8;
     separatorInset.right = 8;
     self.tableView.separatorInset = separatorInset;
+    self.navigationController.delegate = self;
     [self setupView];
 }
 
 - (void)setupView {
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
-    self.navigationController.delegate = self;
 }
 
 #pragma mark - Convenience initializer with indexPath
@@ -94,6 +95,7 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.textLabel.font = [FontBook regularFontOfSize:16];
     header.textLabel.textColor = [Settings mainColor];
+    header.tintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor colorWithWhite:0.5 alpha:1] : nil;
     [header.textLabel sizeToFit];
 }
 
@@ -104,14 +106,16 @@
     [_selectedObject setValue:@(indexPath.row) forKey:@"selectedValue"];
     [_plistContent writeToFile:_plistFilePath atomically:YES];
     // Reload data after selecting the row
-    [tableView reloadData];
-    // If the theme is the object in question apply it immediately
+    [self.tableView reloadData];
+    // If the appearence is the object in question apply it immediately
     if (_senderIndexPath.section == 3 || _senderIndexPath.section == 1) {
+        MainTabbarController *tabbarController = (MainTabbarController *)self.tabBarController;
+        [tabbarController reloadController];
+        [tabbarController viewDidLoad];
+        [self setupView];
         if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
-            [self.navigationController popViewControllerAnimated:YES];
             [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
         }
-        [self.tabBarController viewDidLoad];
     }
     
 }
@@ -122,7 +126,6 @@
     SettingsController *settingsController = (SettingsController *)viewController;
     if (settingsController.class == SettingsController.class) {
         [settingsController reload];
-        
     }
     
 }
