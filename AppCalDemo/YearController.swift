@@ -30,7 +30,7 @@ import AppsoluteCalendar
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .cyan
+        self.view.backgroundColor = .white
         // Appsolute calendar setup
         appCal.isSubclassed(true)
         appCal.enableCalendarAnimations(true)
@@ -59,6 +59,10 @@ import AppsoluteCalendar
         monthView.setupTodayButton()
         
         
+    }
+    
+    @objc open func reloadCalendar() {
+        appCal.setCustomizationFromSettings()
     }
     
 

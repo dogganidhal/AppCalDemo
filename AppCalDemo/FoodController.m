@@ -30,8 +30,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _calendarController.segmentDelegate = self;
-    self.view.frame = CGRectMake(0, 0, 256, 256);
-    self.view.backgroundColor = [UIColor cyanColor];
 }
 
 #pragma mark - Calendar controller delegate method

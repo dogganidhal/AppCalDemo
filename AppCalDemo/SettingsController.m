@@ -7,6 +7,7 @@
 //
 
 #import "SettingsController.h"
+#import "MainTabbarController.h"
 #import "BaseController.h"
 #import "SettingsCell.h"
 #import "DetailSettingController.h"
@@ -45,7 +46,7 @@
     // Initializing the plistSettings array
     NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     _plistSettings = [NSMutableArray arrayWithContentsOfFile:plistFilePath];
-
+    [_plistSettings writeToFile:plistFilePath atomically:YES];
 }
 
 #pragma mark - Table view data source
@@ -91,7 +92,31 @@
 #pragma mark - table view delegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        UIAlertController *resetAlertController = [UIAlertController alertControllerWithTitle:@"Reset to the default settings?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [self resetDefaultSettings];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [resetAlertController addAction:confirmAction];
+        [resetAlertController addAction:cancelAction];
+        [self presentViewController:resetAlertController animated:YES completion:nil];
+    }
     [self.navigationController pushViewController:[[DetailSettingController alloc] initWithIndexPath:indexPath] animated:YES];
+}
+
+#pragma mark - method asking to reset to the default settings
+
+- (void)resetDefaultSettings {
+    NSString *defaultSettingsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"];
+    NSMutableArray *defaultSettings = [NSMutableArray arrayWithContentsOfFile:defaultSettingsPath];
+    _plistSettings = defaultSettings;
+    [_plistSettings writeToFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"] atomically:YES];
+    [(MainTabbarController *)self.tabBarController reloadController];
+    [self reload];
 }
 
 #pragma mark - method asking to reload data

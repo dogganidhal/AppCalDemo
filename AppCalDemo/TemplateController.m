@@ -8,6 +8,7 @@
 
 #import "TemplateController.h"
 #import "Settings.h"
+#import "AppCalDemo-Swift.h"
 
 @interface TemplateController ()
 
@@ -31,6 +32,9 @@
         UILabel *titleLabel = (UILabel *)childController.navigationItem.titleView;
         titleLabel.font = [FontBook boldFontOfSize:18];
         titleLabel.textColor = [Settings mainColor];
+        if (childController.class == YearController.class) {
+            [(YearController *)childController reloadCalendar];
+        }
     }
 }
 

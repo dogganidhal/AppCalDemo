@@ -24,6 +24,7 @@
 		95B71E8D1EE9585A003FA9E2 /* FootballDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */; };
 		95B71E931EE95D98003FA9E2 /* MonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E921EE95D98003FA9E2 /* MonthController.swift */; };
 		95B71E951EE95EBB003FA9E2 /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E941EE95EBB003FA9E2 /* YearController.swift */; };
+		95BA7E1F1EEA916B00823E21 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
 		95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */; };
@@ -85,6 +86,7 @@
 		95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootballDataManager.m; sourceTree = "<group>"; };
 		95B71E921EE95D98003FA9E2 /* MonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthController.swift; sourceTree = "<group>"; };
 		95B71E941EE95EBB003FA9E2 /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearController.swift; sourceTree = "<group>"; };
+		95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		95D705DF1EE6BD6100B79AA2 /* DetailSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSettingController.h; sourceTree = "<group>"; };
 		95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSettingController.m; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				95B71E851EE93A34003FA9E2 /* SettingsCell.h */,
 				95B71E861EE93A34003FA9E2 /* SettingsCell.m */,
 				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
+				95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */,
 				95A38EE31EE7D13600EA3C8F /* Fonts.plist */,
 				95A38EE51EE7D53100EA3C8F /* Helpers */,
 			);
@@ -354,6 +357,7 @@
 				F2878FBA1EE58A0B00F4CD9E /* Assets.xcassets in Resources */,
 				F2878FB51EE58A0B00F4CD9E /* Main.storyboard in Resources */,
 				95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */,
+				95BA7E1F1EEA916B00823E21 /* DefaultSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
