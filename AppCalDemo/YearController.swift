@@ -11,40 +11,31 @@ import AppsoluteCalendar
 
 @objc open class YearController: BaseController, AppsoluteCalendarDelegate,CalendarControllerDelegate, AppsoluteCalendarMonthDelegate, AppsoluteCalendarMonthDataSource {
     
-    open var appCal: AppsoluteCalendar = AppsoluteCalendar()
+    open var appCal: AppsoluteCalendar = AppDelegate.appCal
     open lazy var monthView: AppsoluteCalendarMonth = AppsoluteCalendarMonth(frame: self.visibleFrame)
     open lazy var yearView: AppsoluteCalendarYear = AppsoluteCalendarYear(frame: self.visibleFrame)
     open lazy var dayView: AppsoluteCalendarDay = AppsoluteCalendarDay(frame: self.dayFrame)
+    
     internal var calendarController: CalendarController? {
         return self.navigationController as? CalendarController
     }
-    
-    open var visibleFrame: CGRect {
+    internal var visibleFrame: CGRect {
         return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153)
     }
-    
     internal var dayFrame: CGRect {
         return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 144)
     }
+    
+    fileprivate var lastSelectedIndex: UInt = 1
 
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .white
         // Appsolute calendar setup
-        appCal.isSubclassed(true)
-        appCal.enableCalendarAnimations(true)
-        appCal.setAddButtonVisibility(true)
         appCal.setCustomizationFromSettings()
         appCal.calDelegate = self
-        // Navigation's bar title setup
-        let titleLabel: UILabel = UILabel()
-        titleLabel.text = "AppCalDemo"
-        titleLabel.font = FontBook.boldFont(ofSize:18)
-        titleLabel.textColor = Settings.mainColor
-        titleLabel.sizeToFit()
-        self.navigationItem.titleView = titleLabel
-        self.calendarController?.segmentDelegate = self
+        
         // Appsolute views setup
         view.addSubview(monthView)
         view.addSubview(dayView)
@@ -53,16 +44,24 @@ import AppsoluteCalendar
         monthView.myDelegate = self
         monthView.myDataSource = self
         
-        dayView.isHidden = true
-        yearView.isHidden = true
+//        dayView.isHidden = true
+//        yearView.isHidden = true
         
-        monthView.setupTodayButton()
+        dayView.frame.origin.x += view.frame.width
+        yearView.frame.origin.x -= view.frame.width
+        
+        self.calendarController?.segmentDelegate = self
+        
+
         
         
     }
     
     @objc open func reloadCalendar() {
         appCal.setCustomizationFromSettings()
+        yearView.reloadData()
+        monthView.reloadData()
+        //dayView.reloadData()
     }
     
 
@@ -74,6 +73,7 @@ import AppsoluteCalendar
     
     // MARK:- Appsolute calendar delegate methods
     public func didChangeSegmentedControlValue(_ newValue: UInt) {
+        /*
         switch newValue {
         case 0:
             yearView.isHidden = false
@@ -88,6 +88,12 @@ import AppsoluteCalendar
             monthView.isHidden = true
             dayView.isHidden = false
         }
+        */
+        UIView.animate(withDuration: 0.5) { 
+            self.dayView.frame.origin.x += CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
+            self.monthView.frame.origin.x += CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
+            self.yearView.frame.origin.x += CGFloat(self.lastSelectedIndex - newValue) * self.view.frame.width
+        }
     }
     
 }
@@ -95,6 +101,10 @@ import AppsoluteCalendar
 
 public extension AppsoluteCalendar {
     public func setCustomizationFromSettings() {
+        self.setEventTextFont(FontBook.regularFont(ofSize: 16))
+        self.setMonthNameFont(FontBook.regularFont(ofSize: 16))
+        self.setEventHeadlineFont(FontBook.regularFont(ofSize: 16))
+        
         self.setMonthNameColor(Settings.monthNameColor)
         self.setMonthSeparatorTintColor(Settings.monthSeparatorColor)
         

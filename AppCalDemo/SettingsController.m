@@ -115,6 +115,7 @@
     NSMutableArray *defaultSettings = [NSMutableArray arrayWithContentsOfFile:defaultSettingsPath];
     _plistSettings = defaultSettings;
     [_plistSettings writeToFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"] atomically:YES];
+    [(MainTabbarController *)self.tabBarController viewDidLoad];
     [(MainTabbarController *)self.tabBarController reloadController];
     [self reload];
 }
