@@ -32,6 +32,7 @@
 		95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */; };
 		95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */; };
 		95DFE8A91EEEA44E009BBCAF /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A81EEEA44E009BBCAF /* CalendarController.m */; };
+		95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */; };
 		F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAB1EE58A0B00F4CD9E /* main.m */; };
 		F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */; };
 		F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FB11EE58A0B00F4CD9E /* TemplateController.m */; };
@@ -104,6 +105,8 @@
 		95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppsoluteCalendar+FoodCalendar.m"; sourceTree = "<group>"; };
 		95DFE8A71EEEA44E009BBCAF /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
 		95DFE8A81EEEA44E009BBCAF /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
+		95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		F2878FA71EE58A0B00F4CD9E /* AppCalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2878FAB1EE58A0B00F4CD9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */,
 				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */,
 				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */,
+				95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */,
+				95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */,
 			);
 			name = Generics;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				95DFE8A91EEEA44E009BBCAF /* CalendarController.m in Sources */,
 				95B71E951EE95EBB003FA9E2 /* YearController.swift in Sources */,
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
+				95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */,
 				95B71E6A1EE92196003FA9E2 /* FootballController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

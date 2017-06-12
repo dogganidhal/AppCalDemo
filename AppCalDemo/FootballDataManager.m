@@ -21,7 +21,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _apiURL = @"https://api.football-data.org/v1/competitions/430";
+        _apiURL = @"http://api.football-data.org/v1/competitions/430";
         NSError *error;
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:_apiURL]];
         _apiData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -29,19 +29,19 @@
     return self;
 }
 
-- (NSArray *)fixtures {
+- (NSMutableArray *)fixtures {
     NSError *error;
     NSString *fixturesURL = [[[_apiData objectForKey:@"_links"] objectForKey:@"fixtures"] objectForKey:@"href"];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fixturesURL]];
-    NSArray *fixtures = [[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] objectForKey:@"fixtures"];
+    NSMutableArray *fixtures = [[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] objectForKey:@"fixtures"];
     return fixtures;
 }
 
-- (NSArray *)teams {
+- (NSMutableArray *)teams {
     NSError *error;
     NSString *fixturesURL = [NSString stringWithFormat:@"%@/teams", _apiURL];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fixturesURL]];
-    NSArray *teams = [[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] objectForKey:@"teams"];
+    NSMutableArray *teams = [[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] objectForKey:@"teams"];
     return teams;
 }
 

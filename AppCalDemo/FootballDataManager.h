@@ -10,7 +10,7 @@
 
 @interface FootballDataManager : NSObject
 
-- (NSArray *)fixtures;
-- (NSArray *)teams;
+- (NSMutableArray *)fixtures;
+- (NSMutableArray *)teams;
 
 @end
