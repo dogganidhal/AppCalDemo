@@ -2,17 +2,23 @@
 //  CalendarController.h
 //  AppCalDemo
 //
-//  Created by Nidhal on 07.06.17.
+//  Created by Nidhal on 12.06.17.
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
 #import <AppsoluteCalendar/AppsoluteCalendar.h>
-#import "TemplateController.h"
+#import "BaseController.h"
 #import "CalendarNavigationBar.h"
 
-@interface CalendarController : TemplateController
+@interface CalendarController : BaseController<CalendarNavigationBarDelegate,
+                                               AppsoluteCalendarMonthDelegate,
+                                               AppsoluteCalendarMonthDataSource,
+                                               AppsoluteCalendarDayDelegate,
+                                               AppsoluteCalendarYearViewDelegate>
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController navigationBarClass:(Class)navigationbarClass;
+@property (nonatomic, strong) AppsoluteCalendarDay *dayView;
+@property (nonatomic, strong) AppsoluteCalendarMonth *monthView;
+@property (nonatomic, strong) AppsoluteCalendarYear *yearView;
+@property (nonatomic, strong) AppsoluteCalendar *appCal;
 
 @end
-

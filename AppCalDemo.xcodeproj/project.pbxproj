@@ -16,7 +16,7 @@
 		95A38FD61EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95A38FD71EE7FE7000EA3C8F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; };
 		95A38FD81EE7FE7000EA3C8F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95A38FE31EE83BFE00EA3C8F /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FE21EE83BFE00EA3C8F /* CalendarController.m */; };
+		95A38FE31EE83BFE00EA3C8F /* CalendarNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */; };
 		95B71E6A1EE92196003FA9E2 /* FootballController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E691EE92196003FA9E2 /* FootballController.m */; };
 		95B71E6D1EE921A8003FA9E2 /* FoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E6C1EE921A8003FA9E2 /* FoodController.m */; };
 		95B71E711EE9226D003FA9E2 /* NotifsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E701EE9226D003FA9E2 /* NotifsController.m */; };
@@ -31,6 +31,7 @@
 		95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */; };
 		95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */; };
 		95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */; };
+		95DFE8A91EEEA44E009BBCAF /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A81EEEA44E009BBCAF /* CalendarController.m */; };
 		F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAB1EE58A0B00F4CD9E /* main.m */; };
 		F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */; };
 		F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FB11EE58A0B00F4CD9E /* TemplateController.m */; };
@@ -75,8 +76,8 @@
 		95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
 		95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
 		95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCalDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		95A38FE11EE83BFE00EA3C8F /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
-		95A38FE21EE83BFE00EA3C8F /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
+		95A38FE11EE83BFE00EA3C8F /* CalendarNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarNavigationController.h; sourceTree = "<group>"; };
+		95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarNavigationController.m; sourceTree = "<group>"; };
 		95B71E681EE92196003FA9E2 /* FootballController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballController.h; sourceTree = "<group>"; };
 		95B71E691EE92196003FA9E2 /* FootballController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootballController.m; sourceTree = "<group>"; };
 		95B71E6B1EE921A8003FA9E2 /* FoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodController.h; sourceTree = "<group>"; };
@@ -101,6 +102,8 @@
 		95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarNavigationBar.m; sourceTree = "<group>"; };
 		95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsoluteCalendar+FoodCalendar.h"; sourceTree = "<group>"; };
 		95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppsoluteCalendar+FoodCalendar.m"; sourceTree = "<group>"; };
+		95DFE8A71EEEA44E009BBCAF /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
+		95DFE8A81EEEA44E009BBCAF /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
 		F2878FA71EE58A0B00F4CD9E /* AppCalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2878FAB1EE58A0B00F4CD9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,12 +181,14 @@
 		95B71E661EE9214F003FA9E2 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				95A38FE11EE83BFE00EA3C8F /* CalendarController.h */,
-				95A38FE21EE83BFE00EA3C8F /* CalendarController.m */,
+				95A38FE11EE83BFE00EA3C8F /* CalendarNavigationController.h */,
+				95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */,
 				95BA7E221EEAAFB800823E21 /* NewEventController.h */,
 				95BA7E231EEAAFB800823E21 /* NewEventController.m */,
 				95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */,
 				95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */,
+				95DFE8A71EEEA44E009BBCAF /* CalendarController.h */,
+				95DFE8A81EEEA44E009BBCAF /* CalendarController.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -401,7 +406,7 @@
 			files = (
 				F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
-				95A38FE31EE83BFE00EA3C8F /* CalendarController.m in Sources */,
+				95A38FE31EE83BFE00EA3C8F /* CalendarNavigationController.m in Sources */,
 				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
 				95B71E931EE95D98003FA9E2 /* MonthController.swift in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
@@ -418,6 +423,7 @@
 				F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */,
 				F2878FC91EE5984300F4CD9E /* BaseController.m in Sources */,
 				95B71E711EE9226D003FA9E2 /* NotifsController.m in Sources */,
+				95DFE8A91EEEA44E009BBCAF /* CalendarController.m in Sources */,
 				95B71E951EE95EBB003FA9E2 /* YearController.swift in Sources */,
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
 				95B71E6A1EE92196003FA9E2 /* FootballController.m in Sources */,

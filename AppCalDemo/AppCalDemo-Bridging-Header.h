@@ -6,5 +6,5 @@
 #import "Settings.h"
 #import "BaseController.h"
 #import "TemplateController.h"
-#import "CalendarController.h"
+#import "CalendarNavigationController.h"
 #import "NewEventController.h"

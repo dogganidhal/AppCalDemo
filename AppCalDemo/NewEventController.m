@@ -7,7 +7,7 @@
 //
 
 #import "NewEventController.h"
-#import "CalendarController.h"
+#import "CalendarNavigationController.h"
 
 @interface NewEventController ()
 

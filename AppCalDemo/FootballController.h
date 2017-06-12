@@ -6,8 +6,8 @@
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
-#import "BaseController.h"
+#import "CalendarController.h"
 
-@interface FootballController : BaseController
+@interface FootballController : CalendarController
 
 @end
