@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    // Customization
     self.navigationBar.translucent = NO;
     [self reloadController];
 }
@@ -29,11 +28,8 @@
     self.navigationBar.tintColor = [Settings mainColor];
     self.navigationBar.barTintColor = Settings.appTheme == ApplicationThemeLight ? [UIColor whiteColor] : [UIColor darkGrayColor];
     for (UIViewController * childController in self.viewControllers) {
-        UILabel *titleLabel = (UILabel *)childController.navigationItem.titleView;
-        titleLabel.font = [FontBook boldFontOfSize:18];
-        titleLabel.textColor = [Settings mainColor];
-        if (childController.class == YearController.class) {
-            [(YearController *)childController reloadCalendar];
+        if ([childController respondsToSelector:@selector(reloadController)]) {
+            [(id)childController reloadController];
         }
     }
 }

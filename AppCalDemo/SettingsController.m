@@ -129,6 +129,16 @@
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
 
+- (void)reloadController {
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.text = @"AppCalDemo";
+    titleLabel.font = [FontBook boldFontOfSize:18];
+    titleLabel.textColor = [Settings mainColor];
+    NSLog(@"%@, %@", [Settings mainColor], [UIColor cyanColor]);
+    [titleLabel sizeToFit];
+    self.navigationItem.titleView = titleLabel;
+}
+
 @end
 
 

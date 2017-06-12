@@ -9,7 +9,7 @@
 import UIKit
 import AppsoluteCalendar
 
-@objc open class YearController: BaseController, AppsoluteCalendarDelegate ,CalendarControllerDelegate, AppsoluteCalendarMonthDelegate, AppsoluteCalendarMonthDataSource, UINavigationControllerDelegate, AppsoluteCalendarYearViewDelegate {
+@objc open class YearController: BaseController, AppsoluteCalendarDelegate , AppsoluteCalendarMonthDelegate, AppsoluteCalendarMonthDataSource, UINavigationControllerDelegate, AppsoluteCalendarYearViewDelegate {
     
     open var appCal: AppsoluteCalendar = AppsoluteCalendar(url: "http://test-baikal.calframe.info/cal.php/", calName: "default", userName: "test", password: "niyOhYQ%X7MDbCcSYQbW", barTintColor: Settings.mainColor)
 //    open var appCal: AppsoluteCalendar = AppsoluteCalendar()
@@ -17,9 +17,6 @@ import AppsoluteCalendar
     open lazy var yearView: AppsoluteCalendarYear = AppsoluteCalendarYear(frame: self.visibleFrame)
     open lazy var dayView: AppsoluteCalendarDay = AppsoluteCalendarDay(frame: self.dayFrame)
     
-    internal var calendarController: CalendarController? {
-        return self.navigationController as? CalendarController
-    }
     internal var visibleFrame: CGRect {
         print(CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153))
         return CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 153)
@@ -52,7 +49,6 @@ import AppsoluteCalendar
         dayView.frame.origin.x += view.frame.width
         yearView.frame.origin.x -= view.frame.width
         
-        self.calendarController?.segmentDelegate = self
         self.navigationController?.delegate = self
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEvent))
@@ -86,13 +82,11 @@ import AppsoluteCalendar
     }
     
     public func calendarDidSelectDate(_ calendar: AppsoluteCalendarMonth, date: Date, eventsForDate: NSMutableArray) {
-        self.calendarController?.setSegmentValue(2)
     }
     
     // MARK:- Appsolute calendar year view delelgate methods
     
     public func calendarDidSelectMonth(_ calendar: AppsoluteCalendarYear, month: Int, year: Int) {
-        self.calendarController?.setSegmentValue(1)
     }
     
     // MARK:- Calendar controller delegate methods
@@ -110,7 +104,6 @@ import AppsoluteCalendar
     
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if viewController == self {
-            (self.navigationController as! CalendarController).showsToolbar = true
         }
     }
     
@@ -118,6 +111,7 @@ import AppsoluteCalendar
 
 
 public extension AppsoluteCalendar {
+    
     public func setCustomizationFromSettings() {
         self.setEventTextFont(FontBook.regularFont(ofSize: 16))
         self.setMonthNameFont(FontBook.regularFont(ofSize: 16))
@@ -138,8 +132,8 @@ public extension AppsoluteCalendar {
         self.setCurrentDayFontColor(Settings.currentDayFontColor)
         self.setCurrentDayCircleColor(Settings.currentDayCircleColor)
         
-//        self.setOverallBackgroundColor(Settings.overallBackgroundColor)
     }
+    
 }
 
 

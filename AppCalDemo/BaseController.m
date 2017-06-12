@@ -20,14 +20,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Setup the logo on the navigation bar
+    [self reloadController];
+    // Other setup
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)reloadController {
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
     titleLabel.font = [FontBook boldFontOfSize:18];
     titleLabel.textColor = [Settings mainColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
-    // Other setup
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 @end

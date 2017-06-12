@@ -112,6 +112,7 @@
         MainTabbarController *tabbarController = (MainTabbarController *)self.tabBarController;
         [tabbarController reloadController];
         [tabbarController viewDidLoad];
+        [self reloadController];
         [self setupView];
         if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
             [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
@@ -128,6 +129,15 @@
         [settingsController reload];
     }
     
+}
+
+- (void)reloadController {
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.text = @"AppCalDemo";
+    titleLabel.font = [FontBook boldFontOfSize:18];
+    titleLabel.textColor = [Settings mainColor];
+    [titleLabel sizeToFit];
+    self.navigationItem.titleView = titleLabel;
 }
 
 @end

@@ -6,23 +6,13 @@
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
+#import <AppsoluteCalendar/AppsoluteCalendar.h>
 #import "TemplateController.h"
-
-@protocol CalendarControllerDelegate <NSObject>
-
-@optional
-- (void)didChangeSegmentedControlValue:(NSInteger)newValue;
-
-@end
+#import "CalendarNavigationBar.h"
 
 @interface CalendarController : TemplateController
 
-@property (nonatomic) BOOL showsToolbar;
-
-@property (nonatomic, strong) UINavigationBar *navbar;
-@property (nonatomic, retain) id <CalendarControllerDelegate> segmentDelegate;
-
-- (void)setSegmentValue:(NSInteger)index;
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController navigationBarClass:(Class)navigationbarClass;
 
 @end
 

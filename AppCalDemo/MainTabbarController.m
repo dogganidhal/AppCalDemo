@@ -18,6 +18,7 @@
 #import "FoodController.h"
 #import "FootballController.h"
 #import "NotifsController.h"
+#import "CalendarNavigationBar.h"
 
 @interface MainTabbarController ()
 
@@ -36,12 +37,11 @@
 - (void)loadView {
     [super loadView];
     // Instantiating the children controllers
-    foodController = [[CalendarController alloc] initWithRootViewController:[[FoodController alloc] init]];
-    footballController = [[CalendarController alloc] initWithRootViewController:[[FootballController alloc] init]];
-    calendarController = [[CalendarController alloc] initWithRootViewController:[[YearController alloc] init]];
+    foodController = [[CalendarController alloc] initWithRootViewController:[[FoodController alloc] init] navigationBarClass:CalendarNavigationBar.class];
+    footballController = [[CalendarController alloc] initWithRootViewController:[[FootballController alloc] init] navigationBarClass:CalendarNavigationBar.class];
+    calendarController = [[CalendarController alloc] initWithRootViewController:[[BaseController alloc] init] navigationBarClass:CalendarNavigationBar.class];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
-    
 }
 
 - (void)viewDidLoad {
@@ -68,7 +68,6 @@
 
 - (void)reloadController {
     [self setupController];
-    [self reloadInputViews];
     for (TemplateController *childController in self.viewControllers) {
         [childController reloadController];
     }

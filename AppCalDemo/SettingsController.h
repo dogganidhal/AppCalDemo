@@ -12,5 +12,6 @@
 @interface SettingsController : UITableViewController
 
 - (void)reload;
+- (void)reloadController;
 
 @end

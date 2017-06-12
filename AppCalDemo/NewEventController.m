@@ -26,7 +26,6 @@
     [_appCal setCalVisible];
     _detailView.myDelegate = self;
     [self.view addSubview:_detailView];
-    ((CalendarController *)self.navigationController).showsToolbar = NO;
 }
 
 - (void)detailViewWillEditEvent:(AppsoluteCalendarDetail *)detailView eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
