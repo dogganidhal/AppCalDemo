@@ -33,6 +33,7 @@
 		95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */; };
 		95DFE8A91EEEA44E009BBCAF /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A81EEEA44E009BBCAF /* CalendarController.m */; };
 		95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */; };
+		95DFE8AE1EEED118009BBCAF /* Fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = 95DFE8AD1EEED118009BBCAF /* Fixtures.json */; };
 		F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAB1EE58A0B00F4CD9E /* main.m */; };
 		F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */; };
 		F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FB11EE58A0B00F4CD9E /* TemplateController.m */; };
@@ -107,6 +108,7 @@
 		95DFE8A81EEEA44E009BBCAF /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
 		95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
+		95DFE8AD1EEED118009BBCAF /* Fixtures.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fixtures.json; sourceTree = "<group>"; };
 		F2878FA71EE58A0B00F4CD9E /* AppCalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2878FAB1EE58A0B00F4CD9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				F2878FBE1EE58A0B00F4CD9E /* Info.plist */,
 				F2878FB61EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld */,
 				F2878FAB1EE58A0B00F4CD9E /* main.m */,
+				95DFE8AD1EEED118009BBCAF /* Fixtures.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */,
 				F2878FBA1EE58A0B00F4CD9E /* Assets.xcassets in Resources */,
 				F2878FB51EE58A0B00F4CD9E /* Main.storyboard in Resources */,
+				95DFE8AE1EEED118009BBCAF /* Fixtures.json in Resources */,
 				95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */,
 				95BA7E1F1EEA916B00823E21 /* DefaultSettings.plist in Resources */,
 			);

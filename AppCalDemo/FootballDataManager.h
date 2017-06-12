@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CalendarEvent.h"
 
 @interface FootballDataManager : NSObject
 
 - (NSMutableArray *)fixtures;
-- (NSMutableArray *)teams;
+- (NSArray<CalendarEvent *> *)calendarEvents;
 
 @end

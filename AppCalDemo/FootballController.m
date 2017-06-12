@@ -21,12 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.manager = [[FootballDataManager alloc] init];
+    _manager = [[FootballDataManager alloc] init];
+    [self.appCal reloadEvents:[_manager calendarEvents]];
 }
 
 
 - (BOOL)calendarShouldMarkDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date {
+    NSCalendar *nsCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSInteger dateDay = [nsCalendar component:NSCalendarUnitDay fromDate:date];
+    for (NSMutableDictionary *event in [_manager calendarEvents]) {
+        if ([nsCalendar component:NSCalendarUnitDay fromDate:[event objectForKey:@"STARTDATE"]] == dateDay) {
+            NSLog(@"%ld", (long)dateDay);
+            return YES;
+        }
+    }
     return NO;
+}
+
+- (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
+    
 }
 
 @end
