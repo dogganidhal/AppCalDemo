@@ -12,6 +12,7 @@
 
 @optional
 - (void)segmentControlDidChangeValue:(NSInteger)newValue;
+- (void)setSegmentControlValue:(NSInteger)newValue;
 
 @end
 

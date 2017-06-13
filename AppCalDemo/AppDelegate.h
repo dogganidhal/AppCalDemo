@@ -13,7 +13,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong, class, readonly) AppsoluteCalendar *appCal;
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 

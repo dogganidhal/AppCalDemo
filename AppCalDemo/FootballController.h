@@ -8,6 +8,6 @@
 
 #import "CalendarController.h"
 
-@interface FootballController : CalendarController
+@interface FootballController : CalendarController<UINavigationControllerDelegate>
 
 @end

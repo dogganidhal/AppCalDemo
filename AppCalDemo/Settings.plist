@@ -77,13 +77,13 @@
 			<integer>0</integer>
 			<key>allValues</key>
 			<array>
+				<string>SUN</string>
 				<string>MON</string>
 				<string>TUE</string>
 				<string>WED</string>
 				<string>THU</string>
 				<string>FRI</string>
 				<string>SAT</string>
-				<string>SUN</string>
 			</array>
 		</dict>
 		<dict>
@@ -296,6 +296,24 @@
 				<string>Gray</string>
 				<string>Black</string>
 				<string>White</string>
+			</array>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Select displayed league schedule</string>
+			<key>selectedValue</key>
+			<integer>0</integer>
+			<key>allValues</key>
+			<array>
+				<string>Bundes Liga</string>
+				<string>Champions League</string>
+				<string>Serie A</string>
+				<string>Ligue 1</string>
+				<string>Premier League</string>
+				<string>Primera División</string>
+				<string>Eredivisie</string>
 			</array>
 		</dict>
 	</array>

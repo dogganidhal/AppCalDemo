@@ -108,7 +108,7 @@
     // Reload data after selecting the row
     [self.tableView reloadData];
     // If the appearence is the object in question apply it immediately
-    if (_senderIndexPath.section == 3 || _senderIndexPath.section == 1) {
+    if (_senderIndexPath.section == 3 || _senderIndexPath.section == 1 || _senderIndexPath.section == 4) {
         MainTabbarController *tabbarController = (MainTabbarController *)self.tabBarController;
         [tabbarController reloadController];
         [tabbarController viewDidLoad];

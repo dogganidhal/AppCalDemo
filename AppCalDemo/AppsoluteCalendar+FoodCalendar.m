@@ -18,20 +18,21 @@
     [self setMonthNameFont:[FontBook regularFontOfSize:16]];
     [self setEventHeadlineFont:[FontBook regularFontOfSize:16]];
     
-    [self setMonthNameColor:[Settings monthNameColor]];
-    [self setMonthSeparatorTintColor:[Settings monthSeparatorColor]];
+    [self setMonthNameColor:Settings.monthNameColor];
+    [self setMonthSeparatorTintColor:Settings.monthSeparatorColor];
     
-    [self setHourTextColor:[Settings hourTextColor]];
-    [self setHourSeparatorColor:[Settings hourSeparatorColor]];
+    [self setHourTextColor:Settings.hourTextColor];
+    [self setHourSeparatorColor:Settings.hourSeparatorColor];
     
-    [self setCalendarFontColor:[Settings calendarFontColor]];
-    [self setCalendarTintColor:[Settings calendarTintColor]];
-    [self setCalendarEventColor:[Settings calendarEventColor]];
-    [self setCalendarButtonTintColor:[Settings calendarButtonTintColor]];
+    [self setCalendarFontColor:Settings.calendarFontColor];
+    [self setCalendarTintColor:Settings.calendarTintColor];
+    [self setCalendarEventColor:Settings.calendarEventColor];
+    [self setCalendarButtonTintColor:Settings.calendarButtonTintColor];
     
-    [self setCurrentDayFontColor:[Settings currentDayFontColor]];
-    [self setCurrentDayCircleColor:[Settings currentDayCircleColor]];
+    [self setCurrentDayFontColor:Settings.currentDayFontColor];
+    [self setCurrentDayCircleColor:Settings.currentDayCircleColor];
     
+    [self setFirstDayInWeek:Settings.firstDayOfTheWeek];
 }
 
 @end

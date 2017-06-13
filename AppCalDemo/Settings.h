@@ -15,8 +15,9 @@
 @property (nonatomic, class, readonly) ApplicationTheme appTheme;
 
 //@property (nonatomic, strong, class) NSString *language;
-@property (nonatomic, class, readonly) NSString *firstDayOfTheWeek;
+@property (nonatomic, class, readonly) NSInteger firstDayOfTheWeek;
 //@property (nonatomic, strong, class) NSString *dataServer;
+@property (nonatomic, strong, class, readonly) NSString *league;
 
 @property (nonatomic, strong, class, readonly) UIColor *mainColor;
 

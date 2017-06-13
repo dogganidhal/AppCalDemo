@@ -40,7 +40,7 @@
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] init];
     // Filling sections array
-    _sections = @[@"GENERAL SETTINGS", @"APP APPEARENCE", @"CALENDAR SETTINGS", @"CALENDAR CUSTOMIZATION"];
+    _sections = @[@"GENERAL SETTINGS", @"APP APPEARENCE", @"CALENDAR SETTINGS", @"CALENDAR CUSTOMIZATION", @"FOOTBALL SETTINGS"];
     // Registering the custom cell
     [self.tableView registerClass:SettingsCell.class forCellReuseIdentifier:@"settingsCell"];
     // Initializing the plistSettings array

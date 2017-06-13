@@ -8,6 +8,7 @@
 
 #import "CalendarController.h"
 #import "AppsoluteCalendar+FoodCalendar.h"
+#import "Settings.h"
 
 @interface CalendarController ()
 
@@ -40,6 +41,14 @@
     self.monthView.myDataSource = self;
     self.yearView.myDelegate = self;
     _lastTrackedIndex = 1;
+    [self reloadView];
+}
+
+- (void)reloadView {
+#warning Delete this setting once the overallBackgroundColor applies on the views automatically
+    self.dayView.backgroundColor = Settings.overallBackgroundColor;
+    self.monthView.backgroundColor = Settings.overallBackgroundColor;
+    self.yearView.backgroundColor = Settings.overallBackgroundColor;
 }
 
 #pragma mark - Appsolute calendar protocols
@@ -68,11 +77,18 @@
     _lastTrackedIndex = newValue;
 }
 
+- (void)setSegmentControlValue:(NSInteger)newValue {
+    ((CalendarNavigationBar *)self.navigationController.navigationBar).segment.selectedSegmentIndex = newValue;
+    [self segmentControlDidChangeValue:newValue];
+}
+
 - (void)reloadController {
     [super reloadController];
     [self.appCal setCustomizationOnCalendar];
+    [self reloadView];
     [self.monthView reloadData];
     [self.yearView reloadData];
+#warning Wait for the method to reload the dayView's data
 }
 
 @end

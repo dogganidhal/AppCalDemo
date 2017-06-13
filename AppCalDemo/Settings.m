@@ -22,11 +22,17 @@
     return selectedTheme.integerValue == 0 ? ApplicationThemeDark : ApplicationThemeLight;
 }
 
-+ (NSString *)firstDayOfTheWeek {
++ (NSInteger)firstDayOfTheWeek {
     NSDictionary *dayObject = [[self.plistData objectAtIndex:2] objectAtIndex:0];
     NSNumber *selected = [dayObject objectForKey:@"selectedValue"];
-    NSArray<NSString *> *allValues = [dayObject objectForKey:@"allValues"];
-    return [allValues objectAtIndex:selected.integerValue];
+    return selected.integerValue + 1;
+}
+
++ (NSString *)league {
+    NSDictionary *leagueObject = [[self.plistData objectAtIndex:4] objectAtIndex:0];
+    NSNumber *selectedLeague = [leagueObject objectForKey:@"selectedValue"];
+    NSArray<NSString *> *allValues = [leagueObject objectForKey:@"allValues"];
+    return [allValues objectAtIndex:selectedLeague.integerValue];
 }
 
 + (UIColor *)mainColor {

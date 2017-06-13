@@ -9,31 +9,12 @@
 import UIKit
 import AppsoluteCalendar
 
-class MonthController: CalendarController {
-    
-    var manager = FootballDataManager()
+class MonthController: AppsoluteCalendarDetailVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
     }
-    /*
-     NSCalendar *nsCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-     NSInteger dateDay = [nsCalendar component:NSCalendarUnitDay fromDate:date];
-     BOOL found = NO;
-     for (NSMutableDictionary *event in [self.manager calendarEvents]) {
-     NSInteger eventDay = [nsCalendar component:NSCalendarUnitDay fromDate:[event objectForKey:@"STARTDATE"]];
-     if (eventDay == dateDay) {
-     found = YES;
-     break;
-     }
-     }
-     return found;
-     */
-    
-    
-    
     
 }

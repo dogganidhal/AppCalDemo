@@ -8,6 +8,8 @@
 
 #import "FoodController.h"
 #import <AppsoluteCalendar/AppsoluteCalendar.h>
+#import <CoreData/CoreData.h>
+#import "CalendarNavigationController.h"
 
 @interface FoodController ()
 
@@ -76,11 +78,15 @@
 }
 
 - (void)calendarDidSelectMonth:(AppsoluteCalendarYear *)calendar month:(NSInteger)month year:(NSInteger)year {
-    NSLog(@"Month selected");
+#warning Wait for the methods to jump to the right dates
+    [self setSegmentControlValue:1];
+    NSLog(@"Should go to the date: %ld-%ld", year, month);
 }
 
 - (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
-    [self.navigationController pushViewController:[[AppsoluteCalendarDetailVC alloc] init] animated:YES];
+#warning Wait for the methods to jump to the right dates
+    [self setSegmentControlValue:2];
+    NSLog(@"Should go to the date: %@", date);
 }
 
 @end

@@ -104,17 +104,4 @@
     }
 }
 
-#pragma mark - Static property of a calendar
-
-static AppsoluteCalendar *_appCal;
-
-+ (AppsoluteCalendar *)appCal {
-    return _appCal;
-}
-
-+ (void)initialize {
-    [super initialize];
-    _appCal = [[AppsoluteCalendar alloc] init];
-}
-
 @end
