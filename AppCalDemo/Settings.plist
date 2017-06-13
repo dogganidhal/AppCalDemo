@@ -212,7 +212,7 @@
 			<key>Title</key>
 			<string>Calendar event color</string>
 			<key>selectedValue</key>
-			<integer>0</integer>
+			<integer>6</integer>
 			<key>allValues</key>
 			<array>
 				<string>Orange</string>

@@ -9,36 +9,31 @@
 import UIKit
 import AppsoluteCalendar
 
-class MonthController: BaseController, AppsoluteCalendarMonthDelegate, AppsoluteCalendarMonthDataSource {
+class MonthController: CalendarController {
     
-    internal var appCal: AppsoluteCalendar?
-    let monthView = AppsoluteCalendarMonth()
+    var manager = FootballDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.        
-        appCal = AppsoluteCalendar()
-        appCal?.isSubclassed(true)
-        
-        view.backgroundColor = .white
-        view.addSubview(monthView)
-        
-        monthView.myDelegate = self
-        monthView.myDataSource = self
-                
-        monthView.translatesAutoresizingMaskIntoConstraints = false
-        
-        monthView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        monthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        monthView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        monthView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        // Do any additional setup after loading the view.
         
         
     }
+    /*
+     NSCalendar *nsCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+     NSInteger dateDay = [nsCalendar component:NSCalendarUnitDay fromDate:date];
+     BOOL found = NO;
+     for (NSMutableDictionary *event in [self.manager calendarEvents]) {
+     NSInteger eventDay = [nsCalendar component:NSCalendarUnitDay fromDate:[event objectForKey:@"STARTDATE"]];
+     if (eventDay == dateDay) {
+     found = YES;
+     break;
+     }
+     }
+     return found;
+     */
     
-    func calendarShouldMarkDate(_ calendar: AppsoluteCalendarMonth, date: Date) -> Bool {
-        return false
-    }
+    
     
     
 }

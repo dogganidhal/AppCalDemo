@@ -72,8 +72,15 @@
         [testEvent setValue:@"Alle 2 Wochen" forKey:@"recurrency_STRING"];
         [returnArray addObject:testEvent];
     }
-    
     return returnArray;
+}
+
+- (void)calendarDidSelectMonth:(AppsoluteCalendarYear *)calendar month:(NSInteger)month year:(NSInteger)year {
+    NSLog(@"Month selected");
+}
+
+- (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
+    [self.navigationController pushViewController:[[AppsoluteCalendarDetailVC alloc] init] animated:YES];
 }
 
 @end

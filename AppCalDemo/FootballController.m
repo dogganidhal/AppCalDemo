@@ -21,17 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _manager = [[FootballDataManager alloc] init];
-    [self.appCal reloadEvents:[_manager calendarEvents]];
+    self.manager = [[FootballDataManager alloc] init];
+    [self.appCal reloadEvents:(NSMutableArray *)[self.manager events]];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
 - (BOOL)calendarShouldMarkDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date {
     NSCalendar *nsCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSInteger dateDay = [nsCalendar component:NSCalendarUnitDay fromDate:date];
-    for (NSMutableDictionary *event in [_manager calendarEvents]) {
-        if ([nsCalendar component:NSCalendarUnitDay fromDate:[event objectForKey:@"STARTDATE"]] == dateDay) {
-            NSLog(@"%ld", (long)dateDay);
+    for (CalendarEvent *event in self.manager.calendarEvents) {
+        if ([nsCalendar component:NSCalendarUnitDay fromDate:date] == [nsCalendar component:NSCalendarUnitDay fromDate:event.startDate] &&
+            [nsCalendar component:NSCalendarUnitMonth fromDate:date] == [nsCalendar component:NSCalendarUnitMonth fromDate:event.startDate]) {
             return YES;
         }
     }
@@ -39,7 +41,11 @@
 }
 
 - (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
-    
+    NSLog(@"%@", eventsForDate);
+}
+
+- (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
+    NSLog(@"Did select event");
 }
 
 @end

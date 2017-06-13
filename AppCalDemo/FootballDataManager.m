@@ -32,7 +32,7 @@
    return [_apiData objectForKey:@"fixtures"];
 }
 
-- (NSMutableArray *)calendarEvents {
+- (NSArray<CalendarEvent *> *)calendarEvents {
    NSMutableArray *events = [[NSMutableArray alloc] init];
    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
    NSCalendar *nsCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -49,10 +49,19 @@
       event.endTimeString = [NSString stringWithFormat:@"%i:%i", (int)[nsCalendar component:NSCalendarUnitHour fromDate:event.endDate], (int)[nsCalendar component:NSCalendarUnitMinute fromDate:event.endDate]];
       event.recurrencyString = @"none";
       event.UID = [self uuid];
-      [events addObject:[event toDictionary]];
+      [events addObject:event];
    }
    return events;
 }
+
+- (NSArray<NSDictionary *> *)events {
+    NSMutableArray *eventsArray = [[NSMutableArray alloc] init];
+    for (CalendarEvent *event in self.calendarEvents) {
+        [eventsArray addObject:[event toDictionary]];
+    }
+    return eventsArray;
+}
+
 
 - (NSString *)uuid {
    CFUUIDRef uuidRef = CFUUIDCreate(NULL);

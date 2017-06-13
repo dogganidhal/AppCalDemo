@@ -86,8 +86,8 @@
 		95B71E6C1EE921A8003FA9E2 /* FoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodController.m; sourceTree = "<group>"; };
 		95B71E6F1EE9226D003FA9E2 /* NotifsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifsController.h; sourceTree = "<group>"; };
 		95B71E701EE9226D003FA9E2 /* NotifsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifsController.m; sourceTree = "<group>"; };
-		95B71E851EE93A34003FA9E2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
-		95B71E861EE93A34003FA9E2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
+		95B71E851EE93A34003FA9E2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsCell.h; path = AppCalDemo/SettingsCell.h; sourceTree = "<group>"; };
+		95B71E861EE93A34003FA9E2 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsCell.m; path = AppCalDemo/SettingsCell.m; sourceTree = "<group>"; };
 		95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballDataManager.h; sourceTree = "<group>"; };
 		95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootballDataManager.m; sourceTree = "<group>"; };
 		95B71E921EE95D98003FA9E2 /* MonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthController.swift; sourceTree = "<group>"; };
@@ -98,10 +98,10 @@
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		95D705DF1EE6BD6100B79AA2 /* DetailSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSettingController.h; sourceTree = "<group>"; };
 		95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSettingController.m; sourceTree = "<group>"; };
-		95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSettingCell.h; sourceTree = "<group>"; };
-		95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSettingCell.m; sourceTree = "<group>"; };
-		95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarNavigationBar.h; sourceTree = "<group>"; };
-		95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarNavigationBar.m; sourceTree = "<group>"; };
+		95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailSettingCell.h; path = AppCalDemo/DetailSettingCell.h; sourceTree = "<group>"; };
+		95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailSettingCell.m; path = AppCalDemo/DetailSettingCell.m; sourceTree = "<group>"; };
+		95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarNavigationBar.h; path = AppCalDemo/CalendarNavigationBar.h; sourceTree = "<group>"; };
+		95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarNavigationBar.m; path = AppCalDemo/CalendarNavigationBar.m; sourceTree = "<group>"; };
 		95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsoluteCalendar+FoodCalendar.h"; sourceTree = "<group>"; };
 		95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppsoluteCalendar+FoodCalendar.m"; sourceTree = "<group>"; };
 		95DFE8A71EEEA44E009BBCAF /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
@@ -163,11 +163,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		95AC05341EEFEF6F00850973 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */,
+				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */,
+				95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */,
+				95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */,
+				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
+				95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		95B71E641EE9213B003FA9E2 /* Football */ = {
 			isa = PBXGroup;
 			children = (
-				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
-				95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */,
 				95B71E681EE92196003FA9E2 /* FootballController.h */,
 				95B71E691EE92196003FA9E2 /* FootballController.m */,
 			);
@@ -190,8 +201,6 @@
 				95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */,
 				95BA7E221EEAAFB800823E21 /* NewEventController.h */,
 				95BA7E231EEAAFB800823E21 /* NewEventController.m */,
-				95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */,
-				95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */,
 				95DFE8A71EEEA44E009BBCAF /* CalendarController.h */,
 				95DFE8A81EEEA44E009BBCAF /* CalendarController.m */,
 			);
@@ -207,11 +216,6 @@
 				F2878FB11EE58A0B00F4CD9E /* TemplateController.m */,
 				F2878FC41EE591B300F4CD9E /* MainTabbarController.h */,
 				F2878FC51EE591B400F4CD9E /* MainTabbarController.m */,
-				95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */,
-				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */,
-				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */,
-				95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */,
-				95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */,
 			);
 			name = Generics;
 			sourceTree = "<group>";
@@ -237,6 +241,12 @@
 		95D705C21EE6903F00B79AA2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */,
+				95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */,
+				95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */,
+				95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */,
+				95B71E851EE93A34003FA9E2 /* SettingsCell.h */,
+				95B71E861EE93A34003FA9E2 /* SettingsCell.m */,
 			);
 			name = CustomViews;
 			path = ..;
@@ -249,10 +259,6 @@
 				F2878FCB1EE59B8900F4CD9E /* SettingsController.m */,
 				95D705DF1EE6BD6100B79AA2 /* DetailSettingController.h */,
 				95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */,
-				95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */,
-				95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */,
-				95B71E851EE93A34003FA9E2 /* SettingsCell.h */,
-				95B71E861EE93A34003FA9E2 /* SettingsCell.m */,
 				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
 				95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */,
 				95A38EE31EE7D13600EA3C8F /* Fonts.plist */,
@@ -297,6 +303,8 @@
 			children = (
 				F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */,
 				F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */,
+				95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */,
+				95AC05341EEFEF6F00850973 /* Model */,
 				F241C6E21EE6172A00D1D38A /* ViewControllers */,
 				95D705C21EE6903F00B79AA2 /* CustomViews */,
 				F2878FAA1EE58A0B00F4CD9E /* Supporting Files */,

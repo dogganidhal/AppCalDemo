@@ -13,5 +13,6 @@
 
 - (NSMutableArray *)fixtures;
 - (NSArray<CalendarEvent *> *)calendarEvents;
+- (NSArray<NSDictionary *> *)events;
 
 @end
