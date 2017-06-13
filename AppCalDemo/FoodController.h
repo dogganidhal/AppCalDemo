@@ -6,9 +6,9 @@
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
-#import "CalendarController.h"
+#import "CalendarTemplateController.h"
 #import <AppsoluteCalendar/AppsoluteCalendar.h>
 
-@interface FoodController : CalendarController
+@interface FoodController : CalendarTemplateController
 
 @end

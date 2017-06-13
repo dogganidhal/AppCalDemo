@@ -6,8 +6,8 @@
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
-#import "CalendarController.h"
+#import "CalendarTemplateController.h"
 
-@interface FootballController : CalendarController<UINavigationControllerDelegate>
+@interface FootballController : CalendarTemplateController<UINavigationControllerDelegate>
 
 @end

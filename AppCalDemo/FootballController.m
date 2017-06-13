@@ -50,6 +50,7 @@
 
 - (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
     NSLog(@"Did select event");
+
 }
 
 - (void)reloadController {

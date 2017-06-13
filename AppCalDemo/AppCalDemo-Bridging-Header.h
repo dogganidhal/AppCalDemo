@@ -8,5 +8,5 @@
 #import "TemplateController.h"
 #import "CalendarNavigationController.h"
 #import "NewEventController.h"
-#import "CalendarController.h"
+#import "CalendarTemplateController.h"
 #import "FootballDataManager.h"
