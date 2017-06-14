@@ -10,6 +10,8 @@
 #import "FootballDataManager.h"
 #import "Settings.h"
 #import "CalendarNavigationController.h"
+#import "FoodEvent+CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface FootballController ()
 

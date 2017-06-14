@@ -7,17 +7,20 @@
 //
 
 #import "CalendarController.h"
+#import "FoodEvent+CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface CalendarController ()
 
 @end
 
-@implementation CalendarController
+@implementation CalendarController 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initialize];
+    
 }
 
 - (void)initialize {
@@ -25,7 +28,7 @@
 }
 
 - (void)addNewEvent {
-    [self.navigationController pushViewController:[[BaseController alloc] init] animated:YES];
+   [self.navigationController pushViewController:[[BaseController alloc] init] animated:YES];
 }
 
 @end

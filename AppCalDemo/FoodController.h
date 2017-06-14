@@ -7,7 +7,6 @@
 //
 
 #import "CalendarTemplateController.h"
-#import <AppsoluteCalendar/AppsoluteCalendar.h>
 
 @interface FoodController : CalendarTemplateController
 

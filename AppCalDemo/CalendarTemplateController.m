@@ -40,6 +40,7 @@
     self.monthView.myDelegate = self;
     self.monthView.myDataSource = self;
     self.yearView.myDelegate = self;
+    [self.monthView scrollToToday:NO];
     _lastTrackedIndex = 1;
     [self reloadView];
     
