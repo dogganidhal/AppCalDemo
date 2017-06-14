@@ -42,17 +42,11 @@
     self.yearView.myDelegate = self;
     [self.monthView scrollToToday:NO];
     _lastTrackedIndex = 1;
-    [self reloadView];
-    
+    [self.appCal todayButtonShoudAnimateScrolling:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
 }
 
-- (void)reloadView {
-#warning Delete this setting once the overallBackgroundColor applies on the views automatically
-    self.dayView.backgroundColor = Settings.overallBackgroundColor;
-    self.monthView.backgroundColor = Settings.overallBackgroundColor;
-    self.yearView.backgroundColor = Settings.overallBackgroundColor;
-}
+
 
 #pragma mark - Appsolute calendar protocols
 
@@ -61,8 +55,15 @@
 }
 
 - (void)calendarDidSelectMonth:(AppsoluteCalendarYear *)calendar month:(NSInteger)month year:(NSInteger)year {
-    
+    [self setSegmentControlValue:1];
+    NSCalendar *nsCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    dateComps.year = year;
+    dateComps.month = month + 1;
+    NSDate *selectedDate = [nsCalendar dateFromComponents:dateComps];
+    [self.monthView scrollToDateAnimated:selectedDate animated:YES];
 }
+
 
 - (BOOL)calendarShouldMarkDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date {
     return NO;
@@ -88,10 +89,9 @@
 - (void)reloadController {
     [super reloadController];
     [self.appCal setCustomizationOnCalendar];
-    [self reloadView];
     [self.monthView reloadData];
     [self.yearView reloadData];
-#warning Wait for the method to reload the dayView's data
+    [self.dayView reloadDays];
 }
 
 @end

@@ -26,7 +26,6 @@
     // Do any additional setup after loading the view.
     self.manager = [[FootballDataManager alloc] init];
     [self.appCal reloadEvents:(NSMutableArray *)[self.manager events]];
-    self.navigationController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +46,10 @@
 
 - (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
     NSLog(@"%@", eventsForDate);
-    [self.navigationController pushViewController:[[BaseController alloc] init] animated:YES];
+    TemplateController *presentedController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
+    presentedController.topViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCurrentViewController)];
+    presentedController.topViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitNewEvent)];
+    [self presentViewController:presentedController animated:YES completion:nil];
 }
 
 - (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
@@ -55,17 +57,17 @@
 
 }
 
+- (void)dismissCurrentViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)submitNewEvent {
+    printf("FootballController: warning: submit method is not yet implemented.\n");
+}
+
 - (void)reloadController {
     [super reloadController];
     [self.manager reloadData];
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (viewController != self) {
-        [((CalendarNavigationBar *)self.navigationController.navigationBar).segment setEnabled:NO];
-    } else {
-        [((CalendarNavigationBar *)self.navigationController.navigationBar).segment setEnabled:YES];
-    }
 }
 
 @end

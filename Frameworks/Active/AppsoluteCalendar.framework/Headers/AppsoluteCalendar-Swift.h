@@ -181,6 +181,10 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar17AppsoluteCalendar")
 - (void)setCalendarRefreshInterval:(NSInteger)seconds;
 /// Disables the calendars refresh interval
 - (void)disableCalendarRefreshInterval;
+/// Sets the color of the navbar and todaybar in the calendar
+/// \param tintColor UIColor: color in which the navbar is displayed
+///
+- (void)setNavBarTodayBarColor:(UIColor * _Nonnull)tintColor;
 /// Sets the color of events in the calendar
 /// \param tintColor UIColor: color in which events are displayed
 ///
@@ -305,6 +309,10 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar17AppsoluteCalendar")
 /// \param visible Bool: true for visible, false for invisible
 ///
 - (void)setTodayButtonVisibility:(BOOL)visible;
+/// Sets the scrolling of the “Today”-Button
+/// \param animate Bool: true for animated scrolling, false for jumping
+///
+- (void)todayButtonShoudAnimateScrolling:(BOOL)animate;
 /// Sets visibility of the year in the headerview of the months
 /// \param visible Bool: true for visible, false for invisible
 ///
@@ -348,6 +356,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar17AppsoluteCalendar")
 
 SWIFT_CLASS("_TtC17AppsoluteCalendar29AppsoluteCalendarTemplateView")
 @interface AppsoluteCalendarTemplateView : UIView
+- (void)layoutSubviews;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -362,6 +371,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar20AppsoluteCalendarDay")
 @interface AppsoluteCalendarDay : AppsoluteCalendarTemplateView <UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) id <AppsoluteCalendarDayDelegate> _Nullable myDelegate;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame currentDate:(NSDate * _Nonnull)currentDate OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)awakeFromNib;
 - (void)layoutSubviews;
@@ -370,6 +380,8 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar20AppsoluteCalendarDay")
 - (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+/// Reloads the displayed days
+- (void)reloadDays;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
@@ -417,13 +429,14 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar22AppsoluteCalendarDayVC")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSMutableDictionary;
 
 SWIFT_CLASS("_TtC17AppsoluteCalendar30AppsoluteCalendarDefaultObject")
 @interface AppsoluteCalendarDefaultObject : NSObject
+@property (nonatomic, strong) NSMutableDictionary * _Nullable event;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSMutableDictionary;
 
 SWIFT_PROTOCOL("_TtP17AppsoluteCalendar25AppsoluteCalendarDelegate_")
 @protocol AppsoluteCalendarDelegate

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="FoodEvent" representedClassName=".FoodEvent" syncable="YES" codeGenerationType="class">
+    <entity name="FoodEvent" representedClassName="FoodEvent" syncable="YES" codeGenerationType="class">
         <attribute name="allDay" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="endTimeString" optional="YES" attributeType="String" syncable="YES"/>

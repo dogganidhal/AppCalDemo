@@ -46,7 +46,8 @@
     self.appCal = [[AppsoluteCalendar alloc] init];
     self.appDelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
     self.foodEvents = (NSMutableArray<FoodEvent *> *)[self.appDelegate.persistentContainer.viewContext executeFetchRequest:[FoodEvent fetchRequest] error:nil];
-    [self.appCal reloadEvents:[self fetchData]];
+    NSMutableArray<NSMutableDictionary *> *fetchedData = [self fetchData];
+    [self.appCal reloadEvents:fetchedData];
 }
 
 - (void)addNewEvent {
@@ -61,18 +62,10 @@
 }
 
 - (void)submitNewEvent {
-    
-}
-
-- (void)calendarDidSelectMonth:(AppsoluteCalendarYear *)calendar month:(NSInteger)month year:(NSInteger)year {
-#warning Wait for the methods to jump to the right dates
-    [self setSegmentControlValue:1];
-    NSLog(@"Should go to the date: %ld-%ld", year, month);
+    printf("FoodController: warning: submit method is not yet implemented.\n");
 }
 
 - (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
-#warning Wait for the methods to jump to the right dates
-    NSLog(@"%@", eventsForDate);
     [self setSegmentControlValue:2];
     
 }

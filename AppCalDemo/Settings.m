@@ -40,7 +40,12 @@
     NSNumber *selected = [colorObject objectForKey:@"selectedValue"];
     NSArray<NSString *> *allValues = [colorObject objectForKey:@"allValues"];
     NSString *retrievedColor = [allValues objectAtIndex:selected.integerValue];
-    NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
+    NSString *colorSelector = nil;
+    if (![retrievedColor isEqualToString:@"LightGray"]) {
+        colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
+    } else {
+        return [UIColor colorWithWhite:0.85 alpha:1];
+    }
     return [UIColor performSelector:NSSelectorFromString(colorSelector)];
 }
 
@@ -49,7 +54,12 @@
     NSNumber *selected = [colorObject objectForKey:@"selectedValue"];
     NSArray<NSString *> *allValues = [colorObject objectForKey:@"allValues"];
     NSString *retrievedColor = [allValues objectAtIndex:selected.integerValue];
-    NSString *colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
+    NSString *colorSelector = nil;
+    if (![retrievedColor isEqualToString:@"LightGray"]) {
+        colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
+    } else {
+        colorSelector = [NSString stringWithFormat:@"lightGrayColor"];
+    }
     return [UIColor performSelector:NSSelectorFromString(colorSelector)];
 }
 
@@ -95,6 +105,10 @@
 
 + (UIColor *)overallBackgroundColor {
     return [Settings colorAtIndex:10];
+}
+
++ (UIColor *)todaysBarColor {
+    return [Settings colorAtIndex:11];
 }
 
 + (NSArray *)plistData {

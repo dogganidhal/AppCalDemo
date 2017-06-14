@@ -32,6 +32,9 @@
     [self setCurrentDayFontColor:Settings.currentDayFontColor];
     [self setCurrentDayCircleColor:Settings.currentDayCircleColor];
     
+    [self setOverallBackgroundColor:Settings.overallBackgroundColor];
+    [self setNavBarTodayBarColor:Settings.todaysBarColor];
+    
     [self setFirstDayInWeek:Settings.firstDayOfTheWeek];
 }
 

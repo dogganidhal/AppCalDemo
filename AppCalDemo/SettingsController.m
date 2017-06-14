@@ -117,6 +117,7 @@
     [_plistSettings writeToFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"] atomically:YES];
     [(MainTabbarController *)self.tabBarController viewDidLoad];
     [(MainTabbarController *)self.tabBarController reloadController];
+    [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
     [self reload];
 }
 

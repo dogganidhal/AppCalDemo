@@ -11,29 +11,34 @@ import AppsoluteCalendar
 
 class MonthController: BaseController, AppsoluteCalendarDetailViewDelegate {
     
-//    lazy var detailView: AppsoluteCalendarDetail = AppsoluteCalendarDetail(frame: self.view.frame)
+    internal var appCal: AppsoluteCalendar?
+    internal var monthView: AppsoluteCalendarMonth!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        view.addSubview(detailView)
-//        detailView.myDelegate = self
+        // ***
+        appCal = AppsoluteCalendar()
+        appCal?.setCalVisible()
+        appCal?.setAddButtonVisibility(true)
+        // ****
+        monthView = AppsoluteCalendarMonth(frame: view.frame)
+        view.addSubview(monthView)
     }
     
     public func detailViewWillEditEvent(_ detailView: AppsoluteCalendarDetail, eventsForDate: AppsoluteCalendarDefaultObject) {
-        
+        print("will edit event")
     }
     
     public func detailViewWillDeleteEvent(_ detailView: AppsoluteCalendarDetail, eventsForDate: AppsoluteCalendarDefaultObject) {
-        
+        print("will delete event")
     }
     
     public func detailViewWillDeleteOneEvent(_ detailView: AppsoluteCalendarDetail, eventsForDate: AppsoluteCalendarDefaultObject) {
-        
+        print("will delete one event")
     }
     
     public func detailViewWillDeleteFollowingEvent(_ detailView: AppsoluteCalendarDetail, eventsForDate: AppsoluteCalendarDefaultObject) {
-        
+        print("will delete following event")
     }
     
     

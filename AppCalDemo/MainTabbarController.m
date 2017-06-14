@@ -40,7 +40,7 @@
     // Instantiating the children controllers
     foodController = [[CalendarNavigationController alloc] initWithRootViewController:[[FoodController alloc] init] navigationBarClass:CalendarNavigationBar.class];
     footballController = [[CalendarNavigationController alloc] initWithRootViewController:[[FootballController alloc] init] navigationBarClass:CalendarNavigationBar.class];
-    calendarController = [[CalendarNavigationController alloc] initWithRootViewController:[[CalendarController alloc] init] navigationBarClass:CalendarNavigationBar.class];
+    calendarController = [[CalendarNavigationController alloc] initWithRootViewController:[[MonthController alloc] init] navigationBarClass:CalendarNavigationBar.class];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
 }
@@ -69,8 +69,10 @@
 
 - (void)reloadController {
     [self setupController];
-    for (TemplateController *childController in self.viewControllers) {
-        [childController reloadController];
+    for (UIViewController *childController in self.viewControllers) {
+        if ([childController respondsToSelector:@selector(reloadController)]) {
+            [(id)childController reloadController];
+        }
     }
 }
 

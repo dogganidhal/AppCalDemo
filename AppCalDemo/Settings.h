@@ -16,7 +16,7 @@
 
 //@property (nonatomic, strong, class) NSString *language;
 @property (nonatomic, class, readonly) NSInteger firstDayOfTheWeek;
-//@property (nonatomic, strong, class) NSString *dataServer;
+
 @property (nonatomic, strong, class, readonly) NSString *league;
 
 @property (nonatomic, strong, class, readonly) UIColor *mainColor;
@@ -36,5 +36,6 @@
 @property (nonatomic, strong, class, readonly) UIColor *currentDayFontColor;
 
 @property (nonatomic, strong, class, readonly) UIColor *overallBackgroundColor;
+@property (nonatomic, strong, class, readonly) UIColor *todaysBarColor;
 
 @end
