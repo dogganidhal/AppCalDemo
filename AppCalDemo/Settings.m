@@ -44,7 +44,7 @@
     if (![retrievedColor isEqualToString:@"LightGray"]) {
         colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
     } else {
-        return [UIColor colorWithWhite:0.85 alpha:1];
+        return [UIColor colorWithRed:224/255 green:224/255 blue:224/255 alpha:0.25];
     }
     return [UIColor performSelector:NSSelectorFromString(colorSelector)];
 }

@@ -25,7 +25,6 @@
     _window = [[UIWindow alloc] initWithFrame: UIScreen.mainScreen.bounds];
     _window.rootViewController = rootViewController;
     [_window makeKeyAndVisible];
-    
     return YES;
 }
 
