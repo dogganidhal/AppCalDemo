@@ -45,16 +45,13 @@
 }
 
 - (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
-    NSLog(@"%@", eventsForDate);
-    TemplateController *presentedController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
-    presentedController.topViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCurrentViewController)];
-    presentedController.topViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitNewEvent)];
-    [self presentViewController:presentedController animated:YES completion:nil];
+    for (AppsoluteCalendarDefaultObject *defObjct in eventsForDate) {
+        NSLog(@"%@", defObjct.event);
+    }
 }
 
 - (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
-    NSLog(@"Did select event");
-
+    NSLog(@"Event: %@", eventsForDate.event);
 }
 
 - (void)dismissCurrentViewController {

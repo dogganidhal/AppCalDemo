@@ -47,6 +47,7 @@
     self.appDelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
     self.foodEvents = (NSMutableArray<FoodEvent *> *)[self.appDelegate.persistentContainer.viewContext executeFetchRequest:[FoodEvent fetchRequest] error:nil];
     NSMutableArray<NSMutableDictionary *> *fetchedData = [self fetchData];
+    NSLog(@"%@", fetchedData);
     [self.appCal reloadEvents:fetchedData];
 }
 
@@ -66,9 +67,16 @@
 }
 
 - (void)calendarDidSelectDate:(AppsoluteCalendarMonth *)calendar date:(NSDate *)date eventsForDate:(NSMutableArray *)eventsForDate {
+    for (AppsoluteCalendarDefaultObject *defObjct in eventsForDate) {
+        NSLog(@"%@", defObjct.event);
+    }
     [self setSegmentControlValue:2];
-    
 }
+
+- (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
+    NSLog(@"Event: %@", eventsForDate.event);
+}
+
 
 - (NSMutableArray<NSMutableDictionary *> *)fetchData {
     NSMutableArray<NSMutableDictionary *> *appCalEvents = [[NSMutableArray alloc] init];
