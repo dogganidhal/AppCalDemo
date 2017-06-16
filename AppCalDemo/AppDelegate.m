@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MainTabbarController.h"
 #import "Settings.h"
+#import <AppsoluteCalendar/AppsoluteCalendar.h>
+#import "AppCalDemo-Swift.h"
 
 @interface AppDelegate ()
 

@@ -95,7 +95,7 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.textLabel.font = [FontBook regularFontOfSize:16];
     header.textLabel.textColor = [Settings mainColor];
-    header.tintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor colorWithWhite:0.5 alpha:1] : nil;
+    header.tintColor = Settings.appTheme == ApplicationThemeDark ? [[UIColor whiteColor] colorWithAlphaComponent:0.15] : [UIColor groupTableViewBackgroundColor];
     [header.textLabel sizeToFit];
 }
 
@@ -107,16 +107,14 @@
     [_plistContent writeToFile:_plistFilePath atomically:YES];
     // Reload data after selecting the row
     [self.tableView reloadData];
-    // If the appearence is the object in question apply it immediately
-    if (_senderIndexPath.section == 3 || _senderIndexPath.section == 1 || _senderIndexPath.section == 4) {
-        MainTabbarController *tabbarController = (MainTabbarController *)self.tabBarController;
-        [tabbarController reloadController];
-        [tabbarController viewDidLoad];
-        [self reloadController];
-        [self setupView];
-        if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
-            [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
-        }
+    // Update the appearence of the child view controller of the tabbar controller
+    MainTabbarController *tabbarController = (MainTabbarController *)self.tabBarController;
+    [tabbarController reloadController];
+    [tabbarController viewDidLoad];
+    [self reloadController];
+    [self setupView];
+    if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
+        [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
     }
     
 }

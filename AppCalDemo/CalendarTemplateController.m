@@ -13,6 +13,7 @@
 @interface CalendarTemplateController ()
 
 @property (nonatomic) NSInteger lastTrackedIndex;
+@property (nonatomic) CGRect dayViewFrame;
 
 @end
 
@@ -26,11 +27,14 @@
 
 - (void)initialiaze {
     self.appCal = [[AppsoluteCalendar alloc] init];
+    self.appCal.calDelegate = self;
     [self.appCal setCustomizationOnCalendar];
+    [self.appCal updateOnStyleChanges];
+    self.dayViewFrame = CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height - 153);
     self.dayView = [[AppsoluteCalendarDay alloc] initWithFrame:self.view.frame];
     self.monthView = [[AppsoluteCalendarMonth alloc] initWithFrame:self.view.frame];
     self.yearView = [[AppsoluteCalendarYear alloc] initWithFrame:self.view.frame];
-    self.dayView.frame = CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height - 153);
+    self.dayView.frame = self.dayViewFrame;
     self.monthView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 153);
     self.yearView.frame = CGRectMake(-self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height - 153);
     [self.view addSubview:self.dayView];
@@ -50,8 +54,20 @@
 
 #pragma mark - Appsolute calendar protocols
 
-- (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
+- (void)returnNewEvent:(NSMutableDictionary *)event {
     
+}
+
+- (void)returnEventToBeDeleted:(NSMutableDictionary *)event {
+    
+}
+
+- (void)changeOldEventToNewEvent:(NSMutableDictionary *)oldEvent newEvent:(NSMutableDictionary *)newEvent {
+    
+}
+
+- (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay *)dayView date:(NSDate *)date eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
+    NSLog(@"dayViewDidSelectDefaultEvent");
 }
 
 - (void)calendarDidSelectMonth:(AppsoluteCalendarYear *)calendar month:(NSInteger)month year:(NSInteger)year {

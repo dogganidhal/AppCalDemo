@@ -51,7 +51,7 @@
         event.startDate = [formatter dateFromString:[fixture objectForKey:@"date"]];
         event.endDate = [event.startDate dateByAddingTimeInterval:6300];
         event.location = [NSString stringWithFormat:@"%@'s Stadium", [fixture objectForKey:@"homeTeamName"]];
-        event.summary = [NSString stringWithFormat:@"%@ vs %@ %@ matchday %ld", [fixture objectForKey:@"homeTeamName"], [fixture objectForKey:@"awayTeamName"], Settings.league, (long)((NSNumber *)[fixture objectForKey:@"matchday"]).integerValue];
+        event.summary = [NSString stringWithFormat:@"%@ vs %@ \n%@ matchday %ld", [fixture objectForKey:@"homeTeamName"], [fixture objectForKey:@"awayTeamName"], Settings.league, (long)((NSNumber *)[fixture objectForKey:@"matchday"]).integerValue];
         event.notes = [NSString stringWithFormat:@"Match %@ at %ld - %ld", [fixture objectForKey:@"status"], (long)((NSNumber *)[[fixture objectForKey:@"result"] objectForKey:@"goalsHomeTeam"]).integerValue, (long)((NSNumber *)[[fixture objectForKey:@"result"] objectForKey:@"goalsAwayTeam"]).integerValue];
         event.startTimeString = [NSString stringWithFormat:@"%i:%i", (int)[nsCalendar component:NSCalendarUnitHour fromDate:event.startDate], (int)[nsCalendar component:NSCalendarUnitMinute fromDate:event.startDate]];
         event.endTimeString = [NSString stringWithFormat:@"%i:%i", (int)[nsCalendar component:NSCalendarUnitHour fromDate:event.endDate], (int)[nsCalendar component:NSCalendarUnitMinute fromDate:event.endDate]];
@@ -65,7 +65,9 @@
 - (NSArray<NSDictionary *> *)createEvents {
     NSMutableArray *eventsArray = [[NSMutableArray alloc] init];
     for (CalendarEvent *event in self.calendarEvents) {
-        [eventsArray addObject:[event toDictionary]];
+        NSDictionary *dictEvent = [event toDictionary];
+        [dictEvent setValue:@"" forKey:@"LEAGUE"];
+        [eventsArray addObject:dictEvent];
     }
     return eventsArray;
 }

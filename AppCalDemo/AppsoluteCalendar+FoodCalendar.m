@@ -13,6 +13,16 @@
 
 @implementation AppsoluteCalendar (FoodCalendar)
 
+static AppsoluteCalendar *_shared;
+
++ (void)initialize {
+    _shared = [[AppsoluteCalendar alloc] init];
+}
+
++ (AppsoluteCalendar *)shared {
+    return _shared;
+}
+
 - (void)setCustomizationOnCalendar {
     [self setEventTextFont:[FontBook regularFontOfSize:16]];
     [self setMonthNameFont:[FontBook regularFontOfSize:16]];

@@ -10,6 +10,7 @@
 
 @interface AppsoluteCalendar (FoodCalendar)
 
+@property (nonatomic, strong, class, readonly) AppsoluteCalendar *shared;
 - (void)setCustomizationOnCalendar;
 
 @end

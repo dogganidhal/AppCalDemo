@@ -47,7 +47,6 @@
     self.appDelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
     self.foodEvents = (NSMutableArray<FoodEvent *> *)[self.appDelegate.persistentContainer.viewContext executeFetchRequest:[FoodEvent fetchRequest] error:nil];
     NSMutableArray<NSMutableDictionary *> *fetchedData = [self fetchData];
-    NSLog(@"%@", fetchedData);
     [self.appCal reloadEvents:fetchedData];
 }
 

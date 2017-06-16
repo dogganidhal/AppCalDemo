@@ -7,6 +7,7 @@
 //
 
 #import "Settings.h"
+#import "UIColor_Extensions.h"
 
 @interface Settings ()
 
@@ -58,7 +59,7 @@
     if (![retrievedColor isEqualToString:@"LightGray"]) {
         colorSelector = [NSString stringWithFormat:@"%@Color", [retrievedColor lowercaseString]];
     } else {
-        colorSelector = [NSString stringWithFormat:@"lightGrayColor"];
+        return [UIColor groupTableViewBackgroundColor];
     }
     return [UIColor performSelector:NSSelectorFromString(colorSelector)];
 }

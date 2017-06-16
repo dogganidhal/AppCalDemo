@@ -1,5 +1,5 @@
 //
-//  MonthController.swift
+//  DayController.swift
 //  AppCalDemo
 //
 //  Created by Nidhal on 16.06.17.
@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import AppsoluteCalendar
 
-open class MonthController: AppsoluteCalendarMonthVC {
-
-    open weak var delegate: CalendarComponentControllerDelegate?
+open class DayController: AppsoluteCalendarDayVC {
     
+    open weak var delegate: CalendarComponentControllerDelegate?
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,11 +25,14 @@ open class MonthController: AppsoluteCalendarMonthVC {
         }
     }
     
-    override open func calendarDidSelectDate(_ calendar: AppsoluteCalendarMonth, date: Date, eventsForDate: NSMutableArray) {
-        calendarComponentControllerWantsTransition(self, toDate: date)
+    open func calendarComponentControllerShouldPassData(_ controller: AppsoluteCalendarTemplateViewController, dataToPass data: AnyObject) {
+        guard let delegate = self.delegate else { return }
+        if delegate.responds(to: #selector(calendarComponentControllerShouldPassData(_:dataToPass:))) {
+            delegate.calendarComponentControllerShouldPassData!(controller, dataToPass: data)
+        }
     }
     
-    open func reloadController() {
+    func reloadController() {
         let titleLabel = UILabel()
         titleLabel.text = "AppCalDemo"
         titleLabel.font = FontBook.boldFont(ofSize: 18)
@@ -38,6 +40,11 @@ open class MonthController: AppsoluteCalendarMonthVC {
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
         navigationController?.navigationBar.tintColor = Settings.mainColor
+    }
+    
+    override open func dayViewDidSelectDefaultEvent(_ dayView: AppsoluteCalendarDay, date: Date, eventsForDate: AppsoluteCalendarDefaultObject) {
+        calendarComponentControllerWantsTransition(self, toDate: date)
+        calendarComponentControllerShouldPassData(self, dataToPass: eventsForDate)
     }
 
 }

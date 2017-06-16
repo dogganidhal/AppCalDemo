@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface TemplateController : UINavigationController<UINavigationControllerDelegate>
+@interface TemplateController : UINavigationController
 
 - (void)reloadController;
 

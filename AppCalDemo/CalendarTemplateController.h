@@ -11,6 +11,7 @@
 #import "CalendarNavigationBar.h"
 
 @interface CalendarTemplateController : BaseController<CalendarNavigationBarDelegate,
+                                               AppsoluteCalendarDelegate,
                                                AppsoluteCalendarMonthDelegate,
                                                AppsoluteCalendarMonthDataSource,
                                                AppsoluteCalendarDayDelegate,

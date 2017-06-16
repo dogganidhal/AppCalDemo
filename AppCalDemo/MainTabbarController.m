@@ -16,7 +16,6 @@
 #import "AppCalDemo-Swift.h"
 #import "CalendarNavigationController.h"
 #import "FoodController.h"
-#import "FootballController.h"
 #import "NotifsController.h"
 #import "CalendarNavigationBar.h"
 #import "CalendarController.h"
@@ -29,8 +28,8 @@
 
 @implementation MainTabbarController {
     CalendarNavigationController *foodController;
-    CalendarNavigationController *footballController;
-    CalendarNavigationController *calendarController;
+    FootballController *footballController;
+    TemplateNavigationController *calendarController;
     TemplateController *notifsController;
     TemplateController *settingsController;
 }
@@ -39,8 +38,8 @@
     [super loadView];
     // Instantiating the children controllers
     foodController = [[CalendarNavigationController alloc] initWithRootViewController:[[FoodController alloc] init] navigationBarClass:CalendarNavigationBar.class];
-    footballController = [[CalendarNavigationController alloc] initWithRootViewController:[[FootballController alloc] init] navigationBarClass:CalendarNavigationBar.class];
-    calendarController = [[CalendarNavigationController alloc] initWithRootViewController:[[CalendarController alloc] init] navigationBarClass:CalendarNavigationBar.class];
+    footballController = [[FootballController alloc] init];
+    calendarController = [[TemplateNavigationController alloc] init];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
 }

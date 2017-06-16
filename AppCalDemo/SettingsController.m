@@ -85,7 +85,7 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.textLabel.font = [FontBook boldFontOfSize:16];
     header.textLabel.textColor = [Settings mainColor];
-    header.tintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor colorWithWhite:0.5 alpha:1] : nil;
+    header.tintColor = Settings.appTheme == ApplicationThemeDark ? [[UIColor whiteColor] colorWithAlphaComponent:0.15] : [UIColor groupTableViewBackgroundColor];
     [header.textLabel sizeToFit];
 }
 
