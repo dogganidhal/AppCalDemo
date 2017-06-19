@@ -58,11 +58,17 @@ class AddFoodEventCell: UITableViewCell {
             setNeedsLayout()
         }
     }
+    open var currentImage: UIImage? {
+        willSet {
+            rightImageView?.image = newValue
+        }
+    }
     
     private var textField: UITextField?
     private var currentValueLabel: UILabel?
     private var `switch`: UISwitch?
     private var segment: UISegmentedControl?
+    private var rightImageView: UIImageView?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -73,13 +79,22 @@ class AddFoodEventCell: UITableViewCell {
                 disclosureIndicator = subview
             }
         }
-        addSubview(currentValueLabel!)
-        currentValueLabel?.font = FontBook.regularFont(ofSize: 16)
-        currentValueLabel?.textColor = .lightGray
-        currentValueLabel?.sizeToFit()
-        currentValueLabel?.translatesAutoresizingMaskIntoConstraints = false
-        currentValueLabel?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        currentValueLabel?.trailingAnchor.constraint(equalTo: disclosureIndicator!.leadingAnchor, constant: -8).isActive = true
+        if currentValueString != nil {
+            addSubview(currentValueLabel!)
+            currentValueLabel?.font = FontBook.regularFont(ofSize: 16)
+            currentValueLabel?.textColor = .lightGray
+            currentValueLabel?.sizeToFit()
+            currentValueLabel?.translatesAutoresizingMaskIntoConstraints = false
+            currentValueLabel?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            currentValueLabel?.trailingAnchor.constraint(equalTo: disclosureIndicator!.leadingAnchor, constant: -8).isActive = true
+        } else if currentImage != nil {
+            addSubview(rightImageView!)
+            rightImageView?.translatesAutoresizingMaskIntoConstraints = false
+            rightImageView?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            rightImageView?.trailingAnchor.constraint(equalTo: disclosureIndicator!.leadingAnchor, constant: -8).isActive = true
+            rightImageView?.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            rightImageView?.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        }
     }
     
     internal func reloadCell() {
@@ -100,10 +115,11 @@ class AddFoodEventCell: UITableViewCell {
     private func setToTextFieldCell() {
         self.accessoryView = nil
         self.accessoryType = .none
-        self.textField = UITextField(frame: CGRect(x: 8, y: 0, width: frame.width - 16, height: frame.height))
+        self.textField = UITextField(frame: CGRect(x: 16, y: 0, width: frame.width - 32, height: frame.height))
         self.textField?.font = FontBook.regularFont(ofSize: 16)
         self.switch = nil
         self.segment = nil
+        self.rightImageView = nil
         self.currentValueLabel = nil
         self.addSubview(textField!)
     }
@@ -114,6 +130,7 @@ class AddFoodEventCell: UITableViewCell {
         self.accessoryView = self.switch
         self.accessoryType = .none
         self.textField = nil
+        self.rightImageView = nil
         self.currentValueLabel = nil
         self.segment = nil
     }
@@ -124,6 +141,7 @@ class AddFoodEventCell: UITableViewCell {
         self.switch = nil
         self.textField = nil
         self.currentValueLabel = nil
+        self.rightImageView = nil
         self.addSubview(segment!)
         self.accessoryView = segment
         self.accessoryType = .none
@@ -133,6 +151,7 @@ class AddFoodEventCell: UITableViewCell {
         self.accessoryView = nil
         self.accessoryType = .disclosureIndicator
         self.currentValueLabel = UILabel()
+        self.rightImageView = UIImageView(image: currentImage ?? UIImage())
         self.switch = nil
         self.textField = nil
         self.segment = nil
@@ -145,6 +164,7 @@ class AddFoodEventCell: UITableViewCell {
         self.textField = nil
         self.segment = nil
         self.currentValueLabel = nil
+        self.rightImageView = nil
     }
 
 }

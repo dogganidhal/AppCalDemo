@@ -10,6 +10,4 @@
 #import "NewEventController.h"
 #import "CalendarTemplateController.h"
 #import "FootballDataManager.h"
-#import "FoodEvent+CoreDataClass.h"
 #import "AppsoluteCalendar+FoodCalendar.h"
-#import "MealEvent.h"

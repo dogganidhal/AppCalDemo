@@ -40,9 +40,10 @@
 		95BA7E241EEAAFB800823E21 /* NewEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA7E231EEAAFB800823E21 /* NewEventController.m */; };
 		95C6BC201EF7A1F10055595C /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC1F1EF7A1F10055595C /* FoodController.swift */; };
 		95C6BC221EF7A2CC0055595C /* FoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC211EF7A2CC0055595C /* FoodEventController.swift */; };
-		95C6BC271EF7AB730055595C /* MealEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC261EF7AB730055595C /* MealEvent.m */; };
 		95C6BC291EF7C8120055595C /* NewFoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC281EF7C8120055595C /* NewFoodEventController.swift */; };
 		95C6BC2B1EF7D2D50055595C /* AddFoodEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */; };
+		95C6BC2D1EF7F5840055595C /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC2C1EF7F5840055595C /* DatePickerController.swift */; };
+		95C6BC2F1EF813510055595C /* MealEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC2E1EF813510055595C /* MealEvent.swift */; };
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
 		95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */; };
@@ -127,10 +128,10 @@
 		95BA7E231EEAAFB800823E21 /* NewEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEventController.m; sourceTree = "<group>"; };
 		95C6BC1F1EF7A1F10055595C /* FoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
 		95C6BC211EF7A2CC0055595C /* FoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodEventController.swift; sourceTree = "<group>"; };
-		95C6BC251EF7AB730055595C /* MealEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealEvent.h; sourceTree = "<group>"; };
-		95C6BC261EF7AB730055595C /* MealEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealEvent.m; sourceTree = "<group>"; };
 		95C6BC281EF7C8120055595C /* NewFoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFoodEventController.swift; sourceTree = "<group>"; };
 		95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodEventCell.swift; sourceTree = "<group>"; };
+		95C6BC2C1EF7F5840055595C /* DatePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerController.swift; sourceTree = "<group>"; };
+		95C6BC2E1EF813510055595C /* MealEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealEvent.swift; sourceTree = "<group>"; };
 		95D705DA1EE6B0BF00B79AA2 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		95D705DF1EE6BD6100B79AA2 /* DetailSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSettingController.h; sourceTree = "<group>"; };
 		95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSettingController.m; sourceTree = "<group>"; };
@@ -210,8 +211,7 @@
 				95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */,
 				957D9CAE1EF40A0C00891FDC /* FootballEvent.h */,
 				957D9CAF1EF40A0C00891FDC /* FootballEvent.m */,
-				95C6BC251EF7AB730055595C /* MealEvent.h */,
-				95C6BC261EF7AB730055595C /* MealEvent.m */,
+				95C6BC2E1EF813510055595C /* MealEvent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -256,6 +256,7 @@
 				95C6BC211EF7A2CC0055595C /* FoodEventController.swift */,
 				95C6BC281EF7C8120055595C /* NewFoodEventController.swift */,
 				95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */,
+				95C6BC2C1EF7F5840055595C /* DatePickerController.swift */,
 			);
 			name = Food;
 			sourceTree = "<group>";
@@ -501,6 +502,7 @@
 				F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */,
 				95C6BC291EF7C8120055595C /* NewFoodEventController.swift in Sources */,
 				957D9CA91EF3F0BD00891FDC /* DetailController.swift in Sources */,
+				95C6BC2F1EF813510055595C /* MealEvent.swift in Sources */,
 				95C6BC221EF7A2CC0055595C /* FoodEventController.swift in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
 				95A38FE31EE83BFE00EA3C8F /* CalendarNavigationController.m in Sources */,
@@ -519,6 +521,7 @@
 				957D9CA11EF3E7AB00891FDC /* YearController.swift in Sources */,
 				95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */,
 				F2878FCC1EE59B8900F4CD9E /* SettingsController.m in Sources */,
+				95C6BC2D1EF7F5840055595C /* DatePickerController.swift in Sources */,
 				957D9CAB1EF402EF00891FDC /* FootballController.swift in Sources */,
 				95BA7E241EEAAFB800823E21 /* NewEventController.m in Sources */,
 				95C6BC2B1EF7D2D50055595C /* AddFoodEventCell.swift in Sources */,
@@ -532,7 +535,6 @@
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
 				95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */,
 				957D9CA31EF3E7F100891FDC /* MonthController.swift in Sources */,
-				95C6BC271EF7AB730055595C /* MealEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

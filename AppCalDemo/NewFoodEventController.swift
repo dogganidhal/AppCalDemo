@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewFoodEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewFoodEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate {
     
     private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", "Repeat", "Waytime"], ["Reminder"], [nil, nil, "Meal type", "Add a photo"]]
     open var newFoodEvent: MealEvent?
@@ -16,7 +16,8 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
-        
+        let entity = NSEntityDescription.entity(forEntityName: "MealEvent", in: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+        newFoodEvent = MealEvent(entity: entity!, insertInto: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
         reloadController()
     }
     
@@ -56,9 +57,33 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell: AddFoodEventCell = tableView.cellForRow(at: indexPath) as! AddFoodEventCell
-        if selectedCell.identifier == .disclosureIndicator {
-            navigationController?.pushViewController(BaseController(), animated: true)
+        switch indexPath.section {
+        case 1:
+            switch indexPath.row {
+            case 1, 2:
+                let datePickerController = DatePickerController()
+                datePickerController.delegate = self
+                datePickerController.senderIdentifier = indexPath.row == 1 ? "start" : "end"
+                navigationController?.pushViewController(datePickerController, animated: true)
+            case 3:
+                // Repeat
+                break
+            default:
+                // AllDay & WayTime
+                break
+            }
+        case 2:
+            // Reminder
+            break
+        case 3:
+            if indexPath.row == 3 {
+                let imagePickercontroller = UIImagePickerController()
+                imagePickercontroller.delegate = self
+                present(imagePickercontroller, animated: true, completion: nil)
+            }
+            break
+        default:
+            break
         }
     }
     
@@ -76,7 +101,12 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
     
     internal func handleSubmit() {
         // Construct the object with retrieved data
-        
+        // FIXME:- Unresolved Crash
+        newFoodEvent?.summary = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! AddFoodEventCell).input as? String ?? ""
+        newFoodEvent?.location = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddFoodEventCell).input as? String ?? ""
+        newFoodEvent?.allDay = (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! AddFoodEventCell).input as? Bool ?? false
+        newFoodEvent?.notes = (tableView.cellForRow(at: IndexPath(row: 1, section: 3)) as! AddFoodEventCell).input as? String ?? ""
+        newFoodEvent?.mealType = Int16((tableView.cellForRow(at: IndexPath(row: 2, section: 3)) as! AddFoodEventCell).input as! Int)
     }
     
     internal func setupCellForSection(_ cell: AddFoodEventCell, atIndexPath indexPath: IndexPath) {
@@ -92,12 +122,12 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM-dd-yyyy HH:mm"
                 cell.identifier = .disclosureIndicator
-                cell.currentValueString = formatter.string(from: newFoodEvent?.startDate ?? Date()) // Should use the registred date
+                cell.currentValueString = formatter.string(from: newFoodEvent?.startDate ?? Date())
             case 2:
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM-dd-yyyy HH:mm"
                 cell.identifier = .disclosureIndicator
-                cell.currentValueString = formatter.string(from: newFoodEvent?.endDate ?? Date()) // Should use the registred date
+                cell.currentValueString = formatter.string(from: newFoodEvent?.endDate ?? Date())
             default:
                 cell.identifier = .disclosureIndicator
                 cell.currentValueString = "Never"
@@ -115,6 +145,8 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
                 cell.segmentTintColor = Settings.mainColor
             default:
                 cell.identifier = .disclosureIndicator
+                let imageData = newFoodEvent?.image
+                cell.currentImage = imageData != nil ? UIImage(data: imageData! as Data) : nil
             }
             
         }
@@ -130,7 +162,18 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info)
+        newFoodEvent?.image = UIImagePNGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage)!
+        picker.dismiss(animated: true, completion: nil)
+        tableView.reloadRows(at: [IndexPath(row: 3, section: 3)], with: .none)
+    }
+    
+    func datePicker(_ datePickerController: DatePickerController, didChooseDate date: Date, forIdentifier identifier: String?) {
+        if identifier == "start" {
+            newFoodEvent?.startDate = date
+        } else {
+            newFoodEvent?.endDate = date
+        }
+        tableView.reloadData()
     }
     
 }

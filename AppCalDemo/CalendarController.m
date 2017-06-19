@@ -7,7 +7,6 @@
 //
 
 #import "CalendarController.h"
-#import "FoodEvent+CoreDataClass.h"
 #import "AppDelegate.h"
 #import "TemplateController.h"
 
