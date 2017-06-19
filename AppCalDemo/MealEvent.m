@@ -1,13 +1,15 @@
 //
-//  NewEventController.h
+//  FoodEvent.m
 //  AppCalDemo
 //
-//  Created by Nidhal on 09.06.17.
+//  Created by Nidhal on 19.06.17.
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
+#import "MealEvent.h"
 #import <UIKit/UIKit.h>
 
-@interface NewEventController : UITableViewController
+@implementation MealEvent
+
 
 @end

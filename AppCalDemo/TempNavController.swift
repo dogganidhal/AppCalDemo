@@ -8,16 +8,14 @@
 
 import UIKit
 
-fileprivate var appCal: AppsoluteCalendar = AppsoluteCalendar()
-
 @objc open class TemplateNavigationController: TemplateController, AppsoluteCalendarDelegate, CalendarComponentControllerDelegate, UINavigationControllerDelegate {
     
     open var yearController: YearController = YearController()
     open var monthController: MonthController = MonthController()
     open var dayController: DayController = DayController()
-    internal var lastUsedDate: Date?
+    internal var lastUsedDate: Date? = Date()
     internal var lastUsedData: AnyObject?
-    internal var appCal: AppsoluteCalendar = AppsoluteCalendar.shared
+    internal var appCal: AppsoluteCalendar = AppsoluteCalendar()
     internal var events: NSMutableArray = NSMutableArray()
     
     override open func viewDidLoad() {
@@ -58,6 +56,11 @@ fileprivate var appCal: AppsoluteCalendar = AppsoluteCalendar()
             // DetailController
             // TODO: present the selected event
         }
+    }
+    
+    open override func reload() {
+        super.reload()
+        self.appCal.setCustomizationOnCalendar()
     }
     
 }

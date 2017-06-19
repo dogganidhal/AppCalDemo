@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TemplateController.h
 //  AppCalDemo
 //
 //  Created by Dogga Nidhal on 05/06/2017.

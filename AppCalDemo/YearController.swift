@@ -16,6 +16,7 @@ open class YearController: AppsoluteCalendarYearVC {
     override open func viewDidLoad() {
         super.viewDidLoad()
         reloadController()
+        
     }
     
     open func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
@@ -33,7 +34,7 @@ open class YearController: AppsoluteCalendarYearVC {
         calendarComponentControllerWantsTransition(self, toDate: calendar.date(from: dateComps)!)
     }
     
-    func reloadController() {
+    internal func reloadController() {
         let titleLabel = UILabel()
         titleLabel.text = "AppCalDemo"
         titleLabel.font = FontBook.boldFont(ofSize: 18)

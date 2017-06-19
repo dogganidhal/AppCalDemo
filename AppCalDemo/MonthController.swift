@@ -38,6 +38,7 @@ open class MonthController: AppsoluteCalendarMonthVC {
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
         navigationController?.navigationBar.tintColor = Settings.mainColor
+        monthView.reloadData()
     }
 
 }

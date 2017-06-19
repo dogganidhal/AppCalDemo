@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>AppCalDemo wants to access the galerie to pick up a picture for the meal</string>
 	<key>AppCalSerialNo</key>
 	<string>bbee4cc9a594571e029c7e706f9b8f57</string>
 	<key>CFBundleDevelopmentRegion</key>

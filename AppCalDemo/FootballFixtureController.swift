@@ -17,11 +17,6 @@ class FootballFixtureController: DetailController {
     fileprivate var event: NSDictionary? {
         return self.eventToDisplay?.event
     }
-    override var eventToDisplay: AppsoluteCalendarDefaultObject? {
-        didSet {
-            reloadView()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +24,7 @@ class FootballFixtureController: DetailController {
         reloadView()
     }
 
-    fileprivate func reloadView() {
+    override func reloadView() {
         // ** Content settings
         let eventDate = event?.value(forKey: "STARTDATE") as? Date
         if eventDate != nil {

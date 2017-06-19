@@ -43,4 +43,8 @@ class FootballController: TemplateNavigationController {
         }
     }
     
+    func addEvent() {
+        pushViewController(BaseController(), animated: true)
+    }
+    
 }

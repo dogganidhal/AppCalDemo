@@ -7,12 +7,8 @@
 //
 
 #import "NewEventController.h"
-#import "CalendarNavigationController.h"
 
 @interface NewEventController ()
-
-@property (nonatomic, strong) AppsoluteCalendar *appCal;
-@property (nonatomic, strong) AppsoluteCalendarDetail *detailView;
 
 @end
 
@@ -21,27 +17,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _appCal = [[AppsoluteCalendar alloc] init];
-    [_appCal setAddButtonVisibility:YES];
-    [_appCal setCalVisible];
-    _detailView.myDelegate = self;
-    [self.view addSubview:_detailView];
-}
-
-- (void)detailViewWillEditEvent:(AppsoluteCalendarDetail *)detailView eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitNewEvent)];
     
 }
 
-- (void)detailViewWillDeleteEvent:(AppsoluteCalendarDetail *)detailView eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[UITableViewCell alloc] init];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     
 }
 
-- (void)detailViewWillDeleteOneEvent:(AppsoluteCalendarDetail *)detailView eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
-    
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [NSString stringWithFormat:@"Section %ld", section];
 }
 
-- (void)detailViewWillDeleteFollowingEvent:(AppsoluteCalendarDetail *)detailView eventsForDate:(AppsoluteCalendarDefaultObject *)eventsForDate {
-    
+- (void)submitNewEvent {
+    NSLog(@"Submit");
 }
 
 @end

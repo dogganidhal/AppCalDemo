@@ -6,6 +6,7 @@
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
+#import "AppsoluteCalendar+FoodCalendar.h"
 #import "DetailSettingController.h"
 #import "DetailSettingCell.h"
 #import "SettingsController.h"
@@ -113,6 +114,7 @@
     [tabbarController viewDidLoad];
     [self reloadController];
     [self setupView];
+    [AppsoluteCalendar.shared setCustomizationOnCalendar];
     if ([[_selectedObject objectForKey:@"Title"] isEqualToString:@"Theme"]) {
         [UIApplication sharedApplication].statusBarStyle = Settings.appTheme == ApplicationThemeLight ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
     }

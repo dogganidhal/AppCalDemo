@@ -10,7 +10,11 @@ import UIKit
 
 class DetailController: BaseController {
     
-    open var eventToDisplay: AppsoluteCalendarDefaultObject?
+    open var eventToDisplay: AppsoluteCalendarDefaultObject? {
+        didSet {
+            reloadView()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,4 +22,8 @@ class DetailController: BaseController {
         reload()
     }
 
+    open func reloadView() {
+        // Do any setup after an event is being set
+    }
+    
 }

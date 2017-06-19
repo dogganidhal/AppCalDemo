@@ -17,6 +17,7 @@
     returnedEvent.homeTeam = [event valueForKey:@"HOMETEAM"];
     returnedEvent.awayTeam = [event valueForKey:@"AWAYTEAM"];
     return returnedEvent;
+    
 }
 
 @end
