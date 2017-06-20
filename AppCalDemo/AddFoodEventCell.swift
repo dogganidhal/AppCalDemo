@@ -8,7 +8,13 @@
 
 import UIKit
 
-class AddFoodEventCell: UITableViewCell {
+@objc protocol AddFoodEventCellDelegate: NSObjectProtocol {
+    
+    @objc optional func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?)
+    
+}
+
+class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
     
     public enum AddFoodEventCellIdentifier {
         case textField
@@ -18,6 +24,8 @@ class AddFoodEventCell: UITableViewCell {
         case none
     }
 
+    open weak var delegate: AddFoodEventCellDelegate?
+    
     open var identifier: AddFoodEventCellIdentifier = .none {
         didSet {
             reloadCell()
@@ -35,16 +43,28 @@ class AddFoodEventCell: UITableViewCell {
             default:
                 return nil
             }
-        } set {}
+        } set {
+            setInput()
+        }
     }
     open var placeholderForTextField: String? {
         willSet {
             textField?.placeholder = newValue
         }
     }
+    open var textForTextField: String? {
+        willSet {
+            textField?.text = newValue
+        }
+    }
     open var textColorForTextField: UIColor? {
         willSet {
             textField?.textColor = newValue
+        }
+    }
+    open var valueForSwitch: Bool? {
+        willSet {
+            self.switch?.isOn = newValue ?? false
         }
     }
     open var segmentTintColor: UIColor? {
@@ -112,11 +132,31 @@ class AddFoodEventCell: UITableViewCell {
         }
     }
     
+    private func setInput() {
+        switch identifier {
+        case .disclosureIndicator:
+            if input is UIImage {
+                rightImageView?.image = input as? UIImage
+            } else {
+                currentValueLabel?.text = input as? String
+            }
+        case .segment:
+            segment?.selectedSegmentIndex = input as! Int
+        case .switch:
+            `switch`?.isOn = input as! Bool
+        case .textField:
+            textField?.text = input as? String
+        default:
+            break
+        }
+    }
+    
     private func setToTextFieldCell() {
         self.accessoryView = nil
         self.accessoryType = .none
         self.textField = UITextField(frame: CGRect(x: 16, y: 0, width: frame.width - 32, height: frame.height))
         self.textField?.font = FontBook.regularFont(ofSize: 16)
+        self.textField?.delegate = self
         self.switch = nil
         self.segment = nil
         self.rightImageView = nil
@@ -166,5 +206,16 @@ class AddFoodEventCell: UITableViewCell {
         self.currentValueLabel = nil
         self.rightImageView = nil
     }
+    
+    @objc private func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?) {
+        guard let delegate = self.delegate else { return }
+        if delegate.responds(to: #selector(addFoodEventCell(_:shouldSaveData:))) {
+            delegate.addFoodEventCell!(self, shouldSaveData: input)
+        }
+    }
 
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        addFoodEventCell(self, shouldSaveData: input)
+    }
+    
 }

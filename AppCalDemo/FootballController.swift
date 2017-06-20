@@ -17,6 +17,10 @@ class FootballController: TemplateNavigationController {
         for item in data as! NSMutableArray {
             events.add(NSMutableDictionary(dictionary: item as! NSDictionary))
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         appCal.reloadEvents(events)
     }
     
@@ -32,7 +36,6 @@ class FootballController: TemplateNavigationController {
     }
 
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        // Configure the detail view ?
         if viewController is MonthController {
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
         } else if viewController is DayController {
@@ -41,10 +44,6 @@ class FootballController: TemplateNavigationController {
             // DetailController
             (viewController as! FootballFixtureController).eventToDisplay = lastUsedData as? AppsoluteCalendarDefaultObject
         }
-    }
-    
-    func addEvent() {
-        pushViewController(BaseController(), animated: true)
     }
     
 }

@@ -15,7 +15,8 @@
 		957D9CA91EF3F0BD00891FDC /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CA81EF3F0BD00891FDC /* DetailController.swift */; };
 		957D9CAB1EF402EF00891FDC /* FootballController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CAA1EF402EF00891FDC /* FootballController.swift */; };
 		957D9CAD1EF4068F00891FDC /* FootballFixtureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CAC1EF4068F00891FDC /* FootballFixtureController.swift */; };
-		957D9CB01EF40A0C00891FDC /* FootballEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CAF1EF40A0C00891FDC /* FootballEvent.m */; };
+		95808E7C1EF917EB00CC7141 /* FoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95808E7A1EF917EB00CC7141 /* FoodEventController.swift */; };
+		95808E7D1EF917EB00CC7141 /* FoodEventController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95808E7B1EF917EB00CC7141 /* FoodEventController.xib */; };
 		95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95A38EE31EE7D13600EA3C8F /* Fonts.plist */; };
 		95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EE71EE7D55600EA3C8F /* FontBook.m */; };
 		95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38EEA1EE7DE8B00EA3C8F /* Settings.m */; };
@@ -39,7 +40,6 @@
 		95BA7E1F1EEA916B00823E21 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */; };
 		95BA7E241EEAAFB800823E21 /* NewEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA7E231EEAAFB800823E21 /* NewEventController.m */; };
 		95C6BC201EF7A1F10055595C /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC1F1EF7A1F10055595C /* FoodController.swift */; };
-		95C6BC221EF7A2CC0055595C /* FoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC211EF7A2CC0055595C /* FoodEventController.swift */; };
 		95C6BC291EF7C8120055595C /* NewFoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC281EF7C8120055595C /* NewFoodEventController.swift */; };
 		95C6BC2B1EF7D2D50055595C /* AddFoodEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */; };
 		95C6BC2D1EF7F5840055595C /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC2C1EF7F5840055595C /* DatePickerController.swift */; };
@@ -90,8 +90,8 @@
 		957D9CA81EF3F0BD00891FDC /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		957D9CAA1EF402EF00891FDC /* FootballController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootballController.swift; sourceTree = "<group>"; };
 		957D9CAC1EF4068F00891FDC /* FootballFixtureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootballFixtureController.swift; sourceTree = "<group>"; };
-		957D9CAE1EF40A0C00891FDC /* FootballEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballEvent.h; sourceTree = "<group>"; };
-		957D9CAF1EF40A0C00891FDC /* FootballEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootballEvent.m; sourceTree = "<group>"; };
+		95808E7A1EF917EB00CC7141 /* FoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodEventController.swift; sourceTree = "<group>"; };
+		95808E7B1EF917EB00CC7141 /* FoodEventController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodEventController.xib; sourceTree = "<group>"; };
 		95A38EE31EE7D13600EA3C8F /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
 		95A38EE61EE7D55600EA3C8F /* FontBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontBook.h; sourceTree = "<group>"; };
 		95A38EE71EE7D55600EA3C8F /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontBook.m; sourceTree = "<group>"; };
@@ -127,7 +127,6 @@
 		95BA7E221EEAAFB800823E21 /* NewEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEventController.h; sourceTree = "<group>"; };
 		95BA7E231EEAAFB800823E21 /* NewEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEventController.m; sourceTree = "<group>"; };
 		95C6BC1F1EF7A1F10055595C /* FoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
-		95C6BC211EF7A2CC0055595C /* FoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodEventController.swift; sourceTree = "<group>"; };
 		95C6BC281EF7C8120055595C /* NewFoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFoodEventController.swift; sourceTree = "<group>"; };
 		95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodEventCell.swift; sourceTree = "<group>"; };
 		95C6BC2C1EF7F5840055595C /* DatePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerController.swift; sourceTree = "<group>"; };
@@ -209,8 +208,6 @@
 				95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */,
 				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
 				95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */,
-				957D9CAE1EF40A0C00891FDC /* FootballEvent.h */,
-				957D9CAF1EF40A0C00891FDC /* FootballEvent.m */,
 				95C6BC2E1EF813510055595C /* MealEvent.swift */,
 			);
 			name = Model;
@@ -253,10 +250,11 @@
 			isa = PBXGroup;
 			children = (
 				95C6BC1F1EF7A1F10055595C /* FoodController.swift */,
-				95C6BC211EF7A2CC0055595C /* FoodEventController.swift */,
 				95C6BC281EF7C8120055595C /* NewFoodEventController.swift */,
 				95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */,
 				95C6BC2C1EF7F5840055595C /* DatePickerController.swift */,
+				95808E7A1EF917EB00CC7141 /* FoodEventController.swift */,
+				95808E7B1EF917EB00CC7141 /* FoodEventController.xib */,
 			);
 			name = Food;
 			sourceTree = "<group>";
@@ -464,6 +462,7 @@
 				95AC05401EF003E100850973 /* Eredivisie.json in Resources */,
 				F2878FBD1EE58A0B00F4CD9E /* LaunchScreen.storyboard in Resources */,
 				95AC053E1EF003E100850973 /* Primera División.json in Resources */,
+				95808E7D1EF917EB00CC7141 /* FoodEventController.xib in Resources */,
 				95AC053C1EF003E100850973 /* Champions League.json in Resources */,
 				95AC053D1EF003E100850973 /* Serie A.json in Resources */,
 				95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */,
@@ -503,13 +502,12 @@
 				95C6BC291EF7C8120055595C /* NewFoodEventController.swift in Sources */,
 				957D9CA91EF3F0BD00891FDC /* DetailController.swift in Sources */,
 				95C6BC2F1EF813510055595C /* MealEvent.swift in Sources */,
-				95C6BC221EF7A2CC0055595C /* FoodEventController.swift in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
 				95A38FE31EE83BFE00EA3C8F /* CalendarNavigationController.m in Sources */,
-				957D9CB01EF40A0C00891FDC /* FootballEvent.m in Sources */,
 				957D9CA51EF3E80900891FDC /* DayController.swift in Sources */,
 				95AC05491EF020B000850973 /* CalendarController.m in Sources */,
 				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
+				95808E7C1EF917EB00CC7141 /* FoodEventController.swift in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
 				95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */,
 				95C6BC201EF7A1F10055595C /* FoodController.swift in Sources */,

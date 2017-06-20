@@ -21,6 +21,7 @@ class FootballFixtureController: DetailController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         reloadView()
     }
 
@@ -28,8 +29,7 @@ class FootballFixtureController: DetailController {
         // ** Content settings
         let eventDate = event?.value(forKey: "STARTDATE") as? Date
         if eventDate != nil {
-            let calendar = NSCalendar(identifier: .gregorian)!
-            let dateText: String? = "\(calendar.component(.month, from: eventDate!))/\(calendar.component(.day, from: eventDate!)) at " + (event?.value(forKey: "startTimeString") as! String)
+            let dateText: String? = "\(event?.value(forKey: "startDateString") ?? "") at " + (event?.value(forKey: "startTimeString") as! String)
             dateLabel.text = dateText
         }
         summaryTextView.text = event?.value(forKey: "SUMMARY") as? String

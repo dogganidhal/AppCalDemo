@@ -10,7 +10,7 @@ import UIKit
 
 class DetailController: BaseController {
     
-    open var eventToDisplay: AppsoluteCalendarDefaultObject? {
+    open var eventToDisplay: AnyObject? {
         didSet {
             reloadView()
         }

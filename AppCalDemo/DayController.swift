@@ -43,8 +43,8 @@ open class DayController: AppsoluteCalendarDayVC {
     }
     
     override open func dayViewDidSelectDefaultEvent(_ dayView: AppsoluteCalendarDay, date: Date, eventsForDate: AppsoluteCalendarDefaultObject) {
-        calendarComponentControllerWantsTransition(self, toDate: date)
         calendarComponentControllerShouldPassData(self, dataToPass: eventsForDate)
+        calendarComponentControllerWantsTransition(self, toDate: date)
     }
 
 }

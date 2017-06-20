@@ -352,11 +352,35 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar17AppsoluteCalendar")
 - (void)setDateChangeAlert:(NSString * _Nonnull)title message:(NSString * _Nonnull)message;
 @end
 
+@class NSBundle;
 @class NSCoder;
+
+SWIFT_CLASS("_TtC17AppsoluteCalendar39AppsoluteCalendarTemplateViewController")
+@interface AppsoluteCalendarTemplateViewController : UIViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIStoryboardSegue;
+
+SWIFT_CLASS("_TtC17AppsoluteCalendar25AppsoluteCalendarAddingVC")
+@interface AppsoluteCalendarAddingVC : AppsoluteCalendarTemplateViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC17AppsoluteCalendar29AppsoluteCalendarTemplateView")
 @interface AppsoluteCalendarTemplateView : UIView
 - (void)layoutSubviews;
+- (void)chanceBGColor;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -370,6 +394,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar29AppsoluteCalendarTemplateView")
 SWIFT_CLASS("_TtC17AppsoluteCalendar20AppsoluteCalendarDay")
 @interface AppsoluteCalendarDay : AppsoluteCalendarTemplateView <UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) id <AppsoluteCalendarDayDelegate> _Nullable myDelegate;
+@property (nonatomic, copy) NSDate * _Null_unspecified receivedDate;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame currentDate:(NSDate * _Nonnull)currentDate OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -401,18 +426,6 @@ SWIFT_PROTOCOL("_TtP17AppsoluteCalendar28AppsoluteCalendarDayDelegate_")
 - (void)dayViewDidSelectDefaultEvent:(AppsoluteCalendarDay * _Nonnull)dayView date:(NSDate * _Nonnull)date eventsForDate:(AppsoluteCalendarDefaultObject * _Nonnull)eventsForDate;
 @end
 
-@class NSBundle;
-
-SWIFT_CLASS("_TtC17AppsoluteCalendar39AppsoluteCalendarTemplateViewController")
-@interface AppsoluteCalendarTemplateViewController : UIViewController
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)didReceiveMemoryWarning;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIStoryboardSegue;
 @protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS("_TtC17AppsoluteCalendar22AppsoluteCalendarDayVC")
@@ -455,6 +468,10 @@ SWIFT_PROTOCOL("_TtP17AppsoluteCalendar25AppsoluteCalendarDelegate_")
 /// \param newEvent NSMutableDictionary: The new event that needs to be added instead
 ///
 - (void)changeOldEventToNewEvent:(NSMutableDictionary * _Nonnull)oldEvent newEvent:(NSMutableDictionary * _Nonnull)newEvent;
+/// Tells the delegate that the detailView clicked a link. Only available when using the complete Calendar.
+/// \param clickedLink String: The clicked URL
+///
+- (void)detailViewClickedLink:(NSString * _Nonnull)clickedLink;
 @end
 
 @protocol AppsoluteCalendarDetailViewDelegate;
@@ -472,6 +489,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar23AppsoluteCalendarDetail")
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)mapViewWillStartLoadingMap:(MKMapView * _Nonnull)mapView;
 - (void)mapViewDidFinishLoadingMap:(MKMapView * _Nonnull)mapView;
 - (void)mapViewDidFailLoadingMap:(MKMapView * _Nonnull)mapView withError:(NSError * _Nonnull)error;
@@ -525,6 +543,20 @@ SWIFT_PROTOCOL("_TtP17AppsoluteCalendar35AppsoluteCalendarDetailViewDelegate_")
 ///   </li>
 /// </ul>
 - (void)detailViewWillDeleteFollowingEvent:(AppsoluteCalendarDetail * _Nonnull)detailView eventsForDate:(AppsoluteCalendarDefaultObject * _Nonnull)eventsForDate;
+@optional
+/// Tells the delegate that the urlcell has been selected.
+/// <ul>
+///   <li>
+///     parameters:
+///   </li>
+///   <li>
+///     detailView:  AppsoluteCalendarDetail: The view that starts deleting
+///   </li>
+///   <li>
+///     url:         String: The url-string
+///   </li>
+/// </ul>
+- (void)detailViewSelectedURL:(AppsoluteCalendarDetail * _Nonnull)detailView url:(NSString * _Nonnull)url;
 @end
 
 
@@ -538,6 +570,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar25AppsoluteCalendarDetailVC")
 - (void)detailViewWillDeleteEvent:(AppsoluteCalendarDetail * _Nonnull)detailView eventsForDate:(AppsoluteCalendarDefaultObject * _Nonnull)eventsForDate;
 - (void)detailViewWillDeleteOneEvent:(AppsoluteCalendarDetail * _Nonnull)detailView eventsForDate:(AppsoluteCalendarDefaultObject * _Nonnull)eventsForDate;
 - (void)detailViewWillDeleteFollowingEvent:(AppsoluteCalendarDetail * _Nonnull)detailView eventsForDate:(AppsoluteCalendarDefaultObject * _Nonnull)eventsForDate;
+- (void)detailViewSelectedURL:(AppsoluteCalendarDetail * _Nonnull)detailView url:(NSString * _Nonnull)url;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -563,6 +596,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar22AppsoluteCalendarMonth")
 - (void)layoutSubviews;
 /// Adds the “Today”-Button and its functionality to the Bar on the lower screen.
 - (void)setupTodayButton;
+- (void)chanceBGColor;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -711,6 +745,7 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar21AppsoluteCalendarYear")
 - (void)layoutSubviews;
 /// Adds the “Today”-Button and its functionality to the Bar on the lower screen.
 - (void)setupTodayButton;
+- (void)chanceBGColor;
 /// Reloads the data in the collection view
 - (void)reloadData;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;

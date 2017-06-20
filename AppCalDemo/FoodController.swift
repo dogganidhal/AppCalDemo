@@ -9,15 +9,36 @@
 import UIKit
 
 class FoodController: TemplateNavigationController {
-
+    
     internal var addButton: UIButton = UIButton()
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var context: NSManagedObjectContext {
+        return appDelegate.persistentContainer.viewContext
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        appCal.reloadEvents()
         setupAddButton()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadEvents()
+    }
+    
+    internal func loadEvents() {
+        var eventArray = NSMutableArray()
+        do {
+            eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
+        } catch {
+            print("CoreData Error, can't fetch data")
+        }
+        for event in eventArray {
+            events.add((event as! MealEvent).dictionaryFromEvent())
+        }
+        appCal.reloadEvents(events)
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,13 +53,19 @@ class FoodController: TemplateNavigationController {
         case is MonthController:
             pushViewController(dayController, animated: true)
         default:
-            pushViewController(FoodEventController(), animated: true)
+            let foodEventController = FoodEventController()
+            foodEventController.eventToDisplay = lastUsedData // get the event to display
+            pushViewController(foodEventController, animated: true)
         }
         lastUsedDate = date
     }
     
+    
+    
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         switch viewController {
+        case is YearController:
+            setAddButtonVisibility(true)
         case is MonthController:
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
             setAddButtonVisibility(true)
@@ -53,7 +80,7 @@ class FoodController: TemplateNavigationController {
             setAddButtonVisibility(false)
             break
         default:
-            setAddButtonVisibility(true)
+            setAddButtonVisibility(false)
             break
         }
     }
@@ -86,5 +113,7 @@ class FoodController: TemplateNavigationController {
             self?.addButton.isHidden = !visible
         }
     }
+    
+    
     
 }
