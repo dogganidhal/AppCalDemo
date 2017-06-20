@@ -52,6 +52,7 @@ import UIKit
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
         } else if viewController is DayController {
             // TODO: Scroll to the last used date
+            
         } else {
             // DetailController
             // TODO: present the selected event

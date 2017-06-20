@@ -29,6 +29,7 @@ class FoodController: TemplateNavigationController {
     }
     
     internal func loadEvents() {
+        guard events.count == 0 else { return }
         var eventArray = NSMutableArray()
         do {
             eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
@@ -93,10 +94,10 @@ class FoodController: TemplateNavigationController {
         addButton.backgroundColor = Settings.mainColor.withAlphaComponent(0.90)
         addButton.addTarget(self, action: #selector(addEvent), for: .touchUpInside)
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -72).isActive = true
         addButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        addButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        addButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
     }
     
     internal func addEvent() {
@@ -114,6 +115,9 @@ class FoodController: TemplateNavigationController {
         }
     }
     
-    
+    override func reload() {
+        super.reload()
+        setupAddButton()
+    }
     
 }

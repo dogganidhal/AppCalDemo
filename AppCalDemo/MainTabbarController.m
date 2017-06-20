@@ -14,10 +14,7 @@
 #import "FontBook.h"
 #import "Settings.h"
 #import "AppCalDemo-Swift.h"
-#import "CalendarNavigationController.h"
 #import "NotifsController.h"
-#import "CalendarNavigationBar.h"
-#import "CalendarController.h"
 
 @interface MainTabbarController ()
 

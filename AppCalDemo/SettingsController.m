@@ -137,6 +137,7 @@
     titleLabel.textColor = [Settings mainColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
+    self.navigationController.navigationBar.tintColor = Settings.mainColor;
 }
 
 @end

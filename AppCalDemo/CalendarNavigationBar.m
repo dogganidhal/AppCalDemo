@@ -28,7 +28,6 @@ const CGFloat CalendarNavigationBarHeightIncrease = 40;
     return newSize;
 }
 
-#warning The back button is showing a weird animation
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSArray *classNamesToReposition = @[@"UINavigationItemView", @"UINavigationButton", @"_UINavigationBarBackIndicatorView"];

@@ -430,6 +430,7 @@ SWIFT_PROTOCOL("_TtP17AppsoluteCalendar28AppsoluteCalendarDayDelegate_")
 
 SWIFT_CLASS("_TtC17AppsoluteCalendar22AppsoluteCalendarDayVC")
 @interface AppsoluteCalendarDayVC : AppsoluteCalendarTemplateViewController <AppsoluteCalendarDayDelegate>
+@property (nonatomic, strong) IBOutlet AppsoluteCalendarDay * _Null_unspecified dayView;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;
@@ -806,6 +807,7 @@ SWIFT_PROTOCOL("_TtP17AppsoluteCalendar33AppsoluteCalendarYearViewDelegate_")
 
 SWIFT_CLASS("_TtC17AppsoluteCalendar23AppsoluteCalendarYearVC")
 @interface AppsoluteCalendarYearVC : AppsoluteCalendarTemplateViewController <AppsoluteCalendarYearViewDelegate>
+@property (nonatomic, strong) IBOutlet AppsoluteCalendarYear * _Null_unspecified yearView;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;

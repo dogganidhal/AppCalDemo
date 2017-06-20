@@ -24,6 +24,8 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
         newFoodEvent = NSEntityDescription.insertNewObject(forEntityName: "MealEvent", into: context) as! MealEvent
         newFoodEvent.startDate = Date()
         newFoodEvent.endDate = Date()
+        newFoodEvent.mealType = 0
+        newFoodEvent.allDay = false
         reloadController()
     }
     

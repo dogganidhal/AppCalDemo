@@ -25,7 +25,7 @@ open class MonthController: AppsoluteCalendarMonthVC {
             delegate.calendarComponentControllerWantsTransition!(controller, toDate: date)
         }
     }
-    
+        
     override open func calendarDidSelectDate(_ calendar: AppsoluteCalendarMonth, date: Date, eventsForDate: NSMutableArray) {
         calendarComponentControllerWantsTransition(self, toDate: date)
     }

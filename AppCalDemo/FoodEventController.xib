@@ -45,9 +45,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tc6-a5-zn8">
-                    <rect key="frame" x="14" y="306" width="345" height="345"/>
+                    <rect key="frame" x="14" y="392.5" width="345" height="258.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Tc6-a5-zn8" secondAttribute="height" multiplier="1:1" id="iha-Rl-jrE" userLabel="aspect = 1:1"/>
+                        <constraint firstAttribute="width" secondItem="Tc6-a5-zn8" secondAttribute="height" multiplier="4:3" id="iha-Rl-jrE" userLabel="aspect = 1:1"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q3-nl-i1j">

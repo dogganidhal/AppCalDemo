@@ -26,19 +26,16 @@
 		95A38FD61EE7FE7000EA3C8F /* AppsoluteCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95A38FD71EE7FE7000EA3C8F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; };
 		95A38FD81EE7FE7000EA3C8F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95A38FE31EE83BFE00EA3C8F /* CalendarNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */; };
 		95AC053C1EF003E100850973 /* Champions League.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05361EF003E100850973 /* Champions League.json */; };
 		95AC053D1EF003E100850973 /* Serie A.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05371EF003E100850973 /* Serie A.json */; };
 		95AC053E1EF003E100850973 /* Primera División.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05381EF003E100850973 /* Primera División.json */; };
 		95AC053F1EF003E100850973 /* Ligue 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05391EF003E100850973 /* Ligue 1.json */; };
 		95AC05401EF003E100850973 /* Eredivisie.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC053A1EF003E100850973 /* Eredivisie.json */; };
 		95AC05411EF003E100850973 /* Premier League.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC053B1EF003E100850973 /* Premier League.json */; };
-		95AC05491EF020B000850973 /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AC05481EF020B000850973 /* CalendarController.m */; };
 		95B71E711EE9226D003FA9E2 /* NotifsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E701EE9226D003FA9E2 /* NotifsController.m */; };
 		95B71E871EE93A34003FA9E2 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E861EE93A34003FA9E2 /* SettingsCell.m */; };
 		95B71E8D1EE9585A003FA9E2 /* FootballDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */; };
 		95BA7E1F1EEA916B00823E21 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */; };
-		95BA7E241EEAAFB800823E21 /* NewEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA7E231EEAAFB800823E21 /* NewEventController.m */; };
 		95C6BC201EF7A1F10055595C /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC1F1EF7A1F10055595C /* FoodController.swift */; };
 		95C6BC291EF7C8120055595C /* NewFoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC281EF7C8120055595C /* NewFoodEventController.swift */; };
 		95C6BC2B1EF7D2D50055595C /* AddFoodEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */; };
@@ -49,9 +46,9 @@
 		95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */; };
 		95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */; };
 		95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */; };
-		95DFE8A91EEEA44E009BBCAF /* CalendarTemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A81EEEA44E009BBCAF /* CalendarTemplateController.m */; };
 		95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */; };
 		95DFE8AE1EEED118009BBCAF /* Bundes Liga.json in Resources */ = {isa = PBXBuildFile; fileRef = 95DFE8AD1EEED118009BBCAF /* Bundes Liga.json */; };
+		95EA7CD11EF966E900EACA5A /* EditFoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA7CD01EF966E900EACA5A /* EditFoodEventController.swift */; };
 		F2878FAC1EE58A0B00F4CD9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAB1EE58A0B00F4CD9E /* main.m */; };
 		F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */; };
 		F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2878FB11EE58A0B00F4CD9E /* TemplateController.m */; };
@@ -107,16 +104,12 @@
 		95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
 		95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
 		95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCalDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		95A38FE11EE83BFE00EA3C8F /* CalendarNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarNavigationController.h; sourceTree = "<group>"; };
-		95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarNavigationController.m; sourceTree = "<group>"; };
 		95AC05361EF003E100850973 /* Champions League.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Champions League.json"; sourceTree = "<group>"; };
 		95AC05371EF003E100850973 /* Serie A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Serie A.json"; sourceTree = "<group>"; };
 		95AC05381EF003E100850973 /* Primera División.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Primera División.json"; sourceTree = "<group>"; };
 		95AC05391EF003E100850973 /* Ligue 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Ligue 1.json"; sourceTree = "<group>"; };
 		95AC053A1EF003E100850973 /* Eredivisie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Eredivisie.json; sourceTree = "<group>"; };
 		95AC053B1EF003E100850973 /* Premier League.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Premier League.json"; sourceTree = "<group>"; };
-		95AC05471EF020B000850973 /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
-		95AC05481EF020B000850973 /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
 		95B71E6F1EE9226D003FA9E2 /* NotifsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifsController.h; sourceTree = "<group>"; };
 		95B71E701EE9226D003FA9E2 /* NotifsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifsController.m; sourceTree = "<group>"; };
 		95B71E851EE93A34003FA9E2 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsCell.h; path = AppCalDemo/SettingsCell.h; sourceTree = "<group>"; };
@@ -124,8 +117,6 @@
 		95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballDataManager.h; sourceTree = "<group>"; };
 		95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootballDataManager.m; sourceTree = "<group>"; };
 		95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
-		95BA7E221EEAAFB800823E21 /* NewEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEventController.h; sourceTree = "<group>"; };
-		95BA7E231EEAAFB800823E21 /* NewEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEventController.m; sourceTree = "<group>"; };
 		95C6BC1F1EF7A1F10055595C /* FoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
 		95C6BC281EF7C8120055595C /* NewFoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFoodEventController.swift; sourceTree = "<group>"; };
 		95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodEventCell.swift; sourceTree = "<group>"; };
@@ -140,11 +131,10 @@
 		95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarNavigationBar.m; path = AppCalDemo/CalendarNavigationBar.m; sourceTree = "<group>"; };
 		95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsoluteCalendar+FoodCalendar.h"; sourceTree = "<group>"; };
 		95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppsoluteCalendar+FoodCalendar.m"; sourceTree = "<group>"; };
-		95DFE8A71EEEA44E009BBCAF /* CalendarTemplateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTemplateController.h; sourceTree = "<group>"; };
-		95DFE8A81EEEA44E009BBCAF /* CalendarTemplateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTemplateController.m; sourceTree = "<group>"; };
 		95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		95DFE8AD1EEED118009BBCAF /* Bundes Liga.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Bundes Liga.json"; sourceTree = "<group>"; };
+		95EA7CD01EF966E900EACA5A /* EditFoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFoodEventController.swift; sourceTree = "<group>"; };
 		F2878FA71EE58A0B00F4CD9E /* AppCalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2878FAB1EE58A0B00F4CD9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,8 +220,6 @@
 		95AC05461EF0201800850973 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				95AC05471EF020B000850973 /* CalendarController.h */,
-				95AC05481EF020B000850973 /* CalendarController.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -254,22 +242,10 @@
 				95C6BC2A1EF7D2D50055595C /* AddFoodEventCell.swift */,
 				95C6BC2C1EF7F5840055595C /* DatePickerController.swift */,
 				95808E7A1EF917EB00CC7141 /* FoodEventController.swift */,
+				95EA7CD01EF966E900EACA5A /* EditFoodEventController.swift */,
 				95808E7B1EF917EB00CC7141 /* FoodEventController.xib */,
 			);
 			name = Food;
-			sourceTree = "<group>";
-		};
-		95B71E661EE9214F003FA9E2 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				95A38FE11EE83BFE00EA3C8F /* CalendarNavigationController.h */,
-				95A38FE21EE83BFE00EA3C8F /* CalendarNavigationController.m */,
-				95BA7E221EEAAFB800823E21 /* NewEventController.h */,
-				95BA7E231EEAAFB800823E21 /* NewEventController.m */,
-				95DFE8A71EEEA44E009BBCAF /* CalendarTemplateController.h */,
-				95DFE8A81EEEA44E009BBCAF /* CalendarTemplateController.m */,
-			);
-			name = Calendar;
 			sourceTree = "<group>";
 		};
 		95B71E671EE92159003FA9E2 /* Basics */ = {
@@ -282,7 +258,6 @@
 				F2878FC41EE591B300F4CD9E /* MainTabbarController.h */,
 				F2878FC51EE591B400F4CD9E /* MainTabbarController.m */,
 				95B71E8E1EE95D3D003FA9E2 /* Swift Classes */,
-				95B71E661EE9214F003FA9E2 /* Calendar */,
 			);
 			name = Basics;
 			sourceTree = "<group>";
@@ -503,15 +478,14 @@
 				957D9CA91EF3F0BD00891FDC /* DetailController.swift in Sources */,
 				95C6BC2F1EF813510055595C /* MealEvent.swift in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
-				95A38FE31EE83BFE00EA3C8F /* CalendarNavigationController.m in Sources */,
 				957D9CA51EF3E80900891FDC /* DayController.swift in Sources */,
-				95AC05491EF020B000850973 /* CalendarController.m in Sources */,
 				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
 				95808E7C1EF917EB00CC7141 /* FoodEventController.swift in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
 				95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */,
 				95C6BC201EF7A1F10055595C /* FoodController.swift in Sources */,
 				F2878FB81EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld in Sources */,
+				95EA7CD11EF966E900EACA5A /* EditFoodEventController.swift in Sources */,
 				95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */,
 				957D9C731EF3C9B500891FDC /* TempNavController.swift in Sources */,
 				957D9CA71EF3E83000891FDC /* CalendarComponentControllerDelegate.swift in Sources */,
@@ -521,7 +495,6 @@
 				F2878FCC1EE59B8900F4CD9E /* SettingsController.m in Sources */,
 				95C6BC2D1EF7F5840055595C /* DatePickerController.swift in Sources */,
 				957D9CAB1EF402EF00891FDC /* FootballController.swift in Sources */,
-				95BA7E241EEAAFB800823E21 /* NewEventController.m in Sources */,
 				95C6BC2B1EF7D2D50055595C /* AddFoodEventCell.swift in Sources */,
 				95B71E871EE93A34003FA9E2 /* SettingsCell.m in Sources */,
 				F2878FAF1EE58A0B00F4CD9E /* AppDelegate.m in Sources */,
@@ -529,7 +502,6 @@
 				F2878FC91EE5984300F4CD9E /* BaseController.m in Sources */,
 				957D9CAD1EF4068F00891FDC /* FootballFixtureController.swift in Sources */,
 				95B71E711EE9226D003FA9E2 /* NotifsController.m in Sources */,
-				95DFE8A91EEEA44E009BBCAF /* CalendarTemplateController.m in Sources */,
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
 				95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */,
 				957D9CA31EF3E7F100891FDC /* MonthController.swift in Sources */,

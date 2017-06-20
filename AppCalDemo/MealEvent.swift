@@ -60,8 +60,6 @@ public enum MealType: Int16 {
     
     public override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
-        allDay = false
-        mealType = 0
         recurrency_STRING = "none"
         uid = uuid()
     }
