@@ -126,6 +126,7 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
             cell.identifier = .textField
             cell.placeholderForTextField = indexPath.row == 0 ? "Title" : "Location"
             cell.textForTextField = indexPath.row == 0 ? newFoodEvent.summary : newFoodEvent.location
+            cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
         case 1:
             switch indexPath.row {
             case 0, 4:
@@ -151,6 +152,7 @@ class NewFoodEventController: UITableViewController, UIImagePickerControllerDele
                 cell.identifier = .textField
                 cell.placeholderForTextField = indexPath.row == 0 ? "URL" : "Notes"
                 cell.textForTextField = indexPath.row == 1 ? newFoodEvent.notes : nil
+                cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
             case 2:
                 cell.identifier = .segment
                 cell.segmentTintColor = Settings.mainColor

@@ -52,10 +52,11 @@ class FoodController: TemplateNavigationController {
         case is YearController:
             pushViewController(monthController, animated: false)
         case is MonthController:
+            dayController.receivedDate = date
             pushViewController(dayController, animated: true)
         default:
             let foodEventController = FoodEventController()
-            foodEventController.eventToDisplay = lastUsedData // get the event to display
+            foodEventController.eventToDisplay = lastUsedData
             pushViewController(foodEventController, animated: true)
         }
         lastUsedDate = date

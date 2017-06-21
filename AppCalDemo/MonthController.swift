@@ -12,11 +12,19 @@ import AppsoluteCalendar
 open class MonthController: AppsoluteCalendarMonthVC {
 
     open weak var delegate: CalendarComponentControllerDelegate?
+    open var lastSavedDate: Date?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         reloadController()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard lastSavedDate != nil else { return }
+        monthView.reloadData()
+        monthView.scrollToDateAnimated(lastSavedDate!, animated: true)
     }
 
     open func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {

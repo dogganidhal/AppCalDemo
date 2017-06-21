@@ -83,7 +83,12 @@ class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
             rightImageView?.image = newValue
         }
     }
-    
+    open var valueForSegment: Int16? {
+        willSet {
+            guard newValue != nil else { return }
+            segment?.selectedSegmentIndex = Int(newValue!)
+        }
+    }
     private var textField: UITextField?
     private var currentValueLabel: UILabel?
     private var `switch`: UISwitch?

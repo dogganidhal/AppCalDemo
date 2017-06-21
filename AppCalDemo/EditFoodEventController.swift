@@ -10,7 +10,7 @@ import UIKit
 
 class EditFoodEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
     
-    private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Meal type", "Add a photo"]]
+    private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Meal type", "Add a photo"],["Delete"]]
     
     open var editedFoodEvent: MealEvent!
     private unowned var appDelegate: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
@@ -21,22 +21,12 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
-        editedFoodEvent = NSEntityDescription.insertNewObject(forEntityName: "MealEvent", into: context) as! MealEvent
-        editedFoodEvent.startDate = Date()
-        editedFoodEvent.endDate = Date()
-        editedFoodEvent.mealType = 0
-        editedFoodEvent.allDay = false
         reloadController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getCurrentData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        saveDataIntoEvent()
     }
     
     // MARK: - Table view data source
@@ -70,6 +60,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
         case 1:
             switch indexPath.row {
             case 1, 2:
+                saveDataIntoEvent()
                 let datePickerController = DatePickerController()
                 datePickerController.delegate = self
                 datePickerController.senderIdentifier = indexPath.row == 1 ? "start" : "end"
@@ -79,12 +70,32 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
             }
         case 2:
             if indexPath.row == 3 {
+                saveDataIntoEvent()
                 let imagePickerController = UIImagePickerController()
                 imagePickerController.delegate = self
                 present(imagePickerController, animated: true, completion: nil)
             }
             break
         default:
+            // Delete
+            let alertController = UIAlertController(title: "Delete Event", message: "Are you sure want to delete this event?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+                alertController.dismiss(animated: true, completion: nil)
+            })
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] (action) in
+                // Delete Code
+                self?.context.delete(self!.editedFoodEvent)
+                self?.appDelegate.saveContext()
+                alertController.dismiss(animated: true, completion: nil)
+                for controller in self!.navigationController!.viewControllers {
+                    if controller is DayController {
+                        self?.navigationController?.popToViewController(controller, animated: true)
+                    }
+                }
+            })
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            present(alertController, animated: true, completion: nil)
             break
         }
     }
@@ -126,6 +137,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
             cell.identifier = .textField
             cell.placeholderForTextField = indexPath.row == 0 ? "Title" : "Location"
             cell.textForTextField = indexPath.row == 0 ? editedFoodEvent.summary : editedFoodEvent.location
+            cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
         case 1:
             switch indexPath.row {
             case 0, 4:
@@ -145,21 +157,29 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
                 cell.identifier = .disclosureIndicator
                 cell.currentValueString = "Never"
             }
-        default:
+        case 2:
             switch indexPath.row {
             case 0, 1:
                 cell.identifier = .textField
                 cell.placeholderForTextField = indexPath.row == 0 ? "URL" : "Notes"
                 cell.textForTextField = indexPath.row == 1 ? editedFoodEvent.notes : nil
+                cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
             case 2:
                 cell.identifier = .segment
                 cell.segmentTintColor = Settings.mainColor
+                cell.valueForSegment = editedFoodEvent.mealType
             default:
                 cell.identifier = .disclosureIndicator
                 let imageData = editedFoodEvent.image
                 cell.currentImage = imageData != nil ? UIImage(data: imageData! as Data) : nil
             }
-            
+        default:
+            cell.textLabel?.text = sectionsTitles[indexPath.section][indexPath.row]
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = .red
+            cell.textLabel?.highlightedTextColor = .red
+            cell.textLabel?.font = FontBook.regularFont(ofSize: 16)
+            break
         }
         cell.textLabel?.textColor = Settings.appTheme == .dark ? .white : .black
         cell.textLabel?.text = sectionsTitles[indexPath.section][indexPath.row]
@@ -197,7 +217,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
         saveDataIntoEvent()
     }
     
-    // MARK: Save and retrieve data to and from the new created event
+    // MARK: Save and retrieve data to and from the edited event
     
     internal func saveDataIntoEvent() {
         if (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input != nil {
@@ -218,8 +238,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
         (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input = editedFoodEvent.location
         (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? AddFoodEventCell)?.input = editedFoodEvent.allDay
         (tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as? AddFoodEventCell)?.input = editedFoodEvent.notes
-        (tableView.cellForRow(at: IndexPath(row: 2, section: 2)) as? AddFoodEventCell)?.input = editedFoodEvent.mealType
-        
+        (tableView.cellForRow(at: IndexPath(row: 2, section: 2)) as? AddFoodEventCell)?.valueForSegment = editedFoodEvent.mealType
     }
     
 }

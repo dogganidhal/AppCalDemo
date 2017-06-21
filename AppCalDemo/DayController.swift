@@ -11,11 +11,24 @@ import UIKit
 open class DayController: AppsoluteCalendarDayVC {
     
     open weak var delegate: CalendarComponentControllerDelegate?
+    open var receivedDate: Date?
 
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         reloadController()
+    }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dayView.reloadDays()
+        guard self.receivedDate != nil else { return }
+        dayView.receivedDate = receivedDate!
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     open func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
