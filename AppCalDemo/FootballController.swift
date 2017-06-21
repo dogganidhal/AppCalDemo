@@ -21,7 +21,6 @@ import UIKit
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(events)
         appCal.reloadEvents(events)
         dayController.dayView?.reloadDays()
         monthController.monthView?.reloadData()

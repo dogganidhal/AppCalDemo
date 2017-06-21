@@ -41,15 +41,6 @@ import UIKit
         for event in eventArray {
             events.add((event as! GenericEvent).dictionaryFromEvent())
         }
-        for event in events {
-            print("{")
-            for key in (event as! NSDictionary).allKeys {
-                if key as! String != "IMAGE" {
-                    print("     \(key) = \(String(describing: (event as! NSDictionary).value(forKey: key as! String)))")
-                }
-            }
-            print("}\n")
-        }
         appCal.reloadEvents(events)
     }
     
@@ -102,7 +93,7 @@ import UIKit
         view.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.setImage(#imageLiteral(resourceName: "add").withRenderingMode(.alwaysTemplate), for: .normal)
-        addButton.tintColor = Settings.mainColor != .white ? .white : .darkGray
+        addButton.tintColor = Settings.appTheme != .dark ? .white : .darkGray
         addButton.backgroundColor = Settings.mainColor.withAlphaComponent(0.90)
         addButton.addTarget(self, action: #selector(addEvent), for: .touchUpInside)
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true

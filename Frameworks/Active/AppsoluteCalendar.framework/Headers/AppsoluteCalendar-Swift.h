@@ -431,6 +431,7 @@ SWIFT_PROTOCOL("_TtP17AppsoluteCalendar28AppsoluteCalendarDayDelegate_")
 SWIFT_CLASS("_TtC17AppsoluteCalendar22AppsoluteCalendarDayVC")
 @interface AppsoluteCalendarDayVC : AppsoluteCalendarTemplateViewController <AppsoluteCalendarDayDelegate>
 @property (nonatomic, strong) IBOutlet AppsoluteCalendarDay * _Null_unspecified dayView;
+@property (nonatomic, copy) NSDate * _Nullable receivedDate;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;

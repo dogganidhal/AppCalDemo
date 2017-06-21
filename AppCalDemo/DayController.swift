@@ -11,7 +11,6 @@ import UIKit
 @objc open class DayController: AppsoluteCalendarDayVC {
     
     open weak var delegate: CalendarComponentControllerDelegate?
-    open var receivedDate: Date?
 
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +21,6 @@ import UIKit
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dayView.reloadDays()
-        guard self.receivedDate != nil else { return }
-        dayView.receivedDate = receivedDate!
     }
     
     open override func viewDidAppear(_ animated: Bool) {

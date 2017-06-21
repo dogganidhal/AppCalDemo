@@ -8,19 +8,21 @@
 
 import UIKit
 
-@objc open class FoodController: TemplateNavigationController {
+@objc open class FoodController: TemplateNavigationController, NotificationsDataSource {
     
     internal var addButton: UIButton = UIButton()
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
+    private var notificationObservingTimer: Timer!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupAddButton()
-        
+        NotificationManager.shared.dataSource = self
+        NotificationManager.shared.startNotificationObserving()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -41,15 +43,6 @@ import UIKit
         }
         for event in eventArray {
             events.add((event as! MealEvent).dictionaryFromEvent())
-        }
-        for event in events {
-            print("{")
-            for key in (event as! NSDictionary).allKeys {
-                if key as! String != "IMAGE" {
-                    print("     \(key) = \(String(describing: (event as! NSDictionary).value(forKey: key as! String)))")
-                }
-            }
-            print("}\n")
         }
         appCal.reloadEvents(events)
     }
@@ -103,7 +96,7 @@ import UIKit
         view.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.setImage(#imageLiteral(resourceName: "add").withRenderingMode(.alwaysTemplate), for: .normal)
-        addButton.tintColor = Settings.mainColor != .white ? .white : .darkGray
+        addButton.tintColor = Settings.appTheme != .dark ? .white : .darkGray
         addButton.backgroundColor = Settings.mainColor.withAlphaComponent(0.90)
         addButton.addTarget(self, action: #selector(addEvent), for: .touchUpInside)
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
@@ -131,6 +124,25 @@ import UIKit
     override open func reload() {
         super.reload()
         setupAddButton()
+    }
+    
+    public func notifyBeforeTimeInterval() -> TimeInterval {
+        return 24 * 3600 // a day
+    }
+    
+    public func refreshInterval() -> TimeInterval {
+        return 3
+    }
+    
+    public func notificationManager(_ manager: NotificationManager, objectAt date: Date) -> Any? {
+        for event in events {
+            let startDate = (event as? NSDictionary)?.value(forKey: "STARTDATE") as? Date
+            guard startDate != nil else { break }
+            if date.timeIntervalSince(startDate!) < notifyBeforeTimeInterval() {
+                return event
+            }
+        }
+        return nil
     }
     
 }
