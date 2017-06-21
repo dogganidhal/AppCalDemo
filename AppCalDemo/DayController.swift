@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class DayController: AppsoluteCalendarDayVC {
+@objc open class DayController: AppsoluteCalendarDayVC {
     
     open weak var delegate: CalendarComponentControllerDelegate?
     open var receivedDate: Date?

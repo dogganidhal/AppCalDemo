@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailController: BaseController {
+@objc open class DetailController: BaseController {
     
     open var eventToDisplay: AnyObject? {
         didSet {
@@ -16,7 +16,7 @@ class DetailController: BaseController {
         }
     }
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         reload()

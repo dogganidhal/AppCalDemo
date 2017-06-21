@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		957D9C731EF3C9B500891FDC /* TempNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9C721EF3C9B500891FDC /* TempNavController.swift */; };
+		957D9C731EF3C9B500891FDC /* TemplateNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9C721EF3C9B500891FDC /* TemplateNavigationController.swift */; };
 		957D9CA11EF3E7AB00891FDC /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CA01EF3E7AB00891FDC /* YearController.swift */; };
 		957D9CA31EF3E7F100891FDC /* MonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CA21EF3E7F100891FDC /* MonthController.swift */; };
 		957D9CA51EF3E80900891FDC /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CA41EF3E80900891FDC /* DayController.swift */; };
@@ -15,6 +15,13 @@
 		957D9CA91EF3F0BD00891FDC /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CA81EF3F0BD00891FDC /* DetailController.swift */; };
 		957D9CAB1EF402EF00891FDC /* FootballController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CAA1EF402EF00891FDC /* FootballController.swift */; };
 		957D9CAD1EF4068F00891FDC /* FootballFixtureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D9CAC1EF4068F00891FDC /* FootballFixtureController.swift */; };
+		957E7EF31EFA7C0800EE6A8D /* GenericEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E7EF21EFA7C0800EE6A8D /* GenericEvent.swift */; };
+		957E7EF61EFA7E3C00EE6A8D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E7EF41EFA7E3C00EE6A8D /* CalendarController.swift */; };
+		957E7EF71EFA7E3C00EE6A8D /* CalendarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957E7EF51EFA7E3C00EE6A8D /* CalendarController.xib */; };
+		957E7EFA1EFA7EEB00EE6A8D /* CalendarEventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E7EF81EFA7EEB00EE6A8D /* CalendarEventDetailController.swift */; };
+		957E7EFB1EFA7EEB00EE6A8D /* CalendarEventDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957E7EF91EFA7EEB00EE6A8D /* CalendarEventDetailController.xib */; };
+		957E7EFD1EFA812000EE6A8D /* EditCalendarEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E7EFC1EFA812000EE6A8D /* EditCalendarEventController.swift */; };
+		957E7EFF1EFA823300EE6A8D /* NewCalendarEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E7EFE1EFA823300EE6A8D /* NewCalendarEventController.swift */; };
 		95808E7C1EF917EB00CC7141 /* FoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95808E7A1EF917EB00CC7141 /* FoodEventController.swift */; };
 		95808E7D1EF917EB00CC7141 /* FoodEventController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95808E7B1EF917EB00CC7141 /* FoodEventController.xib */; };
 		95A38EE41EE7D13600EA3C8F /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95A38EE31EE7D13600EA3C8F /* Fonts.plist */; };
@@ -79,7 +86,7 @@
 
 /* Begin PBXFileReference section */
 		957D9C711EF3B1BB00891FDC /* UIColor_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor_Extensions.h; sourceTree = "<group>"; };
-		957D9C721EF3C9B500891FDC /* TempNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempNavController.swift; sourceTree = "<group>"; };
+		957D9C721EF3C9B500891FDC /* TemplateNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateNavigationController.swift; sourceTree = "<group>"; };
 		957D9CA01EF3E7AB00891FDC /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearController.swift; sourceTree = "<group>"; };
 		957D9CA21EF3E7F100891FDC /* MonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthController.swift; sourceTree = "<group>"; };
 		957D9CA41EF3E80900891FDC /* DayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
@@ -87,6 +94,13 @@
 		957D9CA81EF3F0BD00891FDC /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		957D9CAA1EF402EF00891FDC /* FootballController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootballController.swift; sourceTree = "<group>"; };
 		957D9CAC1EF4068F00891FDC /* FootballFixtureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootballFixtureController.swift; sourceTree = "<group>"; };
+		957E7EF21EFA7C0800EE6A8D /* GenericEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericEvent.swift; sourceTree = "<group>"; };
+		957E7EF41EFA7E3C00EE6A8D /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		957E7EF51EFA7E3C00EE6A8D /* CalendarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarController.xib; sourceTree = "<group>"; };
+		957E7EF81EFA7EEB00EE6A8D /* CalendarEventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventDetailController.swift; sourceTree = "<group>"; };
+		957E7EF91EFA7EEB00EE6A8D /* CalendarEventDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarEventDetailController.xib; sourceTree = "<group>"; };
+		957E7EFC1EFA812000EE6A8D /* EditCalendarEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCalendarEventController.swift; sourceTree = "<group>"; };
+		957E7EFE1EFA823300EE6A8D /* NewCalendarEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCalendarEventController.swift; sourceTree = "<group>"; };
 		95808E7A1EF917EB00CC7141 /* FoodEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodEventController.swift; sourceTree = "<group>"; };
 		95808E7B1EF917EB00CC7141 /* FoodEventController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodEventController.xib; sourceTree = "<group>"; };
 		95A38EE31EE7D13600EA3C8F /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
@@ -199,6 +213,7 @@
 				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
 				95B71E8C1EE9585A003FA9E2 /* FootballDataManager.m */,
 				95C6BC2E1EF813510055595C /* MealEvent.swift */,
+				957E7EF21EFA7C0800EE6A8D /* GenericEvent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -220,6 +235,12 @@
 		95AC05461EF0201800850973 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				957E7EF41EFA7E3C00EE6A8D /* CalendarController.swift */,
+				957E7EF81EFA7EEB00EE6A8D /* CalendarEventDetailController.swift */,
+				957E7EFC1EFA812000EE6A8D /* EditCalendarEventController.swift */,
+				957E7EFE1EFA823300EE6A8D /* NewCalendarEventController.swift */,
+				957E7EF51EFA7E3C00EE6A8D /* CalendarController.xib */,
+				957E7EF91EFA7EEB00EE6A8D /* CalendarEventDetailController.xib */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -274,7 +295,7 @@
 		95B71E8E1EE95D3D003FA9E2 /* Swift Classes */ = {
 			isa = PBXGroup;
 			children = (
-				957D9C721EF3C9B500891FDC /* TempNavController.swift */,
+				957D9C721EF3C9B500891FDC /* TemplateNavigationController.swift */,
 				957D9CA01EF3E7AB00891FDC /* YearController.swift */,
 				957D9CA21EF3E7F100891FDC /* MonthController.swift */,
 				957D9CA41EF3E80900891FDC /* DayController.swift */,
@@ -444,9 +465,11 @@
 				F2878FBA1EE58A0B00F4CD9E /* Assets.xcassets in Resources */,
 				F2878FB51EE58A0B00F4CD9E /* Main.storyboard in Resources */,
 				95DFE8AE1EEED118009BBCAF /* Bundes Liga.json in Resources */,
+				957E7EF71EFA7E3C00EE6A8D /* CalendarController.xib in Resources */,
 				95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */,
 				95AC053F1EF003E100850973 /* Ligue 1.json in Resources */,
 				95BA7E1F1EEA916B00823E21 /* DefaultSettings.plist in Resources */,
+				957E7EFB1EFA7EEB00EE6A8D /* CalendarEventDetailController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,13 +496,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				957E7EFA1EFA7EEB00EE6A8D /* CalendarEventDetailController.swift in Sources */,
 				F2878FB21EE58A0B00F4CD9E /* TemplateController.m in Sources */,
+				957E7EFD1EFA812000EE6A8D /* EditCalendarEventController.swift in Sources */,
 				95C6BC291EF7C8120055595C /* NewFoodEventController.swift in Sources */,
 				957D9CA91EF3F0BD00891FDC /* DetailController.swift in Sources */,
 				95C6BC2F1EF813510055595C /* MealEvent.swift in Sources */,
 				95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */,
 				957D9CA51EF3E80900891FDC /* DayController.swift in Sources */,
 				95A38EEB1EE7DE8B00EA3C8F /* Settings.m in Sources */,
+				957E7EF31EFA7C0800EE6A8D /* GenericEvent.swift in Sources */,
 				95808E7C1EF917EB00CC7141 /* FoodEventController.swift in Sources */,
 				95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */,
 				95A38EE81EE7D55600EA3C8F /* FontBook.m in Sources */,
@@ -487,11 +513,12 @@
 				F2878FB81EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld in Sources */,
 				95EA7CD11EF966E900EACA5A /* EditFoodEventController.swift in Sources */,
 				95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */,
-				957D9C731EF3C9B500891FDC /* TempNavController.swift in Sources */,
+				957D9C731EF3C9B500891FDC /* TemplateNavigationController.swift in Sources */,
 				957D9CA71EF3E83000891FDC /* CalendarComponentControllerDelegate.swift in Sources */,
 				95B71E8D1EE9585A003FA9E2 /* FootballDataManager.m in Sources */,
 				957D9CA11EF3E7AB00891FDC /* YearController.swift in Sources */,
 				95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */,
+				957E7EFF1EFA823300EE6A8D /* NewCalendarEventController.swift in Sources */,
 				F2878FCC1EE59B8900F4CD9E /* SettingsController.m in Sources */,
 				95C6BC2D1EF7F5840055595C /* DatePickerController.swift in Sources */,
 				957D9CAB1EF402EF00891FDC /* FootballController.swift in Sources */,
@@ -505,6 +532,7 @@
 				F2878FC61EE591B400F4CD9E /* MainTabbarController.m in Sources */,
 				95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */,
 				957D9CA31EF3E7F100891FDC /* MonthController.swift in Sources */,
+				957E7EF61EFA7E3C00EE6A8D /* CalendarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

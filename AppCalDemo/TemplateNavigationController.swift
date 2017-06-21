@@ -1,5 +1,5 @@
 //
-//  TempNavController.swift
+//  TemplateNavigationController.swift
 //  AppCalDemo
 //
 //  Created by Nidhal on 16.06.17.

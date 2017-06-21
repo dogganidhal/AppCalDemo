@@ -8,19 +8,19 @@
 
 import UIKit
 
-@objc protocol DatePickerControllerDelegate: NSObjectProtocol {
+@objc public protocol DatePickerControllerDelegate: NSObjectProtocol {
 
     @objc optional func datePicker(_ datePickerController: DatePickerController, didChooseDate date: Date, forIdentifier identifier: String?)
     
 }
 
-class DatePickerController: BaseController {
+@objc open class DatePickerController: BaseController {
     
     open var datePicker: UIDatePicker = UIDatePicker()
     open weak var delegate: DatePickerControllerDelegate?
     open var senderIdentifier: String?
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         

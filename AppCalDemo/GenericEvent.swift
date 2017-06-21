@@ -1,21 +1,15 @@
 //
-//  MealEvent.swift
+//  GenericEvent.swift
 //  AppCalDemo
 //
-//  Created by Nidhal on 19.06.17.
+//  Created by Nidhal on 21.06.17.
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
 import UIKit
 
-public enum MealType: Int16 {
-    case breakfast = 0
-    case lunch = 1
-    case dinner = 2
-}
+@objc open class GenericEvent: NSManagedObject {
 
-@objc open class MealEvent: NSManagedObject {
-    
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
@@ -33,7 +27,6 @@ public enum MealType: Int16 {
     @NSManaged open var startDate: Date!
     @NSManaged open var image: Data?
     @NSManaged open var location: String?
-    @NSManaged open var mealType: Int16
     @NSManaged open var notes: String?
     @NSManaged open var recurrency_STRING: String
     @NSManaged open var startTimeString: String
@@ -43,19 +36,8 @@ public enum MealType: Int16 {
     @NSManaged open var summary: String?
     @NSManaged open var uid: String
     
-    private var mealTypeString: String {
-        switch mealType {
-        case 0:
-            return "Breakfast"
-        case 1:
-            return "Lunch"
-        default:
-            return "Dinner"
-        }
-    }
-    
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<MealEvent> {
-        return NSFetchRequest<MealEvent>(entityName: "MealEvent")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<GenericEvent> {
+        return NSFetchRequest<GenericEvent>(entityName: "GenericEvent")
     }
     
     public override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
@@ -83,8 +65,16 @@ public enum MealType: Int16 {
         dict.setValue(uid, forKey: "UID")
         dict.setValue(location, forKey: "LOCATION")
         dict.setValue(image, forKey: "IMAGE")
-        dict.setValue(mealTypeString, forKey: "MEALTYPE")
         return dict
     }
-
+    
 }
+
+public extension NSManagedObject {
+    func uuid() -> String {
+        let uuidRef = CFUUIDCreate(nil)
+        let uuidStringRef = CFUUIDCreateString(nil, uuidRef)
+        return uuidStringRef! as String
+    }
+}
+

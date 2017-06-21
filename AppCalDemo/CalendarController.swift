@@ -1,15 +1,15 @@
 //
-//  FoodController.swift
+//  CalendarController.swift
 //  AppCalDemo
 //
-//  Created by Nidhal on 19.06.17.
+//  Created by Nidhal on 21.06.17.
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
 import UIKit
 
-@objc open class FoodController: TemplateNavigationController {
-    
+@objc open class CalendarController: TemplateNavigationController {
+
     internal var addButton: UIButton = UIButton()
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var context: NSManagedObjectContext {
@@ -20,7 +20,6 @@ import UIKit
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupAddButton()
-        
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -35,12 +34,12 @@ import UIKit
         events = NSMutableArray()
         var eventArray = NSMutableArray()
         do {
-            eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
+            eventArray = try context.fetch(GenericEvent.fetchRequest()) as! NSMutableArray
         } catch {
             print("CoreData Error, can't fetch data")
         }
         for event in eventArray {
-            events.add((event as! MealEvent).dictionaryFromEvent())
+            events.add((event as! GenericEvent).dictionaryFromEvent())
         }
         for event in events {
             print("{")
@@ -67,9 +66,9 @@ import UIKit
             dayController.receivedDate = date
             pushViewController(dayController, animated: true)
         default:
-            let foodEventController = FoodEventController()
-            foodEventController.eventToDisplay = lastUsedData
-            pushViewController(foodEventController, animated: true)
+            let calendarEventController = CalendarEventDetailController()
+            calendarEventController.eventToDisplay = lastUsedData
+            pushViewController(calendarEventController, animated: true)
         }
         lastUsedDate = date
     }
@@ -87,10 +86,10 @@ import UIKit
             // TODO: Scroll to the selected date
             setAddButtonVisibility(true)
             break
-        case is FoodEventController:
-            (viewController as! FoodEventController).eventToDisplay = lastUsedData as? AppsoluteCalendarDefaultObject
+        case is CalendarEventDetailController:
+            (viewController as! CalendarEventDetailController).eventToDisplay = lastUsedData as? AppsoluteCalendarDefaultObject
             setAddButtonVisibility(false)
-        case is NewFoodEventController:
+        case is NewCalendarEventController:
             setAddButtonVisibility(false)
             break
         default:
@@ -114,7 +113,7 @@ import UIKit
     }
     
     internal func addEvent() {
-        pushViewController(NewFoodEventController(), animated: true)
+        pushViewController(NewCalendarEventController(), animated: true)
     }
     
     internal func setAddButtonVisibility(_ visible: Bool) {
@@ -132,5 +131,5 @@ import UIKit
         super.reload()
         setupAddButton()
     }
-    
+
 }

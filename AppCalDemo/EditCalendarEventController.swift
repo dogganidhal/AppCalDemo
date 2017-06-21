@@ -1,18 +1,18 @@
 //
-//  NewFoodEventController.swift
+//  EditCalendarEventController.swift
 //  AppCalDemo
 //
-//  Created by Nidhal on 19.06.17.
+//  Created by Nidhal on 21.06.17.
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
 import UIKit
 
-@objc open class NewFoodEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
+@objc open class EditCalendarEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
     
-    private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Meal type", "Add a photo"]]
-
-    open var newFoodEvent: MealEvent!
+    private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Add a photo"],["Delete"]]
+    
+    open var editedCalendarEvent: GenericEvent!
     private unowned var appDelegate: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
     private unowned var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
@@ -21,22 +21,12 @@ import UIKit
     override open func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
-        newFoodEvent = NSEntityDescription.insertNewObject(forEntityName: "MealEvent", into: context) as! MealEvent
-        newFoodEvent.startDate = Date()
-        newFoodEvent.endDate = Date()
-        newFoodEvent.mealType = 0
-        newFoodEvent.allDay = false
         reloadController()
     }
     
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getCurrentData()
-    }
-    
-    override open func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        saveDataIntoEvent()
     }
     
     // MARK: - Table view data source
@@ -70,6 +60,7 @@ import UIKit
         case 1:
             switch indexPath.row {
             case 1, 2:
+                saveDataIntoEvent()
                 let datePickerController = DatePickerController()
                 datePickerController.delegate = self
                 datePickerController.senderIdentifier = indexPath.row == 1 ? "start" : "end"
@@ -78,13 +69,33 @@ import UIKit
                 break
             }
         case 2:
-            if indexPath.row == 3 {
+            if indexPath.row == 2 {
+                saveDataIntoEvent()
                 let imagePickerController = UIImagePickerController()
                 imagePickerController.delegate = self
                 present(imagePickerController, animated: true, completion: nil)
             }
             break
         default:
+            // Delete
+            let alertController = UIAlertController(title: "Delete Event", message: "Are you sure want to delete this event?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+                alertController.dismiss(animated: true, completion: nil)
+            })
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] (action) in
+                // Delete Code
+                self?.context.delete(self!.editedCalendarEvent)
+                self?.appDelegate.saveContext()
+                alertController.dismiss(animated: true, completion: nil)
+                for controller in self!.navigationController!.viewControllers {
+                    if controller is DayController {
+                        self?.navigationController?.popToViewController(controller, animated: true)
+                    }
+                }
+            })
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            present(alertController, animated: true, completion: nil)
             break
         }
     }
@@ -104,7 +115,7 @@ import UIKit
     internal func handleSubmit() {
         // Construct the object with retrieved data
         saveDataIntoEvent()
-        guard newFoodEvent.summary != "" && newFoodEvent.location != "" else {
+        guard editedCalendarEvent.summary != "" && editedCalendarEvent.location != "" else {
             let alertController = UIAlertController(title: "Missing information",
                                                     message: "One or more fields empty",
                                                     preferredStyle: .alert)
@@ -125,45 +136,49 @@ import UIKit
         case 0:
             cell.identifier = .textField
             cell.placeholderForTextField = indexPath.row == 0 ? "Title" : "Location"
-            cell.textForTextField = indexPath.row == 0 ? newFoodEvent.summary : newFoodEvent.location
+            cell.textForTextField = indexPath.row == 0 ? editedCalendarEvent.summary : editedCalendarEvent.location
             cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
         case 1:
             switch indexPath.row {
             case 0, 4:
                 cell.identifier = .switch
-                cell.valueForSwitch = indexPath.row == 0 ? newFoodEvent.allDay : nil
+                cell.valueForSwitch = indexPath.row == 0 ? editedCalendarEvent.allDay : nil
             case 1:
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM-dd-yyyy HH:mm"
                 cell.identifier = .disclosureIndicator
-                cell.currentValueString = formatter.string(from: newFoodEvent.startDate)
+                cell.currentValueString = formatter.string(from: editedCalendarEvent.startDate)
             case 2:
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM-dd-yyyy HH:mm"
                 cell.identifier = .disclosureIndicator
-                cell.currentValueString = formatter.string(from: newFoodEvent.endDate)
+                cell.currentValueString = formatter.string(from: editedCalendarEvent.endDate)
             default:
-                cell.identifier = .disclosureIndicator
-                cell.currentValueString = "Never"
+                break
             }
-        default:
+        case 2:
             switch indexPath.row {
             case 0, 1:
                 cell.identifier = .textField
                 cell.placeholderForTextField = indexPath.row == 0 ? "URL" : "Notes"
-                cell.textForTextField = indexPath.row == 1 ? newFoodEvent.notes : nil
+                cell.textForTextField = indexPath.row == 1 ? editedCalendarEvent.notes : nil
                 cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
-            case 2:
-                cell.identifier = .segment
-                cell.segmentTintColor = Settings.mainColor
             default:
                 cell.identifier = .disclosureIndicator
-                let imageData = newFoodEvent.image
+                let imageData = editedCalendarEvent.image
                 cell.currentImage = imageData != nil ? UIImage(data: imageData! as Data) : nil
             }
-            
+        default:
+            cell.textLabel?.text = sectionsTitles[indexPath.section][indexPath.row]
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = .red
+            cell.textLabel?.highlightedTextColor = .red
+            cell.textLabel?.font = FontBook.regularFont(ofSize: 16)
+            break
         }
-        cell.textLabel?.textColor = Settings.appTheme == .dark ? .white : .black
+        if indexPath.section != 2 && indexPath.row != 2 {
+            cell.textLabel?.textColor = Settings.appTheme == .dark ? .white : .black
+        }
         cell.textLabel?.text = sectionsTitles[indexPath.section][indexPath.row]
         cell.textLabel?.font = FontBook.regularFont(ofSize: 16)
     }
@@ -177,18 +192,18 @@ import UIKit
     // MARK: UIImagePickerController delegate method
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        newFoodEvent.image = UIImagePNGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage)
+        editedCalendarEvent.image = UIImagePNGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage)
         picker.dismiss(animated: true, completion: nil)
-        tableView.reloadRows(at: [IndexPath(row: 3, section: 2)], with: .none)
+        tableView.reloadRows(at: [IndexPath(row: 2, section: 2)], with: .none)
     }
     
     // MARK: DatePickerController delegate method
     
     public func datePicker(_ datePickerController: DatePickerController, didChooseDate date: Date, forIdentifier identifier: String?) {
         if identifier == "start" {
-            newFoodEvent.startDate = date
+            editedCalendarEvent.startDate = date
         } else {
-            newFoodEvent.endDate = date
+            editedCalendarEvent.endDate = date
         }
         tableView.reloadData()
     }
@@ -199,29 +214,26 @@ import UIKit
         saveDataIntoEvent()
     }
     
-    // MARK: Save and retrieve data to and from the new created event
+    // MARK: Save and retrieve data to and from the edited event
     
     internal func saveDataIntoEvent() {
         if (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input != nil {
-            newFoodEvent.summary = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input as? String
+            editedCalendarEvent.summary = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input as? String
         }
         if (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input != nil {
-            newFoodEvent.location = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input as? String
+            editedCalendarEvent.location = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input as? String
         }
-        newFoodEvent.allDay = (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? AddFoodEventCell)?.input as! Bool
+        editedCalendarEvent.allDay = (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? AddFoodEventCell)?.input as! Bool
         if (tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as? AddFoodEventCell)?.input != nil {
-            newFoodEvent.notes = (tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as? AddFoodEventCell)?.input as? String
+            editedCalendarEvent.notes = (tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as? AddFoodEventCell)?.input as? String
         }
-        newFoodEvent.mealType = Int16((tableView.cellForRow(at: IndexPath(row: 2, section: 2)) as? AddFoodEventCell)?.input as! Int)
     }
     
     internal func getCurrentData() {
-        (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input = newFoodEvent.summary
-        (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input = newFoodEvent.location
-        (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? AddFoodEventCell)?.input = newFoodEvent.allDay
-        (tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as? AddFoodEventCell)?.input = newFoodEvent.notes
-        (tableView.cellForRow(at: IndexPath(row: 2, section: 2)) as? AddFoodEventCell)?.input = newFoodEvent.mealType
-        
+        (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input = editedCalendarEvent.summary
+        (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input = editedCalendarEvent.location
+        (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? AddFoodEventCell)?.input = editedCalendarEvent.allDay
+        (tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as? AddFoodEventCell)?.input = editedCalendarEvent.notes
     }
     
 }

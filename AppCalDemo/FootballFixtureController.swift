@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FootballFixtureController: DetailController {
+@objc open class FootballFixtureController: DetailController {
     
     fileprivate var summaryTextView: UITextView = UITextView()
     fileprivate var dateLabel: UILabel = UILabel()
@@ -18,14 +18,14 @@ class FootballFixtureController: DetailController {
         return self.eventToDisplay?.event
     }
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         reloadView()
     }
 
-    override func reloadView() {
+    override open func reloadView() {
         // ** Content settings
         let eventDate = event?.value(forKey: "STARTDATE") as? Date
         if eventDate != nil {

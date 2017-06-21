@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditFoodEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
+@objc open class EditFoodEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
     
     private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Meal type", "Add a photo"],["Delete"]]
     
@@ -18,28 +18,28 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
         return appDelegate.persistentContainer.viewContext
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
         reloadController()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getCurrentData()
     }
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
         return sectionsTitles.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sectionsTitles[section].count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AddFoodEventCell()
         cell.backgroundColor = Settings.appTheme == .dark ? .darkGray : .white
         cell.textColorForTextField = Settings.appTheme == .dark ? .white : .black
@@ -47,15 +47,15 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    override open func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = Settings.appTheme == .dark ? UIColor.white.withAlphaComponent(0.15) : .groupTableViewBackground
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section != 0 ? " " : nil
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
             switch indexPath.row {
@@ -194,7 +194,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
     
     // MARK: UIImagePickerController delegate method
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         editedFoodEvent.image = UIImagePNGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage)
         picker.dismiss(animated: true, completion: nil)
         tableView.reloadRows(at: [IndexPath(row: 3, section: 2)], with: .none)
@@ -202,7 +202,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
     
     // MARK: DatePickerController delegate method
     
-    func datePicker(_ datePickerController: DatePickerController, didChooseDate date: Date, forIdentifier identifier: String?) {
+    public func datePicker(_ datePickerController: DatePickerController, didChooseDate date: Date, forIdentifier identifier: String?) {
         if identifier == "start" {
             editedFoodEvent.startDate = date
         } else {
@@ -213,7 +213,7 @@ class EditFoodEventController: UITableViewController, UIImagePickerControllerDel
     
     // MARK: AddFoodEventCell delegate method
     
-    func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?) {
+    public func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?) {
         saveDataIntoEvent()
     }
     

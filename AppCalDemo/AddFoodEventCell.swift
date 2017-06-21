@@ -8,13 +8,13 @@
 
 import UIKit
 
-@objc protocol AddFoodEventCellDelegate: NSObjectProtocol {
+@objc public protocol AddFoodEventCellDelegate: NSObjectProtocol {
     
     @objc optional func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?)
     
 }
 
-class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
+@objc open class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
     
     public enum AddFoodEventCellIdentifier {
         case textField
@@ -95,7 +95,7 @@ class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
     private var segment: UISegmentedControl?
     private var rightImageView: UIImageView?
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         guard identifier == .disclosureIndicator else { return }
         var disclosureIndicator: UIView?
@@ -219,7 +219,7 @@ class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
         }
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         addFoodEventCell(self, shouldSaveData: input)
     }
     

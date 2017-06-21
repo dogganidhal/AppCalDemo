@@ -9,7 +9,7 @@
 import UIKit
 import AppsoluteCalendar
 
-open class MonthController: AppsoluteCalendarMonthVC {
+@objc open class MonthController: AppsoluteCalendarMonthVC {
 
     open weak var delegate: CalendarComponentControllerDelegate?
     open var lastSavedDate: Date?

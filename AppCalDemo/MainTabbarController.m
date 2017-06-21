@@ -25,7 +25,7 @@
 @implementation MainTabbarController {
     FoodController *foodController;
     FootballController *footballController;
-    TemplateNavigationController *calendarController;
+    CalendarController *calendarController;
     TemplateController *notifsController;
     TemplateController *settingsController;
 }
@@ -35,7 +35,7 @@
     // Instantiating the children controllers
     foodController = [[FoodController alloc] init];
     footballController = [[FootballController alloc] init];
-    calendarController = [[TemplateNavigationController alloc] init];
+    calendarController = [[CalendarController alloc] init];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[BaseController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
 }
@@ -50,6 +50,7 @@
     calendarController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Calendar" image:[UIImage imageNamed:@"calendar"] tag:2];
     notifsController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Notifications" image:[UIImage imageNamed:@"notifs"] tag:3];
     settingsController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"settings"] tag:4];
+    self.selectedIndex = 2;
 }
 
 - (void)setupController {

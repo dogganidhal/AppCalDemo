@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FootballController: TemplateNavigationController {
+@objc open class FootballController: TemplateNavigationController {
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let data = FootballDataManager().events
@@ -19,9 +19,13 @@ class FootballController: TemplateNavigationController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(events)
         appCal.reloadEvents(events)
+        dayController.dayView?.reloadDays()
+        monthController.monthView?.reloadData()
+        yearController.yearView?.reloadData()
     }
     
     public override func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
@@ -35,7 +39,7 @@ class FootballController: TemplateNavigationController {
         lastUsedDate = date
     }
 
-    override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    override public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if viewController is MonthController {
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
         } else if viewController is DayController {
