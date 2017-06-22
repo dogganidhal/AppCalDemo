@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc open class CalendarController: TemplateNavigationController {
+@objc open class CalendarController: TemplateNavigationController, NotificationsDataSource {
 
     internal var addButton: UIButton = UIButton()
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -20,6 +20,7 @@ import UIKit
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupAddButton()
+        NotificationManager.shared.dataSources?.add(self)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -121,6 +122,20 @@ import UIKit
     override open func reload() {
         super.reload()
         setupAddButton()
+    }
+    
+    public func notificationManager(_ manager: NotificationManager, objectsAt date: Date) -> NSMutableArray {
+        var eventsForNotifications = Array<Dictionary<String, Any>>()
+        for event in self.events {
+            let startDate = (event as? NSDictionary)?.value(forKey: "STARTDATE") as? Date
+            guard startDate != nil else { break }
+            if startDate!.timeIntervalSince(date) < 3600 * 24 &&
+                startDate!.timeIntervalSince(date) > -3600 * 24 { // an interval of two days, a day after and a day before
+                (event as! NSDictionary).setValue("Calendar", forKey: "SENDER")
+                eventsForNotifications.append(event as! [String : Any])
+            }
+        }
+        return eventsForNotifications as! NSMutableArray
     }
 
 }

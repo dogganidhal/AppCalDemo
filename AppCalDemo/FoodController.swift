@@ -10,6 +10,22 @@ import UIKit
 
 @objc open class FoodController: TemplateNavigationController, NotificationsDataSource {
     
+        override var events: NSMutableArray {
+            get {
+                let localEvents = NSMutableArray()
+                var eventArray = NSMutableArray()
+                do {
+                    eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
+                } catch {
+                    print("CoreData Error, can't fetch data")
+                }
+                for event in eventArray {
+                    localEvents.add((event as! MealEvent).dictionaryFromEvent())
+                }
+                return localEvents
+            } set { }
+        }
+    
     internal var addButton: UIButton = UIButton()
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var context: NSManagedObjectContext {
@@ -21,8 +37,7 @@ import UIKit
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupAddButton()
-        NotificationManager.shared.dataSource = self
-        NotificationManager.shared.startNotificationObserving()
+        NotificationManager.shared.dataSources?.add(self)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -34,16 +49,6 @@ import UIKit
     }
     
     internal func loadEvents() {
-        events = NSMutableArray()
-        var eventArray = NSMutableArray()
-        do {
-            eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
-        } catch {
-            print("CoreData Error, can't fetch data")
-        }
-        for event in eventArray {
-            events.add((event as! MealEvent).dictionaryFromEvent())
-        }
         appCal.reloadEvents(events)
     }
     
@@ -126,23 +131,18 @@ import UIKit
         setupAddButton()
     }
     
-    public func notifyBeforeTimeInterval() -> TimeInterval {
-        return 24 * 3600 // a day
-    }
-    
-    public func refreshInterval() -> TimeInterval {
-        return 3
-    }
-    
-    public func notificationManager(_ manager: NotificationManager, objectAt date: Date) -> Any? {
-        for event in events {
+    public func notificationManager(_ manager: NotificationManager, objectsAt date: Date) -> NSMutableArray {
+        var eventsForNotifications = Array<Dictionary<String, Any>>()
+        for event in self.events {
             let startDate = (event as? NSDictionary)?.value(forKey: "STARTDATE") as? Date
             guard startDate != nil else { break }
-            if date.timeIntervalSince(startDate!) < notifyBeforeTimeInterval() {
-                return event
+            if startDate!.timeIntervalSince(date) < 3600 * 24 &&
+                startDate!.timeIntervalSince(date) > -3600 * 24 { // an interval of two days, a day after and a day before
+                (event as! NSDictionary).setValue("Diary", forKey: "SENDER")
+                eventsForNotifications.append(event as! [String : Any])
             }
         }
-        return nil
+        return eventsForNotifications as! NSMutableArray
     }
     
 }

@@ -14,13 +14,11 @@ import UIKit
     internal var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
-    internal var eventUID: String? {
-        return (eventToDisplay as! AppsoluteCalendarDefaultObject).event?.value(forKey: "UID") as? String
-    }
+    open var eventUID: String?
     
     open var calendarEvent: GenericEvent? {
         do {
-            let eventUID = self.eventUID ?? ""
+            let eventUID = self.eventUID ?? (eventToDisplay as! AppsoluteCalendarDefaultObject).event?.value(forKey: "UID") as! String
             let fetchRequest: NSFetchRequest<GenericEvent> = GenericEvent.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "uid == %@", argumentArray: [eventUID])
             fetchRequest.fetchLimit = 1

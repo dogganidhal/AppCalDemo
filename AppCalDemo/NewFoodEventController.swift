@@ -21,7 +21,7 @@ import UIKit
     override open func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
-        newFoodEvent = NSEntityDescription.insertNewObject(forEntityName: "MealEvent", into: context) as! MealEvent
+        newFoodEvent = MealEvent.init(entity: MealEvent.entity(), insertInto: nil)
         newFoodEvent.startDate = Date()
         newFoodEvent.endDate = Date()
         newFoodEvent.mealType = 0
@@ -115,6 +115,7 @@ import UIKit
             return
         }
         // Save to the core data
+        context.insert(newFoodEvent)
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
     }

@@ -30,6 +30,7 @@ import UIKit
         appCal.calDelegate = self
         appCal.isSubclassed(true)
         appCal.setAddButtonVisibility(false)
+        appCal.enableCalendarAnimations(true)
     }
     
     public func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {

@@ -17,7 +17,7 @@ import UIKit
     
     open var mealEvent: MealEvent? {
         do {
-            let eventUID = self.eventUID ?? ""
+            let eventUID = self.eventUID ?? (eventToDisplay as! AppsoluteCalendarDefaultObject).event?.value(forKey: "UID") as! String
             let fetchRequest: NSFetchRequest<MealEvent> = MealEvent.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "uid == %@", argumentArray: [eventUID])
             fetchRequest.fetchLimit = 1
@@ -34,9 +34,7 @@ import UIKit
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
-    private var eventUID: String? {
-        return (eventToDisplay as! AppsoluteCalendarDefaultObject).event?.value(forKey: "UID") as? String
-    }
+    open var eventUID: String?
     
     override open func viewDidLoad() {
         super.viewDidLoad()

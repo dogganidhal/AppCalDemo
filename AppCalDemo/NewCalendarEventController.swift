@@ -21,7 +21,7 @@ import UIKit
     override open func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
-        newCalendarEvent = NSEntityDescription.insertNewObject(forEntityName: "GenericEvent", into: context) as! GenericEvent
+        newCalendarEvent = GenericEvent(entity: GenericEvent.entity(), insertInto: nil)
         newCalendarEvent.startDate = Date()
         newCalendarEvent.endDate = Date()
         newCalendarEvent.allDay = false
@@ -114,6 +114,7 @@ import UIKit
             return
         }
         // Save to the core data
+        context.insert(newCalendarEvent)
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
     }

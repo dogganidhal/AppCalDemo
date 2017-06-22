@@ -11,10 +11,7 @@
 @interface NotificationManager ()
 
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic) NSTimeInterval refreshInterval;
-@property (nonatomic) NSTimeInterval timeBeforeEvent;
-@property (nonatomic, strong) NSMutableArray<id> *objects;
-@property (nonatomic, strong) id lastObject;
+@property (nonatomic, strong) NSMutableArray *objects;
 @property (nonatomic) BOOL isObserving;
 
 @end
@@ -31,11 +28,20 @@ static NotificationManager *_shared;
     return _shared;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.dataSources = [[NSMutableArray alloc] init];
+        self.refreshInterval = 10.0;
+    }
+    return self;
+}
+
 - (void)startNotificationObserving {
     self.isObserving = YES;
-    self.timer = [NSTimer timerWithTimeInterval:[self refreshInterval] repeats:YES block:^(NSTimer * _Nonnull timer) {
+    self.timer = [NSTimer timerWithTimeInterval:self.refreshInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
         if (self.isObserving) {
-            
+            [self notificationManager:self didReceiveNotificationWithObjects:[self notificationManager:self objectsAtDate:timer.fireDate]];
         }
     }];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
@@ -47,42 +53,27 @@ static NotificationManager *_shared;
     self.timer = nil;
 }
 
-- (BOOL)hasObject:(id)object {
-    return [self.objects containsObject:object];
-}
-
 #pragma mark - Notification manager delegate
 
-- (void)notificationManager:(NotificationManager * _Nonnull)manager didReceiveNotificationWithObject:(id _Nullable)object {
-    if ([self.delegate respondsToSelector:@selector(notificationManager:didReceiveNotificationWithObject:)]) {
-        [(id)self.delegate notificationManager:self didReceiveNotificationWithObject:object]; // Specify the manager and the object
+- (void)notificationManager:(NotificationManager * _Nonnull)manager didReceiveNotificationWithObjects:(NSMutableArray * _Nonnull)objects {
+    if ([self.delegate respondsToSelector:@selector(notificationManager:didReceiveNotificationWithObjects:)]) {
+        [(id)self.delegate notificationManager:self didReceiveNotificationWithObjects:objects];
     }
     
 }
 
 #pragma mark - Notification manager data source
 
-- (NSArray * _Nullable)notificationManager:(NotificationManager * _Nonnull)manager objectsAtDate:(NSDate *)date {
-    if ([self.dataSource respondsToSelector:@selector(notificationManager:objectsAtDate:)]) {
-        
+- (NSMutableArray * _Nonnull)notificationManager:(NotificationManager * _Nonnull)manager objectsAtDate:(NSDate *)date {
+    NSMutableArray *objects = [[NSMutableArray alloc] init];
+    for (id<NotificationsDataSource> dataSource in self.dataSources) {
+        if ([dataSource respondsToSelector:@selector(notificationManager:objectsAtDate:)]) {
+            [objects addObjectsFromArray:[dataSource notificationManager:self objectsAtDate:date]];
+        }
     }
-    return nil;
+    return objects;
 }
 
-- (NSTimeInterval)refreshInterval {
-    if ([self.dataSource respondsToSelector:@selector(refreshInterval)]) {
-        return [(id)self.dataSource refreshInterval];
-    }
-    NSLog(@"Invalid NotificationManager Data source: must implement -refreshInterval");
-    return FLT_MAX;
-}
 
-- (NSTimeInterval)timeBeforeEvent {
-    if ([self.dataSource respondsToSelector:@selector(notifyBeforeTimeInterval)]) {
-        return [(id)self.dataSource notifyBeforeTimeInterval];
-    }
-    NSLog(@"Invalid NotificationManager Data source: must implement -notifyBeforeTimeEvent");
-    return 0.0;
-}
 
 @end

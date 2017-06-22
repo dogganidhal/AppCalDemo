@@ -13,27 +13,25 @@
 @protocol NotificationsDelegate <NSObject>
 
 @optional
-- (void)notificationManager:(NotificationManager * _Nonnull)manager didReceiveNotificationWithObjects:(id _Nullable)objects;
+- (void)notificationManager:(NotificationManager * _Nonnull)manager didReceiveNotificationWithObjects:(NSMutableArray * _Nonnull)objects;
 
 @end
 
 @protocol NotificationsDataSource <NSObject>
 
 @required
-- (NSTimeInterval)refreshInterval;
-- (NSTimeInterval)notifyBeforeTimeInterval;
-- (NSArray * _Nullable)notificationManager:(NotificationManager * _Nonnull)manager objectsAtDate:(NSDate * _Nonnull)date;
+- (NSMutableArray * _Nonnull)notificationManager:(NotificationManager * _Nonnull)manager objectsAtDate:(NSDate * _Nonnull)date;
 
 @end
 
 @interface NotificationManager : NSObject
 
 @property (nonatomic, strong, class, readonly) NotificationManager * _Nonnull shared;
-@property (nonatomic, nullable, assign) id<NotificationsDataSource> dataSource;
+@property (nonatomic, nullable) NSMutableArray<id<NotificationsDataSource>> *dataSources;
 @property (nonatomic, nullable, assign) id<NotificationsDelegate> delegate;
+@property (nonatomic) NSTimeInterval refreshInterval;
 
 - (void)startNotificationObserving;
 - (void)stopNotificationObserving;
-- (BOOL)hasObject:(id _Nonnull)object;
 
 @end
