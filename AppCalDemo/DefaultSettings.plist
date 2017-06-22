@@ -347,5 +347,13 @@
 			</array>
 		</dict>
 	</array>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Notification refresh delai</string>
+			<key>selectedValue</key>
+			<integer>5</integer>
+		</dict>
+	</array>
 </array>
 </plist>

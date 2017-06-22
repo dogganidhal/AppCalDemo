@@ -13,8 +13,8 @@
 @interface Settings : NSObject
 
 @property (nonatomic, class, readonly) ApplicationTheme appTheme;
+@property (nonatomic, class, readonly) NSTimeInterval notificationsRefreshDelai;
 
-//@property (nonatomic, strong, class) NSString *language;
 @property (nonatomic, class, readonly) NSInteger firstDayOfTheWeek;
 
 @property (nonatomic, strong, class, readonly) NSString *league;

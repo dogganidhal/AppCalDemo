@@ -27,7 +27,7 @@
     _window = [[UIWindow alloc] initWithFrame: UIScreen.mainScreen.bounds];
     _window.rootViewController = rootViewController;
     [_window makeKeyAndVisible];
-    NotificationManager.shared.refreshInterval = 5.0;
+    NotificationManager.shared.refreshInterval = Settings.notificationsRefreshDelai;
     [NotificationManager.shared startNotificationObserving];
     return YES;
 }

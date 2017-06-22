@@ -40,7 +40,7 @@
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] init];
     // Filling sections array
-    _sections = @[@"GENERAL SETTINGS", @"APP APPEARENCE", @"CALENDAR SETTINGS", @"CALENDAR CUSTOMIZATION", @"FOOTBALL SETTINGS"];
+    _sections = @[@"GENERAL SETTINGS", @"APP APPEARENCE", @"CALENDAR SETTINGS", @"CALENDAR CUSTOMIZATION", @"FOOTBALL SETTINGS", @"NOTIFICATIONS SETTINGS"];
     // Registering the custom cell
     [self.tableView registerClass:SettingsCell.class forCellReuseIdentifier:@"settingsCell"];
     // Initializing the plistSettings array
@@ -70,6 +70,9 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     NSNumber *currentValueIndex = [selectedObject objectForKey:@"selectedValue"];
     NSString *currentValue = [(NSArray *)[selectedObject objectForKey:@"allValues"] objectAtIndex:currentValueIndex.integerValue];
+    if (indexPath.section == 5) {
+        currentValue = [NSString stringWithFormat:@"%2.2f", ((NSNumber *)[selectedObject objectForKey:@"selectedValue"]).floatValue];
+    }
     cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";
     return cell;
     
@@ -104,6 +107,27 @@
         [resetAlertController addAction:confirmAction];
         [resetAlertController addAction:cancelAction];
         [self presentViewController:resetAlertController animated:YES completion:nil];
+    } else if (indexPath.section == 5) {
+        UIAlertController *refreshDelaiInputAlertController = [UIAlertController alertControllerWithTitle:@"Info" message:@"Enter the refresh delai for the notifications" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *submitAction = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // Register the entred value
+            [[[_plistSettings objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] setValue:refreshDelaiInputAlertController.textFields.firstObject.text forKey:@"selectedValue"];
+            [_plistSettings writeToFile: [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"] atomically:YES];
+            NSRange sectionsToReload = {5, 1};
+            [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndexesInRange:sectionsToReload] withRowAnimation:UITableViewRowAnimationFade];
+            NotificationManager.shared.refreshInterval = [refreshDelaiInputAlertController.textFields.firstObject.text floatValue];
+            [NotificationManager.shared stopNotificationObserving];
+            [NotificationManager.shared startNotificationObserving];
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [refreshDelaiInputAlertController dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [refreshDelaiInputAlertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.text = [NSString stringWithFormat:@"%@", [[[_plistSettings objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] valueForKey:@"selectedValue"]];
+        }];
+        [refreshDelaiInputAlertController addAction:submitAction];
+        [refreshDelaiInputAlertController addAction:cancelAction];
+        [self presentViewController:refreshDelaiInputAlertController animated:YES completion:nil];
     }
     [self.navigationController pushViewController:[[DetailSettingController alloc] initWithIndexPath:indexPath] animated:YES];
 }
@@ -111,7 +135,7 @@
 #pragma mark - method asking to reset to the default settings
 
 - (void)resetDefaultSettings {
-    NSString *defaultSettingsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"];
+    NSString *defaultSettingsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"`"];
     NSMutableArray *defaultSettings = [NSMutableArray arrayWithContentsOfFile:defaultSettingsPath];
     _plistSettings = defaultSettings;
     [_plistSettings writeToFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"] atomically:YES];
@@ -124,9 +148,9 @@
 #pragma mark - method asking to reload data
 
 - (void)reload {
-    [self.tableView reloadData];
     NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     _plistSettings = [NSMutableArray arrayWithContentsOfFile:plistFilePath];
+    [self.tableView reloadData];
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
 

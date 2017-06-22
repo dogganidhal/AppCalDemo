@@ -31,6 +31,7 @@ import UIKit
         if controller is YearController {
             pushViewController(monthController, animated: false)
         } else if controller is MonthController {
+            dayController.receivedDate = date
             pushViewController(dayController, animated: true)
         } else {
             pushViewController(FootballFixtureController(), animated: true)

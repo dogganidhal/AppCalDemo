@@ -23,6 +23,12 @@
     return selectedTheme.integerValue == 0 ? ApplicationThemeDark : ApplicationThemeLight;
 }
 
++ (NSTimeInterval)notificationsRefreshDelai {
+    NSDictionary *notificationsObject = [[self.plistData objectAtIndex:5] objectAtIndex:0];
+    NSNumber *selectedDelai = [notificationsObject objectForKey:@"selectedValue"];
+    return selectedDelai.floatValue;
+}
+
 + (NSInteger)firstDayOfTheWeek {
     NSDictionary *dayObject = [[self.plistData objectAtIndex:2] objectAtIndex:0];
     NSNumber *selected = [dayObject objectForKey:@"selectedValue"];
