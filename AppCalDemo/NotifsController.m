@@ -32,15 +32,20 @@
     self->reusableCellIdentifier = @"notificationsCell";
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:self->reusableCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
-    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [self.view addSubview:self.activityIndicatorView];
-    self.activityIndicatorView.center = CGPointMake(CGRectGetMidX(UIScreen.mainScreen.bounds), CGRectGetMidY(UIScreen.mainScreen.bounds));
-    self.activityIndicatorView.hidesWhenStopped = YES;
+    [self setupView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.activityIndicatorView startAnimating];
+}
+
+- (void)setupView {
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:(Settings.appTheme == ApplicationThemeDark ? UIActivityIndicatorViewStyleWhite : UIActivityIndicatorViewStyleGray)];
+    [self.view addSubview:self.activityIndicatorView];
+    self.activityIndicatorView.center = CGPointMake(CGRectGetMidX(UIScreen.mainScreen.bounds), CGRectGetMidY(UIScreen.mainScreen.bounds));
+    self.activityIndicatorView.hidesWhenStopped = YES;
+    self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
 
 #pragma mark - Table view data source
@@ -58,6 +63,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:self->reusableCellIdentifier];
     // Configure the cell...
+    cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     cell.textLabel.font = [FontBook regularFontOfSize:18];
     cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
     if ((indexPath.section == 0 ? self.upcomingEvents : self.lateEvents).count == 0) {
@@ -68,11 +74,11 @@
     cell.textLabel.text = [object objectForKey:@"SUMMARY"];
     NSString *detailLabelText = [NSString stringWithFormat:@"%@ at %@", [object objectForKey:@"startDateString"], [object objectForKey:@"startTimeString"]];
     cell.detailTextLabel.text = detailLabelText;
-    cell.detailTextLabel.textColor = [UIColor grayColor];
+    cell.detailTextLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor lightGrayColor] : [UIColor grayColor];
     cell.detailTextLabel.font = [FontBook lightFontOfSize:14];
     UILabel *accessoryLabel = [[UILabel alloc] init];
     accessoryLabel.text = (NSString *)[object objectForKey:@"SENDER"];
-    accessoryLabel.textColor = [UIColor grayColor];
+    accessoryLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor lightGrayColor] : [UIColor grayColor];
     accessoryLabel.font = [FontBook regularFontOfSize:15];
     [accessoryLabel sizeToFit];
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -135,6 +141,7 @@
     self.navigationItem.titleView = titleLabel;
     self.navigationController.navigationBar.tintColor = Settings.mainColor;
     [self.tableView reloadData];
+    [self setupView];
 }
 
 @end

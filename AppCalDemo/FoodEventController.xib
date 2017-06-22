@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodEventController" customModule="AppCalDemo" customModuleProvider="target">
             <connections>
                 <outlet property="image" destination="Tc6-a5-zn8" id="UOt-pn-Rn5"/>
+                <outlet property="locationLabel" destination="jQc-sT-ydi" id="x57-yg-eSN"/>
                 <outlet property="mealTypeLabel" destination="yfu-Nb-q7d" id="aGC-8x-VdN"/>
                 <outlet property="notesLabel" destination="4Q3-nl-i1j" id="HTp-Hr-thk"/>
                 <outlet property="timeLabel" destination="1kB-R9-zMe" id="1QR-bo-GJo"/>
@@ -50,8 +51,14 @@
                         <constraint firstAttribute="width" secondItem="Tc6-a5-zn8" secondAttribute="height" multiplier="4:3" id="iha-Rl-jrE" userLabel="aspect = 1:1"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q3-nl-i1j">
-                    <rect key="frame" x="16" y="143" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q3-nl-i1j">
+                    <rect key="frame" x="16" y="156" width="46" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQc-sT-ydi">
+                    <rect key="frame" x="16" y="119" width="66" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -64,11 +71,13 @@
                 <constraint firstAttribute="trailing" secondItem="Tc6-a5-zn8" secondAttribute="trailing" constant="16" id="QpZ-hR-FMS"/>
                 <constraint firstItem="fOt-q4-a6e" firstAttribute="top" secondItem="yfu-Nb-q7d" secondAttribute="bottom" constant="16" id="T8j-5d-C3f"/>
                 <constraint firstAttribute="bottom" secondItem="Tc6-a5-zn8" secondAttribute="bottom" constant="16" id="WEI-js-2Vs"/>
+                <constraint firstItem="jQc-sT-ydi" firstAttribute="top" secondItem="1kB-R9-zMe" secondAttribute="bottom" constant="8" id="Xz1-81-iMo"/>
                 <constraint firstItem="1kB-R9-zMe" firstAttribute="top" secondItem="fOt-q4-a6e" secondAttribute="bottom" constant="8" id="b2T-Id-cMc"/>
                 <constraint firstItem="Tc6-a5-zn8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="cHp-t6-fpO"/>
                 <constraint firstItem="yfu-Nb-q7d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="16" id="iwS-7q-Gwe"/>
-                <constraint firstItem="4Q3-nl-i1j" firstAttribute="top" secondItem="1kB-R9-zMe" secondAttribute="bottom" constant="32" id="nXY-QC-8NG"/>
+                <constraint firstItem="jQc-sT-ydi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="ldM-R7-jZP"/>
                 <constraint firstItem="yfu-Nb-q7d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="16" id="nfl-fL-QwU"/>
+                <constraint firstItem="4Q3-nl-i1j" firstAttribute="top" secondItem="jQc-sT-ydi" secondAttribute="bottom" constant="16" id="olB-4c-nQD"/>
                 <constraint firstItem="1kB-R9-zMe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tfe-cS-1o1"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>

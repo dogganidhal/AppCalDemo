@@ -41,8 +41,8 @@ import UIKit
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editEvent))
     }
     
-    override open func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupView()
     }
     
@@ -70,7 +70,8 @@ import UIKit
         timeLabel.text = startDate + (allDay! ? "" : " at " + startTime)
         guard let imageData = calendarEvent?.image else { return }
         image.image = UIImage(data: imageData)
-        
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 6.0
     }
     
     @objc private func editEvent() {

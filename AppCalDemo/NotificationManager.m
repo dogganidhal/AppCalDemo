@@ -32,6 +32,7 @@ static NotificationManager *_shared;
     self = [super init];
     if (self) {
         self.dataSources = [[NSMutableArray alloc] init];
+        self.delegate = nil;
         self.refreshInterval = 10.0;
     }
     return self;

@@ -28,7 +28,7 @@
 
 @property (nonatomic, strong, class, readonly) NotificationManager * _Nonnull shared;
 @property (nonatomic, nullable) NSMutableArray<id<NotificationsDataSource>> *dataSources;
-@property (nonatomic, nullable, assign) id<NotificationsDelegate> delegate;
+@property (nonatomic, nullable) id<NotificationsDelegate> delegate;
 @property (nonatomic) NSTimeInterval refreshInterval;
 
 - (void)startNotificationObserving;

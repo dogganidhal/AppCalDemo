@@ -31,6 +31,7 @@ import UIKit
     @IBOutlet weak var mealTypeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
@@ -42,8 +43,8 @@ import UIKit
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editEvent))
     }
     
-    override open func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupView()
     }
     
@@ -68,6 +69,10 @@ import UIKit
         timeLabel.font = FontBook.regularFont(ofSize: 14)
         timeLabel.textColor = Settings.mainColor
         
+        locationLabel.text = mealEvent?.location
+        locationLabel.font = FontBook.regularFont(ofSize: 16)
+        locationLabel.textColor = UIColor(fromHex: 0x1E88E5)
+        
         notesLabel.text = mealEvent?.notes
         notesLabel.font = FontBook.regularFont(ofSize: 16)
         notesLabel.textColor = Settings.appTheme == .dark ? .white : .black
@@ -78,6 +83,8 @@ import UIKit
         timeLabel.text = startDate + (allDay! ? "" : " at " + startTime)
         guard let imageData = mealEvent?.image else { return }
         image.image = UIImage(data: imageData)
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 6.0
         
     }
     

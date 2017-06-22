@@ -88,7 +88,7 @@ import UIKit
                 self?.appDelegate.saveContext()
                 alertController.dismiss(animated: true, completion: nil)
                 for controller in self!.navigationController!.viewControllers {
-                    if controller is DayController {
+                    if controller is DayController || controller is NotifsController {
                         self?.navigationController?.popToViewController(controller, animated: true)
                     }
                 }
