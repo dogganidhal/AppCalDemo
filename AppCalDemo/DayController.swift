@@ -23,11 +23,6 @@ import UIKit
         dayView.reloadDays()
     }
     
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-
     open func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
         guard let delegate = self.delegate else { return }
         if delegate.responds(to: #selector(calendarComponentControllerWantsTransition(_:toDate:))) {

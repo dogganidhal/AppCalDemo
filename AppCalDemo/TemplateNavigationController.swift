@@ -34,14 +34,7 @@ import UIKit
     }
     
     public func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
-        if controller is YearController {
-            pushViewController(monthController, animated: false)
-        } else if controller is MonthController {
-            pushViewController(dayController, animated: true)
-        } else {
-            pushViewController(AppsoluteCalendarDetailVC(), animated: true)
-        }
-        lastUsedDate = date
+        
     }
     
     public func calendarComponentControllerShouldPassData(_ controller: AppsoluteCalendarTemplateViewController, dataToPass data: AnyObject) {
@@ -49,15 +42,7 @@ import UIKit
     }
     
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if viewController is MonthController {
-            monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
-        } else if viewController is DayController {
-            // TODO: Scroll to the last used date
-            
-        } else {
-            // DetailController
-            // TODO: present the selected event
-        }
+        
     }
     
     open override func reload() {

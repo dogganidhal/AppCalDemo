@@ -43,7 +43,6 @@ import UIKit
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadEvents()
-        dayController.dayView?.reloadDays()
         monthController.monthView?.reloadData()
         yearController.yearView?.reloadData()
     }

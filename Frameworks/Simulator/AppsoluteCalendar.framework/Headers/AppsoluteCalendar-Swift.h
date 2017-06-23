@@ -322,6 +322,14 @@ SWIFT_CLASS("_TtC17AppsoluteCalendar17AppsoluteCalendar")
 ///
 - (void)disableYearView:(BOOL)disable;
 - (void)isSubclassed:(BOOL)subclassed;
+/// Tells the Framework if you handle eventual clicked links by yourself. Only affects the use of the complete calendar.
+/// \param handleSelf Bool: true for handle self, false for let framework handle them (default value)
+///
+- (void)handleURLsPersonal:(BOOL)handleSelf;
+/// Tells the Framework if urls in the detailview are clickable or not.
+/// \param clickable Bool: true for clickable (default), false for not clickable
+///
+- (void)urlsClickable:(BOOL)clickable;
 /// Enables or disables event notifications
 /// \param allow Bool: true for enabled, false for disabled
 ///
