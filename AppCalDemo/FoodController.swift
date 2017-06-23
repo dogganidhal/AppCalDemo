@@ -42,6 +42,7 @@ import UIKit
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupAddButton()
+        // Hack to grab events and prepare them to be exposed to the notifications.
         _ = events
         NotificationManager.shared.dataSources?.add(self)
     }
@@ -52,7 +53,6 @@ import UIKit
         appCal.reloadEvents(events)
         monthController.monthView?.reloadData()
         yearController.yearView?.reloadData()
-        dayController.dayView?.reloadDays()
     }
     
     override open func viewDidLayoutSubviews() {
