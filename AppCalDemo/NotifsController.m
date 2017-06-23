@@ -13,9 +13,9 @@
 
 @interface NotifsController ()
 
-// NSMutableArray of the event in the next day.
+// NSMutableArray for the events in the next 24 hours.
 @property (nonatomic, strong) NSMutableArray *upcomingEvents;
-// NSMutableArray of the event in the last day.
+// NSMutableArray for the events in the last 24 hours.
 @property (nonatomic, strong) NSMutableArray *lateEvents;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 
@@ -68,7 +68,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:self->reusableCellIdentifier];
     // Configure the cell...
     cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
-    cell.textLabel.font = [FontBook regularFontOfSize:18];
+    cell.textLabel.font = [FontBook regularFontOfSize:16];
     cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
     if ((indexPath.section == 0 ? self.upcomingEvents : self.lateEvents).count == 0) {
         cell.textLabel.text = @"Nothing in this section";
@@ -96,7 +96,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    header.textLabel.font = [FontBook boldFontOfSize:18];
+    header.textLabel.font = [FontBook boldFontOfSize:16];
     header.textLabel.textColor = [Settings mainColor];
     header.tintColor = Settings.appTheme == ApplicationThemeDark ? [[UIColor whiteColor] colorWithAlphaComponent:0.15] : [UIColor groupTableViewBackgroundColor];
     [header.textLabel sizeToFit];
@@ -104,6 +104,12 @@
 
 // Handling what happens when a cell is selected, it pushes a DetailController of the selected event.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Checking if the selected cell is the one indicating that the section is empty
+    if ((indexPath.section == 0 && [self.tableView numberOfRowsInSection:indexPath.section] == 1 && self.upcomingEvents.count == 0) ||
+        (indexPath.section == 1 && [self.tableView numberOfRowsInSection:indexPath.section] == 1 && self.lateEvents.count == 0)) {
+        return;
+    }
+    // In case the cell is a valid one and has to push a DetailViewController
     NSString *eventUID = [[(indexPath.section == 0 ? self.upcomingEvents : self.lateEvents) objectAtIndex:indexPath.row] objectForKey:@"UID"];
     NSString *sender = [[(indexPath.section == 0 ? self.upcomingEvents : self.lateEvents) objectAtIndex:indexPath.row] objectForKey:@"SENDER"];
     if ([sender isEqualToString:@"Diary"]) {

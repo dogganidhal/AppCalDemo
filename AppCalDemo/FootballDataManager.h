@@ -14,7 +14,6 @@
 @interface FootballDataManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *fixtures;
-@property (nonatomic, strong) NSArray<CalendarEvent *> *calendarEvents;
 @property (nonatomic, strong) NSArray<NSDictionary *> *events;
 
 - (void)reloadData;

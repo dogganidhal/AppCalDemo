@@ -24,6 +24,7 @@ import UIKit
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupAddButton()
+        loadEvents()
         NotificationManager.shared.dataSources?.add(self)
     }
     

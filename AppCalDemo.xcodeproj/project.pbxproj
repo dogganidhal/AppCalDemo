@@ -106,12 +106,6 @@
 		95A38EE71EE7D55600EA3C8F /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontBook.m; sourceTree = "<group>"; };
 		95A38EE91EE7DE8B00EA3C8F /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		95A38EEA1EE7DE8B00EA3C8F /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		95A38FCA1EE7FB4B00EA3C8F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		95A38FCB1EE7FB4B00EA3C8F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		95A38FCC1EE7FB5100EA3C8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		95A38FCD1EE7FB5100EA3C8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		95A38FCE1EE7FB5A00EA3C8F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
-		95A38FCF1EE7FB5A00EA3C8F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		95A38FD01EE7FE7000EA3C8F /* AppCalSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCalSecurity.framework; path = Frameworks/Active/AppCalSecurity.framework; sourceTree = "<group>"; };
 		95A38FD11EE7FE7000EA3C8F /* AppsoluteCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsoluteCalendar.framework; path = Frameworks/Active/AppsoluteCalendar.framework; sourceTree = "<group>"; };
 		95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Frameworks/Active/CommonCrypto.framework; sourceTree = "<group>"; };
@@ -180,15 +174,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		95A38EE51EE7D53100EA3C8F /* Helpers */ = {
+		95A38EE51EE7D53100EA3C8F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				95A38EE61EE7D55600EA3C8F /* FontBook.h */,
-				95A38EE71EE7D55600EA3C8F /* FontBook.m */,
-				95A38EE91EE7DE8B00EA3C8F /* Settings.h */,
-				95A38EEA1EE7DE8B00EA3C8F /* Settings.m */,
+				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
+				95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */,
+				95A38EE31EE7D13600EA3C8F /* Fonts.plist */,
 			);
-			name = Helpers;
+			name = Sources;
 			sourceTree = "<group>";
 		};
 		95A38FE01EE81DBB00EA3C8F /* Frameworks */ = {
@@ -204,8 +197,6 @@
 		95AC05341EEFEF6F00850973 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.h */,
-				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m */,
 				95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */,
 				95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */,
 				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
@@ -240,6 +231,17 @@
 				957E7EF91EFA7EEB00EE6A8D /* CalendarEventDetailController.xib */,
 			);
 			name = Calendar;
+			sourceTree = "<group>";
+		};
+		95B6FCEA1EFD43C200D061A1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.h */,
+				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m */,
+				95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */,
+				957D9C711EF3B1BB00891FDC /* UIColor_Extensions.h */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		95B71E641EE9213B003FA9E2 /* Football */ = {
@@ -323,10 +325,11 @@
 				F2878FCB1EE59B8900F4CD9E /* SettingsController.m */,
 				95D705DF1EE6BD6100B79AA2 /* DetailSettingController.h */,
 				95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */,
-				95D705DA1EE6B0BF00B79AA2 /* Settings.plist */,
-				95BA7E1E1EEA916B00823E21 /* DefaultSettings.plist */,
-				95A38EE31EE7D13600EA3C8F /* Fonts.plist */,
-				95A38EE51EE7D53100EA3C8F /* Helpers */,
+				95A38EE61EE7D55600EA3C8F /* FontBook.h */,
+				95A38EE71EE7D55600EA3C8F /* FontBook.m */,
+				95A38EE91EE7DE8B00EA3C8F /* Settings.h */,
+				95A38EEA1EE7DE8B00EA3C8F /* Settings.m */,
+				95A38EE51EE7D53100EA3C8F /* Sources */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -366,11 +369,10 @@
 			children = (
 				F2878FAD1EE58A0B00F4CD9E /* AppDelegate.h */,
 				F2878FAE1EE58A0B00F4CD9E /* AppDelegate.m */,
-				95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */,
-				957D9C711EF3B1BB00891FDC /* UIColor_Extensions.h */,
 				95AC05341EEFEF6F00850973 /* Model */,
 				F241C6E21EE6172A00D1D38A /* ViewControllers */,
 				95D705C21EE6903F00B79AA2 /* CustomViews */,
+				95B6FCEA1EFD43C200D061A1 /* Helpers */,
 				F2878FAA1EE58A0B00F4CD9E /* Supporting Files */,
 			);
 			path = AppCalDemo;
@@ -539,9 +541,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2878FB41EE58A0B00F4CD9E /* Base */,
-				95A38FCA1EE7FB4B00EA3C8F /* fr */,
-				95A38FCC1EE7FB5100EA3C8F /* de */,
-				95A38FCE1EE7FB5A00EA3C8F /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -550,9 +549,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2878FBC1EE58A0B00F4CD9E /* Base */,
-				95A38FCB1EE7FB4B00EA3C8F /* fr */,
-				95A38FCD1EE7FB5100EA3C8F /* de */,
-				95A38FCF1EE7FB5A00EA3C8F /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

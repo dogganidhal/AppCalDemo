@@ -8,11 +8,11 @@
 
 import UIKit
 
-// this class is a super class of the Controllers who display a specific event.
+// This class is a super class of the Controllers who display a specific event.
 
 @objc open class DetailController: BaseController {
     
-    // The event asked to be shown in this controller should be set to this property
+    // The event asked to be shown in this controller should be set to this property.
     open var eventToDisplay: AnyObject? {
         didSet {
             reloadView()
@@ -26,7 +26,7 @@ import UIKit
     }
 
     open func reloadView() {
-        // Do any setup after an event is being set
+        // Do any setup after an event is being set.
     }
     
 }

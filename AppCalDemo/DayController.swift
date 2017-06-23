@@ -24,7 +24,7 @@ import UIKit
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Just before the DayController appears, reload the dayView to show proper data and date.
-        dayView.reloadDays()
+//        dayView.reloadDays()
     }
     
     // MARK:- CalendarComponentControllerDelegate calls.

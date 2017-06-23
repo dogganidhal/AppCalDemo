@@ -39,12 +39,12 @@
     calendarController = [[CalendarController alloc] init];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[NotifsController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     // Setting the tabbarItems for children controllers.
     foodController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Food" image:[UIImage imageNamed:@"food"] tag:0];
     footballController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Football" image:[UIImage imageNamed:@"Football"] tag:1];
@@ -64,6 +64,8 @@
     self.tabBar.translucent = NO;
     self.tabBar.tintColor = [Settings mainColor];
     self.tabBar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
+    // Loading the children ViewControllers hack.
+    [self.viewControllers makeObjectsPerformSelector:@selector(view)];
 }
 
 #pragma mark - Reload its self anf the children as well

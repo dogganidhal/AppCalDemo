@@ -28,6 +28,8 @@ import UIKit
         appCal.reloadEvents(events)
         monthController.monthView?.reloadData()
         yearController.yearView?.reloadData()
+        dayController.dayView?.reloadDays()
+        
     }
     
     // MARK:- CalendarComponentControllerDelegate method.
