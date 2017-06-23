@@ -76,7 +76,9 @@
         currentValue = [NSString stringWithFormat:@"%2.2f", ((NSNumber *)[selectedObject objectForKey:@"selectedValue"]).floatValue];
     }
     if (indexPath.section != 0) {
-        cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";
+        cell.currentValue = [NSString stringWithFormat:@"%@", currentValue];
+    } else {
+        cell.currentValue = @"";
     }
     return cell;
     

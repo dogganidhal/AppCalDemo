@@ -59,6 +59,7 @@ import UIKit
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
         navigationController?.navigationBar.tintColor = Settings.mainColor
+
     }
     
     

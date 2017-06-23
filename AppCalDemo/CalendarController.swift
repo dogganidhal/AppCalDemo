@@ -85,7 +85,6 @@ import UIKit
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
             setAddButtonVisibility(true)
         case is DayController:
-            // TODO: Scroll to the selected date
             setAddButtonVisibility(true)
             break
         case is CalendarEventDetailController:
@@ -147,7 +146,7 @@ import UIKit
             let startDate = (event as? NSDictionary)?.value(forKey: "STARTDATE") as? Date
             guard startDate != nil else { break }
             if startDate!.timeIntervalSince(date) < 3600 * 24 &&
-                startDate!.timeIntervalSince(date) > -3600 * 24 { // an interval of two days, a day after and a day before
+                startDate!.timeIntervalSince(date) > -3600 * 24 { // an interval of two days, a day after and a day before the current date
                 (event as! NSDictionary).setValue("Calendar", forKey: "SENDER")
                 eventsForNotifications.append(event as! [String : Any])
             }

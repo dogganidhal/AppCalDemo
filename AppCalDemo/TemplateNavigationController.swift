@@ -60,6 +60,7 @@ import UIKit
     open override func reload() {
         super.reload()
         self.appCal.setCustomizationOnCalendar()
+        self.appCal.updateOnStyleChanges()
     }
     
 }

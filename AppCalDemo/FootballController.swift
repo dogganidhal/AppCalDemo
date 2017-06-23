@@ -51,10 +51,7 @@ import UIKit
     override public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if viewController is MonthController {
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
-        } else if viewController is DayController {
-            // TODO: Scroll to the last used date
-        } else if !(viewController is YearController) {
-            // DetailController
+        } else if viewController is FootballFixtureController {
             (viewController as! FootballFixtureController).eventToDisplay = lastUsedData as? AppsoluteCalendarDefaultObject
         }
     }

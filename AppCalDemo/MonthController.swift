@@ -26,7 +26,7 @@ import AppsoluteCalendar
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // Scroll to the lastSavedDate if any
+        // Scroll to the lastSavedDate if any.
         guard lastSavedDate != nil else { return }
         monthView.reloadData()
         monthView.scrollToDateAnimated(lastSavedDate!, animated: true)
@@ -57,6 +57,7 @@ import AppsoluteCalendar
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
         navigationController?.navigationBar.tintColor = Settings.mainColor
+        guard monthView != nil else { return }
         monthView.reloadData()
     }
 

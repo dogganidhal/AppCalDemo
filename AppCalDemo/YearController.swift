@@ -19,7 +19,6 @@ open class YearController: AppsoluteCalendarYearVC {
     override open func viewDidLoad() {
         super.viewDidLoad()
         reloadController()
-        
     }
     
     // MARK:- CalendarComponentControllerDelegate calls.
