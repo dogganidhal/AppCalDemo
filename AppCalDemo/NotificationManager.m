@@ -10,8 +10,11 @@
 
 @interface NotificationManager ()
 
+// The timer that will be fired after the refresh interval is elapsed.
 @property (nonatomic, strong) NSTimer *timer;
+// Received Objects from data sources.
 @property (nonatomic, strong) NSMutableArray *objects;
+// A boolean indicating whether the manager is currently looking for notifications.
 @property (nonatomic) BOOL isObserving;
 
 @end
@@ -38,6 +41,7 @@ static NotificationManager *_shared;
     return self;
 }
 
+// Starts observing and fires the timer in ther RunLoop.
 - (void)startNotificationObserving {
     self.isObserving = YES;
     self.timer = [NSTimer timerWithTimeInterval:self.refreshInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -48,6 +52,7 @@ static NotificationManager *_shared;
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
 }
 
+// Stops observing and invalidates the timer.
 - (void)stopNotificationObserving {
     self.isObserving = NO;
     [self.timer invalidate];

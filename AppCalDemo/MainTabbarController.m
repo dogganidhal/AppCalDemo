@@ -23,6 +23,7 @@
 @end
 
 @implementation MainTabbarController {
+    // ChildrenViewControllers i-vars.
     FoodController *foodController;
     FootballController *footballController;
     CalendarController *calendarController;
@@ -33,13 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // Instantiating the children controllers
+    // Instantiating the children controllers.
     foodController = [[FoodController alloc] init];
     footballController = [[FootballController alloc] init];
     calendarController = [[CalendarController alloc] init];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[NotifsController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
-    // Setting the tabbarItems for children controllers
+    // Setting the tabbarItems for children controllers.
     foodController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Food" image:[UIImage imageNamed:@"food"] tag:0];
     footballController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Football" image:[UIImage imageNamed:@"Football"] tag:1];
     calendarController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Calendar" image:[UIImage imageNamed:@"calendar"] tag:2];
@@ -48,15 +49,19 @@
     [self setupController];
 }
 
+#pragma mark Additional setup
+
 - (void)setupController {
-    // TabbarItem Font setting
+    // TabbarItem Font setting.
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[FontBook lightFontOfSize:12], NSFontAttributeName, nil] forState:UIControlStateNormal];
-    // Appearence customization
+    // Appearence customization.
     self.viewControllers = @[foodController, footballController, calendarController, notifsController, settingsController];
     self.tabBar.translucent = NO;
     self.tabBar.tintColor = [Settings mainColor];
     self.tabBar.barTintColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
+
+#pragma mark - Reload its self anf the children as well
 
 - (void)reloadController {
     [self setupController];

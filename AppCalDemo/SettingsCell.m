@@ -12,7 +12,9 @@
 
 @interface SettingsCell()
 
+// UILabel instance to display the current value string if any.
 @property (nonatomic, strong) UILabel *currentValueLabel;
+// A reference to the disclosure button, used to set contraints on the current value label.
 @property (nonatomic, strong) UIView *disclosureButton;
 
 @end
@@ -27,6 +29,7 @@
     return self;
 }
 
+// Basic setup from the settings of the cell.
 - (void)setupCell {
     _currentValueLabel = [[UILabel alloc] init];
     _currentValueLabel.font = [FontBook regularFontOfSize:16];
@@ -40,6 +43,7 @@
     
 }
 
+// Setter of the current value property, which garantees the update of the label's text.
 - (void)setCurrentValue:(NSString *)currentValue {
     _currentValueLabel.text = currentValue;
     _currentValueLabel.hidden = NO;
@@ -50,6 +54,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    // Referencing the disclosure button. 
     for (UIView *subview in self.subviews) {
         if (subview.class == UIButton.class) {
             _disclosureButton = subview;

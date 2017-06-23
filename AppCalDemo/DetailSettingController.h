@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+// This class is a subclass of UITableViewController, which displays the available choices.
+
 @interface DetailSettingController : UITableViewController<UINavigationControllerDelegate>
 
+// Convenience initializer, with indexPath of the sender cell.
 - (instancetype)initWithIndexPath:(NSIndexPath *)indexPath;
 
 @end

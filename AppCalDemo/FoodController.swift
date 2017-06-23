@@ -8,30 +8,35 @@
 
 import UIKit
 
+// This class handles adding, editing, displaying and removing AppsoluteCalendar-based meal events and save them to the core data.
+
 @objc open class FoodController: TemplateNavigationController, NotificationsDataSource {
     
-        override var events: NSMutableArray {
-            get {
-                let localEvents = NSMutableArray()
-                var eventArray = NSMutableArray()
-                do {
-                    eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
-                } catch {
-                    print("CoreData Error, can't fetch data")
-                }
-                for event in eventArray {
-                    localEvents.add((event as! MealEvent).dictionaryFromEvent())
-                }
-                return localEvents
-            } set { }
-        }
-    
-    internal var addButton: UIButton = UIButton()
+    // These two properties are a shortcut to the appDelegate and the viewContext instances.
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
-    private var notificationObservingTimer: Timer!
+    // This property is a container of the saved events in the core data.
+    override var events: NSMutableArray {
+        get {
+            // Fetching the events from core data.
+            let localEvents = NSMutableArray()
+            var eventArray = NSMutableArray()
+            do {
+                eventArray = try context.fetch(MealEvent.fetchRequest()) as! NSMutableArray
+            } catch {
+                print("CoreData Error, can't fetch data")
+            }
+            for event in eventArray {
+                localEvents.add((event as! MealEvent).dictionaryFromEvent())
+            }
+            return localEvents
+        } set { }
+    }
+    
+    // The circular addButton at the bottom-left corner.
+    internal var addButton: UIButton = UIButton()
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +47,21 @@ import UIKit
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadEvents()
+        // Reload the events and refresh the UI before the Controller is shown.
+        appCal.reloadEvents(events)
         monthController.monthView?.reloadData()
         yearController.yearView?.reloadData()
     }
     
-    internal func loadEvents() {
-        appCal.reloadEvents(events)
-    }
-    
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        // Sets the circular corner after the addButton is placed on the view.
         addButton.layer.cornerRadius = addButton.frame.height / 2.0
     }
     
+    // MARK:- CalendarComponentControllerDelegate method.
+    
+    // In the following method, we push the proper controller by checking the sender, and pass the necessary data.
     public override func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
         switch controller {
         case is YearController:
@@ -71,8 +77,9 @@ import UIKit
         lastUsedDate = date
     }
     
+    // MARK:- NavigationController Delegate method.
     
-    
+    // In this override, we do additional setup on the shown controller after it's initialization.
     override public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         switch viewController {
         case is YearController:
@@ -81,7 +88,6 @@ import UIKit
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)
             setAddButtonVisibility(true)
         case is DayController:
-            // TODO: Scroll to the selected date
             setAddButtonVisibility(true)
             break
         case is FoodEventController:
@@ -96,6 +102,7 @@ import UIKit
         }
     }
     
+    // This method sets the addButton on the bottom-left corner using auto-layout.
     internal func setupAddButton() {
         view.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
@@ -110,10 +117,12 @@ import UIKit
         addButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
     }
     
+    // This method is called wvery time the addButton is tapped.
     internal func addEvent() {
         pushViewController(NewFoodEventController(), animated: true)
     }
     
+    // Animates the show/hide of the addButton.
     internal func setAddButtonVisibility(_ visible: Bool) {
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             if self!.addButton.isHidden {
@@ -125,11 +134,16 @@ import UIKit
         }
     }
     
+    
+    // Reloads the controller when asked.
     override open func reload() {
         super.reload()
         setupAddButton()
     }
     
+    // MARK:- NotificationsDataSource method.
+    
+    // In this method, we send the events near to the current date, one day before and one after this moment.
     public func notificationManager(_ manager: NotificationManager, objectsAt date: Date) -> NSMutableArray {
         var eventsForNotifications = Array<Dictionary<String, Any>>()
         for event in self.events {

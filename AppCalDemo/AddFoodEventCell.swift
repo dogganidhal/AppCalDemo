@@ -8,14 +8,20 @@
 
 import UIKit
 
+// This protocol allows the cells to send the input we get from the subViews.
+
 @objc public protocol AddFoodEventCellDelegate: NSObjectProtocol {
     
+    // Tells the delegate that the cell has some data to be saved.
     @objc optional func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?)
     
 }
 
+// This class is a subclass of UITableViewCell, which allows to display differnt pieces of views on the accessoryView and sends their data to th delegate.
+
 @objc open class AddFoodEventCell: UITableViewCell, UITextFieldDelegate {
     
+    // Different pieces of views used in the TableView.
     public enum AddFoodEventCellIdentifier {
         case textField
         case `switch`
@@ -24,13 +30,16 @@ import UIKit
         case none
     }
 
+    // AddFoodEventCellDelegate property
     open weak var delegate: AddFoodEventCellDelegate?
-    
+    // This property tells which piece of view the cell should display.
     open var identifier: AddFoodEventCellIdentifier = .none {
         didSet {
+            // Reload whenever the identifier changes.
             reloadCell()
         }
     }
+    // The input we get from subViews.
     open var input: Any? {
         get {
             switch identifier {
@@ -47,48 +56,57 @@ import UIKit
             setInput()
         }
     }
+    // Sets a placeholder on the textField.
     open var placeholderForTextField: String? {
         willSet {
             textField?.placeholder = newValue
         }
     }
+    // Sets some text on the textField.
     open var textForTextField: String? {
         willSet {
             textField?.text = newValue
         }
     }
+    // Sets the textColor of the textField.
     open var textColorForTextField: UIColor? {
         willSet {
             textField?.textColor = newValue
         }
     }
+    // Sets the value of the switch.
     open var valueForSwitch: Bool? {
         willSet {
             self.switch?.isOn = newValue ?? false
         }
     }
+    // Sets the tint color of the segment.
     open var segmentTintColor: UIColor? {
         willSet {
             segment?.tintColor = newValue
         }
     }
+    // Sets the text on the currentValue Label.
     open var currentValueString: String? {
         willSet {
             currentValueLabel?.text = newValue
             setNeedsLayout()
         }
     }
+    // Sets the image of the imageView.
     open var currentImage: UIImage? {
         willSet {
             rightImageView?.image = newValue
         }
     }
+    // Sets the value of the segment.
     open var valueForSegment: Int16? {
         willSet {
             guard newValue != nil else { return }
             segment?.selectedSegmentIndex = Int(newValue!)
         }
     }
+    // Potential accessoryViews.
     private var textField: UITextField?
     private var currentValueLabel: UILabel?
     private var `switch`: UISwitch?
@@ -97,6 +115,7 @@ import UIKit
     
     override open func layoutSubviews() {
         super.layoutSubviews()
+        // Setup the subviews using autolayout.
         guard identifier == .disclosureIndicator else { return }
         var disclosureIndicator: UIView?
         for subview in subviews {
@@ -122,6 +141,7 @@ import UIKit
         }
     }
     
+    // Reloads the cell when the identifier has changed.
     internal func reloadCell() {
         switch identifier {
         case .textField:
@@ -137,6 +157,7 @@ import UIKit
         }
     }
     
+    // Sets the input property on the views.
     private func setInput() {
         switch identifier {
         case .disclosureIndicator:
@@ -155,6 +176,8 @@ import UIKit
             break
         }
     }
+    
+    // MARK:- Setting a particular type of cell.
     
     private func setToTextFieldCell() {
         self.accessoryView = nil
@@ -212,6 +235,9 @@ import UIKit
         self.rightImageView = nil
     }
     
+    // MARK:- AddFoodEventCellDelegate method.
+    
+    // In this method the cell sends it's input to the delegate.
     @objc private func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?) {
         guard let delegate = self.delegate else { return }
         if delegate.responds(to: #selector(addFoodEventCell(_:shouldSaveData:))) {
@@ -219,6 +245,9 @@ import UIKit
         }
     }
 
+    // MARK:- UITextFieldDelegate method.
+    
+    // Asks the cell to send the input when the textField is out of focus.
     public func textFieldDidEndEditing(_ textField: UITextField) {
         addFoodEventCell(self, shouldSaveData: input)
     }

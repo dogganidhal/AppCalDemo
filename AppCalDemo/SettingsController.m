@@ -16,7 +16,9 @@
 
 @interface SettingsController ()
 
+// An array holding the titles of the sections.
 @property (nonatomic, strong) NSArray<NSString *> *sections;
+// A property holding the content of the current plist settings file.
 @property (nonatomic, strong) NSMutableArray<NSArray<NSDictionary *> *> *plistSettings;
 
 @end
@@ -25,25 +27,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Setup the logo on the navigation bar
+    // Setup the logo on the navigation bar.
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";
     titleLabel.font = [FontBook boldFontOfSize:18];
     titleLabel.textColor = [Settings mainColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
-    // Cusomization
+    // Cusomization.
     UIEdgeInsets separatorInset = {0};
     separatorInset.left = 8;
     separatorInset.right = 8;
     self.tableView.separatorInset = separatorInset;
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] init];
-    // Filling sections array
+    // Filling sections array.
     _sections = @[@"GENERAL SETTINGS", @"APP APPEARENCE", @"CALENDAR SETTINGS", @"CALENDAR CUSTOMIZATION", @"FOOTBALL SETTINGS", @"NOTIFICATIONS SETTINGS"];
-    // Registering the custom cell
+    // Registering the custom cell.
     [self.tableView registerClass:SettingsCell.class forCellReuseIdentifier:@"settingsCell"];
-    // Initializing the plistSettings array
+    // Initializing the plistSettings array.
     NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     _plistSettings = [NSMutableArray arrayWithContentsOfFile:plistFilePath];
     [_plistSettings writeToFile:plistFilePath atomically:YES];
@@ -94,6 +96,7 @@
 
 #pragma mark - table view delegate methods
 
+// Handles the proper action when a cell is selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 2) {
         UIAlertController *resetAlertController = [UIAlertController alertControllerWithTitle:@"Reset to the default settings?" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -132,7 +135,7 @@
     [self.navigationController pushViewController:[[DetailSettingController alloc] initWithIndexPath:indexPath] animated:YES];
 }
 
-#pragma mark - method asking to reset to the default settings
+#pragma mark - Method to reset to the default settings
 
 - (void)resetDefaultSettings {
     NSString *defaultSettingsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"`"];
@@ -145,7 +148,7 @@
     [self reload];
 }
 
-#pragma mark - method asking to reload data
+#pragma mark - Method asking to reload data
 
 - (void)reload {
     NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
@@ -154,6 +157,7 @@
     self.tableView.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
 }
 
+// Reload the Controller when asked.
 - (void)reloadController {
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"AppCalDemo";

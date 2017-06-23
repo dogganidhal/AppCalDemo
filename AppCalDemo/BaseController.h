@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+// This class is a subclass of UIViewController and the super almost every ViewController in this project, it has the ability to reload each time the settings change with the method -reloadController.
+
 @interface BaseController : UIViewController
 
+// This method is renamed: reload() in swift.
 - (void)reloadController;
 
 @end

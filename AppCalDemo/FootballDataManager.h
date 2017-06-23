@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CalendarEvent.h"
 
+// This class is a model class, which handles the retrieving of the football data from JSON files.
+
 @interface FootballDataManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *fixtures;

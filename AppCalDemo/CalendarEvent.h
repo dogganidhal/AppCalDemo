@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+// This class is a wrapper of calendar events which makes them identifiable to the calendar.
+
 @interface CalendarEvent : NSObject
 
 @property (nonatomic, strong) NSString *UID;

@@ -13,7 +13,9 @@
 
 @interface NotifsController ()
 
+// NSMutableArray of the event in the next day.
 @property (nonatomic, strong) NSMutableArray *upcomingEvents;
+// NSMutableArray of the event in the last day.
 @property (nonatomic, strong) NSMutableArray *lateEvents;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 
@@ -37,9 +39,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    // Start the animating of the activity indicator view while waiting for the next update cycle.
     [self.activityIndicatorView startAnimating];
 }
 
+// Sets up the activity indicator view and the tableView.
 - (void)setupView {
     self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:(Settings.appTheme == ApplicationThemeDark ? UIActivityIndicatorViewStyleWhite : UIActivityIndicatorViewStyleGray)];
     [self.view addSubview:self.activityIndicatorView];
@@ -98,6 +102,7 @@
     [header.textLabel sizeToFit];
 }
 
+// Handling what happens when a cell is selected, it pushes a DetailController of the selected event.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *eventUID = [[(indexPath.section == 0 ? self.upcomingEvents : self.lateEvents) objectAtIndex:indexPath.row] objectForKey:@"UID"];
     NSString *sender = [[(indexPath.section == 0 ? self.upcomingEvents : self.lateEvents) objectAtIndex:indexPath.row] objectForKey:@"SENDER"];
@@ -114,6 +119,7 @@
 
 #pragma mark - Notifications Manager delegate method
 
+// Handles the display of the received objects.
 - (void)notificationManager:(NotificationManager * _Nonnull)manager didReceiveNotificationWithObjects:(NSMutableArray * _Nonnull)objects {
     [self.upcomingEvents removeAllObjects];
     [self.lateEvents removeAllObjects];

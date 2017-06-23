@@ -14,6 +14,7 @@
 
 @implementation DetailSettingCell
 
+// Sets the checkmark if the cell has to be cheked.
 - (void)setChecked:(BOOL)checked {
     self.accessoryType = checked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }

@@ -8,20 +8,23 @@
 
 import UIKit
 
+// This class is a model class of generic events which allows the storing and the retrieving from core data.
+
 @objc open class GenericEvent: NSManagedObject {
 
+    // These two formatters are for formatting the start and end dates and converting them into string ready to be shown.
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
         return formatter
     }
-    
     private var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         return formatter
     }
     
+    // Core data NSManaged properties.
     @NSManaged open var allDay: Bool
     @NSManaged open var endDate: Date!
     @NSManaged open var startDate: Date!
@@ -46,6 +49,7 @@ import UIKit
         uid = uuid()
     }
     
+    // Returns a dictionary constructed from the following object, helpful for the calendar events whom are dictionaries.
     open func dictionaryFromEvent() -> NSMutableDictionary {
         startTimeString = timeFormatter.string(from: startDate)
         endTimeString = timeFormatter.string(from: endDate)

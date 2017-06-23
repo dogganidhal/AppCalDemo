@@ -8,11 +8,16 @@
 
 import UIKit
 
+// This class is a subclass of UITableViewController, which handles the creation of a new GenericEvent and saves it to the core data.
+
 @objc open class NewCalendarEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
     
+    // A private property holding the titles of cells which have to indicate it's content.
     private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Add a photo"]]
     
+    // This is the new event created and to be pushed if submitted.
     open var newCalendarEvent: GenericEvent!
+    // Shortcuts to the appDelegate and the viewContext
     private unowned var appDelegate: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
     private unowned var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
@@ -20,7 +25,9 @@ import UIKit
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        // Setting the submit button.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(handleSubmit))
+        // Initiaizing the new GenericEvent.
         newCalendarEvent = GenericEvent(entity: GenericEvent.entity(), insertInto: nil)
         newCalendarEvent.startDate = Date()
         newCalendarEvent.endDate = Date()
@@ -30,11 +37,13 @@ import UIKit
     
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Gets the current saved data into the newFoodEvent property when the view appears, typically from the date picker or the image picker controllers.
         getCurrentData()
     }
     
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // Saves the current data into the newFoodEvent property when the view has to disappear, typically to show the date picker or the image picker controllers.
         saveDataIntoEvent()
     }
     
@@ -69,6 +78,7 @@ import UIKit
         case 1:
             switch indexPath.row {
             case 1, 2:
+                // In case the cells responsible of dates is selected.
                 let datePickerController = DatePickerController()
                 datePickerController.delegate = self
                 datePickerController.senderIdentifier = indexPath.row == 1 ? "start" : "end"
@@ -78,6 +88,7 @@ import UIKit
             }
         case 2:
             if indexPath.row == 2 {
+                // In case the cell responsible of the image is selected.
                 let imagePickerController = UIImagePickerController()
                 imagePickerController.delegate = self
                 present(imagePickerController, animated: true, completion: nil)
@@ -87,6 +98,8 @@ import UIKit
             break
         }
     }
+    
+    // MARK: Reload the controller when asked.
     
     internal func reloadController() {
         let titleLabel = UILabel()
@@ -100,6 +113,7 @@ import UIKit
         tableView.reloadData()
     }
     
+    // Handles the validation and saves into the core data context.
     internal func handleSubmit() {
         // Construct the object with retrieved data
         saveDataIntoEvent()
@@ -119,6 +133,7 @@ import UIKit
         navigationController?.popViewController(animated: true)
     }
     
+    // Sets up the cell passed in parameter to display the proper accessory view and content for each indexPath.
     internal func setupCellForSection(_ cell: AddFoodEventCell, atIndexPath indexPath: IndexPath) {
         cell.delegate = self
         switch indexPath.section {
@@ -173,6 +188,7 @@ import UIKit
     
     // MARK: UIImagePickerController delegate method
     
+    // In this method we save the data of the selecetd image and display a little preview in the left side of the cell.
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         newCalendarEvent.image = UIImagePNGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage)
         picker.dismiss(animated: true, completion: nil)
@@ -181,6 +197,7 @@ import UIKit
     
     // MARK: DatePickerController delegate method
     
+    // Reloads the tableView when the dat picker has picked a new date.
     public func datePicker(_ datePickerController: DatePickerController, didChooseDate date: Date, forIdentifier identifier: String?) {
         if identifier == "start" {
             newCalendarEvent.startDate = date
@@ -192,12 +209,12 @@ import UIKit
     
     // MARK: AddFoodEventCell delegate method
     
+    // This method is called when a cell is about to be unfosued, so it saves the input to the new instance of MealEvent.
     public func addFoodEventCell(_ addFoodEventCell: AddFoodEventCell, shouldSaveData input: Any?) {
         saveDataIntoEvent()
     }
     
-    // MARK: Save and retrieve data to and from the new created event
-    
+    // Saves data to the new created event
     internal func saveDataIntoEvent() {
         if (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input != nil {
             newCalendarEvent.summary = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input as? String
@@ -211,6 +228,7 @@ import UIKit
         }
     }
     
+    // Saves data from the new created event
     internal func getCurrentData() {
         (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFoodEventCell)?.input = newCalendarEvent.summary
         (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddFoodEventCell)?.input = newCalendarEvent.location

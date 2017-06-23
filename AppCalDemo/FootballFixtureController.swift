@@ -8,8 +8,11 @@
 
 import UIKit
 
+// This class is a subclass of DetailController which handles the display of a football fixture.
+
 @objc open class FootballFixtureController: DetailController {
     
+    // UILabels to show the data of the selected fixture.
     fileprivate var summaryTextView: UITextView = UITextView()
     fileprivate var dateLabel: UILabel = UILabel()
     fileprivate var locationLabel: UILabel = UILabel()
@@ -21,12 +24,12 @@ import UIKit
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         reloadView()
     }
 
+    // Sets up the views.
     override open func reloadView() {
-        // ** Content settings
+        // Content setup.
         let eventDate = event?.value(forKey: "STARTDATE") as? Date
         if eventDate != nil {
             let dateText: String? = "\(event?.value(forKey: "startDateString") ?? "") at " + (event?.value(forKey: "startTimeString") as! String)
@@ -41,7 +44,7 @@ import UIKit
         locationLabel.font = FontBook.regularFont(ofSize: 14)
         locationLabel.textColor = Settings.mainColor
         notesLabel.font = FontBook.regularFont(ofSize: 14)
-        // ** Layout settings
+        // Layout setup.
         [summaryTextView, dateLabel, locationLabel, notesLabel].forEach { (subview: UIView) in
             self.view.addSubview(subview)
             subview.sizeToFit()

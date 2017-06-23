@@ -8,13 +8,16 @@
 
 import UIKit
 
+// This class is a subclass of DetailController, so it shows a particular MealEvent.
+
 @objc open class FoodEventController: DetailController {
     
+    // Showtcuts to the appDelegate and the viewContext.
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
-    
+    // The MealEvent to be shown, retrieved from core data.
     open var mealEvent: MealEvent? {
         do {
             let eventUID = self.eventUID ?? (eventToDisplay as! AppsoluteCalendarDefaultObject).event?.value(forKey: "UID") as! String
@@ -27,14 +30,14 @@ import UIKit
             return nil
         }
     }
-    
+    // Outlets displaying the current pieces of data in the event.
     @IBOutlet weak var mealTypeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
-    
+    // Helpful to filter the core data and get the exact event.
     open var eventUID: String?
     
     override open func viewDidLoad() {
@@ -49,8 +52,8 @@ import UIKit
     }
     
     internal func setupView() {
+        // Setup of the Labels (font, text, ...).
         view.backgroundColor = Settings.appTheme == .light ? .white : .darkGray
-        
         mealTypeLabel.font = FontBook.boldFont(ofSize: 18)
         mealTypeLabel.textColor = Settings.mainColor
         mealTypeLabel.text = {
@@ -88,6 +91,7 @@ import UIKit
         
     }
     
+    // Handles the edit button and pushes EditFoodEventController.
     @objc private func editEvent() {
         guard let editedFoodEvent = self.mealEvent else { return }
         let editEventController = EditFoodEventController()

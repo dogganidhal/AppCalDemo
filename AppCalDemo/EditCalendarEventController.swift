@@ -8,6 +8,9 @@
 
 import UIKit
 
+// This class is very similar to the NewFoodEventController except this one handles deleting and editing not adding.
+// See NewCalendarEventController.swift for more details.
+
 @objc open class EditCalendarEventController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DatePickerControllerDelegate, AddFoodEventCellDelegate {
     
     private var sectionsTitles = [[nil, nil], ["All Day", "Start", "End", ], [nil, nil, "Add a photo"],["Delete"]]

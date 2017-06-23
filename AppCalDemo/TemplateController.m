@@ -23,6 +23,8 @@
     [self reloadController];
 }
 
+#pragma mark - Reloads the children as well
+
 - (void)reloadController {
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[FontBook lightFontOfSize:12], NSFontAttributeName, nil];
     self.navigationBar.tintColor = [Settings mainColor];

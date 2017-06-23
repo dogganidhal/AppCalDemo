@@ -8,11 +8,14 @@
 
 import UIKit
 
+// This class is a subclass of TemplateNavigationController, it handles the dislpay of static events, from local JSON files of the last season's football fixtures as events suing AppsoluteCalendar.
+
 @objc open class FootballController: TemplateNavigationController {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // Filling the Events from the football data manager.
         let data = FootballDataManager().events
         for item in data as! NSMutableArray {
             events.add(NSMutableDictionary(dictionary: item as! NSDictionary))
@@ -21,11 +24,15 @@ import UIKit
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Reloads the events whenver the view is about to be shown
         appCal.reloadEvents(events)
         monthController.monthView?.reloadData()
         yearController.yearView?.reloadData()
     }
     
+    // MARK:- CalendarComponentControllerDelegate method.
+    
+    // In this method we push the proper controller and pass the necessary data.
     public override func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
         if controller is YearController {
             pushViewController(monthController, animated: false)
@@ -37,7 +44,10 @@ import UIKit
         }
         lastUsedDate = date
     }
+    
+    // MARK:- UINavigationControllerDelegate method. 
 
+    // Additional setup after the new Controller is shown.
     override public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if viewController is MonthController {
             monthController.monthView.scrollToDateAnimated(lastUsedDate!, animated: true)

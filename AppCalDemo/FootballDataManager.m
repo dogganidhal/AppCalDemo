@@ -11,9 +11,7 @@
 
 @interface FootballDataManager ()
 
-@property (nonatomic, strong) NSString *apiURL;
 @property (nonatomic, strong) NSDictionary *apiData;
-@property (nonatomic, strong) NSObject *bundesLiga;
 
 @end
 
@@ -27,6 +25,7 @@
     return self;
 }
 
+// Reloads the league and it's data.
 - (void)reloadData {
     NSString *path = [[NSBundle mainBundle] pathForResource:Settings.league ofType:@"json"];
     NSData *data= [NSData dataWithContentsOfFile:path];
@@ -72,7 +71,7 @@
     return eventsArray;
 }
 
-
+// Method allowing to creat a dummy unique UID. 
 - (NSString *)uuid {
     CFUUIDRef uuidRef = CFUUIDCreate(NULL);
     CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);

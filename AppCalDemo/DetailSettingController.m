@@ -6,7 +6,7 @@
 //  Copyright © 2017 Strasbourg University. All rights reserved.
 //
 
-#import "AppsoluteCalendar+FoodCalendar.h"
+#import "AppsoluteCalendar+AppCalDemo.h"
 #import "DetailSettingController.h"
 #import "DetailSettingCell.h"
 #import "SettingsController.h"
@@ -16,9 +16,13 @@
 
 @interface DetailSettingController ()
 
+// The index path retrieved from the convenience initializer.
 @property (nonatomic, strong) NSIndexPath *senderIndexPath;
+// Dictionary holding the object in question.
 @property (nonatomic, strong) NSDictionary *selectedObject;
+// NSMutableArray with th content of the settings plist file.
 @property (nonatomic, strong, readonly) NSMutableArray *plistContent;
+// Path to the setting plist file.
 @property (nonatomic, strong) NSString *plistFilePath;
 
 @end

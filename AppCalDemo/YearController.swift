@@ -9,8 +9,11 @@
 import UIKit
 import AppsoluteCalendar
 
+// This is a subclass of AppsoluteCalendarYearVC which supports communication with other calendar controllers via CalendarComponentControllerDelegate property.
+
 open class YearController: AppsoluteCalendarYearVC {
     
+    // CalendarComponentControllerDelegate property.
     open weak var delegate: CalendarComponentControllerDelegate?
     
     override open func viewDidLoad() {
@@ -19,6 +22,8 @@ open class YearController: AppsoluteCalendarYearVC {
         
     }
     
+    // MARK:- CalendarComponentControllerDelegate calls.
+    
     open func calendarComponentControllerWantsTransition(_ controller: AppsoluteCalendarTemplateViewController, toDate date: Date) {
         guard let delegate = self.delegate else { return }
         if delegate.responds(to: #selector(calendarComponentControllerWantsTransition(_:toDate:))) {
@@ -26,6 +31,8 @@ open class YearController: AppsoluteCalendarYearVC {
         }
     }
 
+    // MARK:- AppsoluteCalendarYearDelegate method implementation, here where this controller asks the delegate to transit with the date we get from the yearView.
+    
     open override func calendarDidSelectMonth(_ calendar: AppsoluteCalendarYear, month: Int, year: Int) {
         var dateComps = DateComponents()
         dateComps.year = year
@@ -33,6 +40,8 @@ open class YearController: AppsoluteCalendarYearVC {
         let calendar = Calendar(identifier: .gregorian)
         calendarComponentControllerWantsTransition(self, toDate: calendar.date(from: dateComps)!)
     }
+    
+    // MARK: Reload the controller when asked.
     
     internal func reloadController() {
         let titleLabel = UILabel()

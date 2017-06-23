@@ -51,8 +51,7 @@
 		95D705DB1EE6B0BF00B79AA2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95D705DA1EE6B0BF00B79AA2 /* Settings.plist */; };
 		95D705E11EE6BD6100B79AA2 /* DetailSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */; };
 		95D705E51EE6C13700B79AA2 /* DetailSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */; };
-		95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */; };
-		95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */; };
+		95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m */; };
 		95DFE8AC1EEEBB42009BBCAF /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */; };
 		95DFE8AE1EEED118009BBCAF /* Bundes Liga.json in Resources */ = {isa = PBXBuildFile; fileRef = 95DFE8AD1EEED118009BBCAF /* Bundes Liga.json */; };
 		95EA7CD11EF966E900EACA5A /* EditFoodEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA7CD01EF966E900EACA5A /* EditFoodEventController.swift */; };
@@ -142,10 +141,8 @@
 		95D705E01EE6BD6100B79AA2 /* DetailSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSettingController.m; sourceTree = "<group>"; };
 		95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailSettingCell.h; path = AppCalDemo/DetailSettingCell.h; sourceTree = "<group>"; };
 		95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailSettingCell.m; path = AppCalDemo/DetailSettingCell.m; sourceTree = "<group>"; };
-		95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarNavigationBar.h; path = AppCalDemo/CalendarNavigationBar.h; sourceTree = "<group>"; };
-		95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarNavigationBar.m; path = AppCalDemo/CalendarNavigationBar.m; sourceTree = "<group>"; };
-		95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsoluteCalendar+FoodCalendar.h"; sourceTree = "<group>"; };
-		95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppsoluteCalendar+FoodCalendar.m"; sourceTree = "<group>"; };
+		95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsoluteCalendar+AppCalDemo.h"; sourceTree = "<group>"; };
+		95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppsoluteCalendar+AppCalDemo.m"; sourceTree = "<group>"; };
 		95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		95DFE8AD1EEED118009BBCAF /* Bundes Liga.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Bundes Liga.json"; sourceTree = "<group>"; };
@@ -207,8 +204,8 @@
 		95AC05341EEFEF6F00850973 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.h */,
-				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m */,
+				95DFE8A41EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.h */,
+				95DFE8A51EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m */,
 				95DFE8AA1EEEBB42009BBCAF /* CalendarEvent.h */,
 				95DFE8AB1EEEBB42009BBCAF /* CalendarEvent.m */,
 				95B71E8B1EE9585A003FA9E2 /* FootballDataManager.h */,
@@ -310,8 +307,6 @@
 		95D705C21EE6903F00B79AA2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				95DFE8A11EEE7248009BBCAF /* CalendarNavigationBar.h */,
-				95DFE8A21EEE7248009BBCAF /* CalendarNavigationBar.m */,
 				95D705E31EE6C13700B79AA2 /* DetailSettingCell.h */,
 				95D705E41EE6C13700B79AA2 /* DetailSettingCell.m */,
 				95B71E851EE93A34003FA9E2 /* SettingsCell.h */,
@@ -515,12 +510,11 @@
 				F2878FB81EE58A0B00F4CD9E /* AppCalDemo.xcdatamodeld in Sources */,
 				95EA7CD11EF966E900EACA5A /* EditFoodEventController.swift in Sources */,
 				95CDCABC1EFA8A7400CC34E8 /* NotifsController.m in Sources */,
-				95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+FoodCalendar.m in Sources */,
+				95DFE8A61EEE9D5D009BBCAF /* AppsoluteCalendar+AppCalDemo.m in Sources */,
 				957D9C731EF3C9B500891FDC /* TemplateNavigationController.swift in Sources */,
 				957D9CA71EF3E83000891FDC /* CalendarComponentControllerDelegate.swift in Sources */,
 				95B71E8D1EE9585A003FA9E2 /* FootballDataManager.m in Sources */,
 				957D9CA11EF3E7AB00891FDC /* YearController.swift in Sources */,
-				95DFE8A31EEE7248009BBCAF /* CalendarNavigationBar.m in Sources */,
 				957E7EFF1EFA823300EE6A8D /* NewCalendarEventController.swift in Sources */,
 				F2878FCC1EE59B8900F4CD9E /* SettingsController.m in Sources */,
 				95C6BC2D1EF7F5840055595C /* DatePickerController.swift in Sources */,

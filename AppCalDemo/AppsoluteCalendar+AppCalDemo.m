@@ -11,7 +11,7 @@
 #import "Settings.h"
 #import "FontBook.h"
 
-@implementation AppsoluteCalendar (AppCalDemo)
+@implementation AppsoluteCalendar (FoodCalendar)
 
 static AppsoluteCalendar *_shared;
 

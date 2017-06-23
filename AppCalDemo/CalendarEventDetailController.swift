@@ -8,14 +8,18 @@
 
 import UIKit
 
+// This class is a subclass of DetailController, so it shows a particular GenricEvent.
+
 @objc open class CalendarEventDetailController: DetailController {
     
+    // Showtcuts to the appDelegate and the viewContext.
     internal var appDelegate = UIApplication.shared.delegate as! AppDelegate
     internal var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
+    // Helpful to filter the core data and get the exact event.
     open var eventUID: String?
-    
+    // The GenericEvent to be shown, retrieved from core data.
     open var calendarEvent: GenericEvent? {
         do {
             let eventUID = self.eventUID ?? (eventToDisplay as! AppsoluteCalendarDefaultObject).event?.value(forKey: "UID") as! String
@@ -28,7 +32,7 @@ import UIKit
             return nil
         }
     }
-    
+    // Outlets displaying the current pieces of data in the event.
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -47,6 +51,7 @@ import UIKit
     }
     
     internal func setupView() {
+        // Setup of the Labels (font, text, ...).
         view.backgroundColor = Settings.appTheme == .light ? .white : .darkGray
         
         titleLabel.font = FontBook.boldFont(ofSize: 18)
