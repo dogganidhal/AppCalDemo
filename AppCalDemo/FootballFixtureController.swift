@@ -29,6 +29,7 @@ import UIKit
 
     // Sets up the views.
     override open func reloadView() {
+        self.view.backgroundColor = Settings.appTheme == .dark ? .darkGray : .white
         // Content setup.
         let eventDate = event?.value(forKey: "STARTDATE") as? Date
         if eventDate != nil {
@@ -40,9 +41,12 @@ import UIKit
         locationLabel.text = event?.value(forKey: "LOCATION") as? String
         summaryTextView.font = FontBook.boldFont(ofSize: 16)
         summaryTextView.textColor = Settings.mainColor
+        summaryTextView.backgroundColor = .clear
         dateLabel.font = FontBook.regularFont(ofSize: 14)
+        dateLabel.textColor = Settings.appTheme == .dark ? .white : .black
         locationLabel.font = FontBook.regularFont(ofSize: 14)
         locationLabel.textColor = Settings.mainColor
+        notesLabel.textColor = Settings.appTheme == .dark ? .white : .black
         notesLabel.font = FontBook.regularFont(ofSize: 14)
         // Layout setup.
         [summaryTextView, dateLabel, locationLabel, notesLabel].forEach { (subview: UIView) in
@@ -52,7 +56,7 @@ import UIKit
             subview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 32).isActive = true
         }
         summaryTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32).isActive = true
-        summaryTextView.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        summaryTextView.heightAnchor.constraint(equalToConstant: 72).isActive = true
         summaryTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
         dateLabel.topAnchor.constraint(equalTo: summaryTextView.bottomAnchor, constant: 16).isActive = true
         locationLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16).isActive = true

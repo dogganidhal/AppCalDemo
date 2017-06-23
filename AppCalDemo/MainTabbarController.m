@@ -31,15 +31,20 @@
     TemplateController *settingsController;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)loadView {
+    [super loadView];
     // Instantiating the children controllers.
     foodController = [[FoodController alloc] init];
     footballController = [[FootballController alloc] init];
     calendarController = [[CalendarController alloc] init];
     notifsController = [[TemplateController alloc] initWithRootViewController:[[NotifsController alloc] init]];
     settingsController = [[TemplateController alloc] initWithRootViewController:[[SettingsController alloc] init]];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
     // Setting the tabbarItems for children controllers.
     foodController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Food" image:[UIImage imageNamed:@"food"] tag:0];
     footballController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Football" image:[UIImage imageNamed:@"Football"] tag:1];

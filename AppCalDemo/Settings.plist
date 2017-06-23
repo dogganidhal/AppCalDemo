@@ -6,20 +6,9 @@
 		<dict>
 			<key>Title</key>
 			<string>About</string>
-			<key>Description</key>
-			<string>Blah Blah Blah</string>
-		</dict>
-		<dict>
-			<key>Title</key>
-			<string>Language</string>
-			<key>selectedValue</key>
-			<real>0</real>
 			<key>allValues</key>
 			<array>
-				<string>EN</string>
-				<string>FR</string>
-				<string>DE</string>
-				<string>AR</string>
+				<string>This is the demo app of the AppsoluteCalendar framework written by Philipp Börckel, Appsoute GmbH, all rights reserved.</string>
 			</array>
 		</dict>
 		<dict>
@@ -342,7 +331,7 @@
 				<string>Serie A</string>
 				<string>Ligue 1</string>
 				<string>Premier League</string>
-				<string>Primera División</string>
+				<string>Liga BBVA</string>
 				<string>Eredivisie</string>
 			</array>
 		</dict>

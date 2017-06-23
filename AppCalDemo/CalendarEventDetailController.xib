@@ -26,25 +26,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uge-DT-4No">
-                    <rect key="frame" x="32" y="32" width="33.5" height="21"/>
+                    <rect key="frame" x="16" y="16" width="33.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS2-Wh-93l">
-                    <rect key="frame" x="16" y="69" width="43" height="21"/>
+                    <rect key="frame" x="16" y="53" width="43" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUv-pD-eJy">
-                    <rect key="frame" x="16" y="106" width="33.5" height="21"/>
+                    <rect key="frame" x="16" y="90" width="33.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awA-i6-ef7">
-                    <rect key="frame" x="16" y="143" width="65.5" height="21"/>
+                    <rect key="frame" x="16" y="127" width="65.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -66,9 +66,9 @@
                 <constraint firstItem="RUv-pD-eJy" firstAttribute="top" secondItem="mS2-Wh-93l" secondAttribute="bottom" constant="16" id="ht0-sm-tag"/>
                 <constraint firstItem="awA-i6-ef7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="kbK-ZJ-nMO"/>
                 <constraint firstItem="RUv-pD-eJy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="p74-cR-ggi"/>
-                <constraint firstItem="Uge-DT-4No" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="qaT-lZ-Zcb"/>
+                <constraint firstItem="Uge-DT-4No" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="qaT-lZ-Zcb"/>
                 <constraint firstItem="mS2-Wh-93l" firstAttribute="top" secondItem="Uge-DT-4No" secondAttribute="bottom" constant="16" id="xKh-zo-5Li"/>
-                <constraint firstItem="Uge-DT-4No" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="xWD-tU-MEE"/>
+                <constraint firstItem="Uge-DT-4No" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="xWD-tU-MEE"/>
             </constraints>
         </view>
     </objects>

@@ -75,7 +75,9 @@
     if (indexPath.section == 5) {
         currentValue = [NSString stringWithFormat:@"%2.2f", ((NSNumber *)[selectedObject objectForKey:@"selectedValue"]).floatValue];
     }
-    cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";
+    if (indexPath.section != 0) {
+        cell.currentValue = currentValue != nil ? [NSString stringWithFormat:@"%@", currentValue] : @"";
+    }
     return cell;
     
 }
@@ -98,7 +100,7 @@
 
 // Handles the proper action when a cell is selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 0 && indexPath.row == 1) {
         UIAlertController *resetAlertController = [UIAlertController alertControllerWithTitle:@"Reset to the default settings?" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             [self resetDefaultSettings];
@@ -138,7 +140,7 @@
 #pragma mark - Method to reset to the default settings
 
 - (void)resetDefaultSettings {
-    NSString *defaultSettingsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"`"];
+    NSString *defaultSettingsPath = [[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"];
     NSMutableArray *defaultSettings = [NSMutableArray arrayWithContentsOfFile:defaultSettingsPath];
     _plistSettings = defaultSettings;
     [_plistSettings writeToFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"] atomically:YES];

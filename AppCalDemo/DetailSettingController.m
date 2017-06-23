@@ -88,7 +88,11 @@
     cell.textLabel.textColor = Settings.appTheme == ApplicationThemeDark ? [UIColor whiteColor] : [UIColor blackColor];
     cell.backgroundColor = Settings.appTheme == ApplicationThemeDark ? [UIColor darkGrayColor] : [UIColor whiteColor];
     cell.tintColor = [Settings mainColor];
-    [cell setChecked:((NSNumber *)[_selectedObject objectForKey:@"selectedValue"]).integerValue == indexPath.row];
+    if (_senderIndexPath.section != 0) {
+        [cell setChecked:((NSNumber *)[_selectedObject objectForKey:@"selectedValue"]).integerValue == indexPath.row];
+    } else {
+        cell.textLabel.numberOfLines = 3;
+    }
     return cell;
 }
 
@@ -125,6 +129,14 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_senderIndexPath.section == 0 && _senderIndexPath.row == 0) {
+        NSString *aboutText = [[_selectedObject objectForKey:@"allValues"] objectAtIndex:0];
+        return [self findHeightForText:aboutText havingWidth:self.view.frame.size.width andFont:[FontBook regularFontOfSize:16]] + 16;
+    }
+    return tableView.rowHeight;
+}
+
 #pragma mark - navigation controller delegate methods
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -144,6 +156,22 @@
     self.navigationItem.titleView = titleLabel;
     self.navigationController.navigationBar.tintColor = Settings.mainColor;
 }
+
+- (CGFloat)findHeightForText:(NSString *)text havingWidth:(CGFloat)widthValue andFont:(UIFont *)font {
+    CGFloat result = font.pointSize + 4;
+    if (text) {
+        CGSize textSize = { widthValue, CGFLOAT_MAX };       //Width and height of text area
+        CGSize size;
+        CGRect frame = [text boundingRectWithSize:textSize
+                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                       attributes:@{ NSFontAttributeName:font }
+                                          context:nil];
+        size = CGSizeMake(frame.size.width, frame.size.height+1);
+        result = MAX(size.height, result); //At least one row
+    }
+    return result;
+}
+
 
 @end
 

@@ -34,7 +34,7 @@
 		95A38FD81EE7FE7000EA3C8F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95A38FD21EE7FE7000EA3C8F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95AC053C1EF003E100850973 /* Champions League.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05361EF003E100850973 /* Champions League.json */; };
 		95AC053D1EF003E100850973 /* Serie A.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05371EF003E100850973 /* Serie A.json */; };
-		95AC053E1EF003E100850973 /* Primera División.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05381EF003E100850973 /* Primera División.json */; };
+		95AC053E1EF003E100850973 /* Liga BBVA.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05381EF003E100850973 /* Liga BBVA.json */; };
 		95AC053F1EF003E100850973 /* Ligue 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC05391EF003E100850973 /* Ligue 1.json */; };
 		95AC05401EF003E100850973 /* Eredivisie.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC053A1EF003E100850973 /* Eredivisie.json */; };
 		95AC05411EF003E100850973 /* Premier League.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AC053B1EF003E100850973 /* Premier League.json */; };
@@ -118,7 +118,7 @@
 		95A38FDD1EE8019000EA3C8F /* AppCalDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCalDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		95AC05361EF003E100850973 /* Champions League.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Champions League.json"; sourceTree = "<group>"; };
 		95AC05371EF003E100850973 /* Serie A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Serie A.json"; sourceTree = "<group>"; };
-		95AC05381EF003E100850973 /* Primera División.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Primera División.json"; sourceTree = "<group>"; };
+		95AC05381EF003E100850973 /* Liga BBVA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Liga BBVA.json"; sourceTree = "<group>"; };
 		95AC05391EF003E100850973 /* Ligue 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Ligue 1.json"; sourceTree = "<group>"; };
 		95AC053A1EF003E100850973 /* Eredivisie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Eredivisie.json; sourceTree = "<group>"; };
 		95AC053B1EF003E100850973 /* Premier League.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Premier League.json"; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 				95DFE8AD1EEED118009BBCAF /* Bundes Liga.json */,
 				95AC05361EF003E100850973 /* Champions League.json */,
 				95AC05371EF003E100850973 /* Serie A.json */,
-				95AC05381EF003E100850973 /* Primera División.json */,
+				95AC05381EF003E100850973 /* Liga BBVA.json */,
 				95AC05391EF003E100850973 /* Ligue 1.json */,
 				95AC053A1EF003E100850973 /* Eredivisie.json */,
 				95AC053B1EF003E100850973 /* Premier League.json */,
@@ -454,7 +454,7 @@
 				95AC05411EF003E100850973 /* Premier League.json in Resources */,
 				95AC05401EF003E100850973 /* Eredivisie.json in Resources */,
 				F2878FBD1EE58A0B00F4CD9E /* LaunchScreen.storyboard in Resources */,
-				95AC053E1EF003E100850973 /* Primera División.json in Resources */,
+				95AC053E1EF003E100850973 /* Liga BBVA.json in Resources */,
 				95808E7D1EF917EB00CC7141 /* FoodEventController.xib in Resources */,
 				95AC053C1EF003E100850973 /* Champions League.json in Resources */,
 				95AC053D1EF003E100850973 /* Serie A.json in Resources */,
