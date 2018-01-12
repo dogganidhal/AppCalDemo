@@ -1,3 +1,3 @@
 # AppCalDemo
 
-## Demo Application of the framework AppsoluteCalendar
+Demo Application of the framework AppsoluteCalendar
